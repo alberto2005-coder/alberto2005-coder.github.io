@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const langDropdown = document.getElementById('lang-dropdown');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
 
-    // --- LÓGICA DEL MODO OSCURO ---
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         document.body.setAttribute('data-theme', currentTheme);
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- LÓGICA DEL CAMBIO DE IDIOMA ---
     const elementsToTranslate = document.querySelectorAll('[data-lang-es], [data-lang-en]');
     
     const translatePage = (language) => {

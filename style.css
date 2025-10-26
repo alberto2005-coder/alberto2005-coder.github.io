@@ -1,6 +1,4 @@
-/* --- VARIABLES GLOBALES --- */
 :root {
-    /* MODO CLARO (POR DEFECTO) */
     --primary-color: #007bff;
     --secondary-color: #2c3e50;
     --accent-color: #28a745;
@@ -15,13 +13,12 @@
 }
 
 body[data-theme="dark"] {
-    /* MODO OSCURO */
-    --primary-color: #007bff; /* Mantenemos el azul vibrante */
-    --secondary-color: #e9ecef; /* Texto claro */
+    --primary-color: #007bff; 
+    --secondary-color: #e9ecef; 
     --accent-color: #28a745;
-    --bg-light: #1c1c27; /* Un gris oscuro casi negro para fondos claros */
-    --bg-main: #12121d; /* Fondo principal muy oscuro */
-    --text-color: #adb5bd; /* Texto grisáceo claro */
+    --bg-light: #1c1c27; 
+    --bg-main: #12121d; 
+    --text-color: #adb5bd; 
     --heading-color: #ffffff;
     --border-color: #495057;
     --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -29,7 +26,6 @@ body[data-theme="dark"] {
     --nav-bg: #12121d;
 }
 
-/* --- ESTILOS GENERALES --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -70,7 +66,6 @@ ul {
     list-style: none;
 }
 
-/* --- BARRA DE NAVEGACIÓN (NAVBAR) --- */
 .navbar {
     background-color: var(--nav-bg);
     padding: 15px 40px;
