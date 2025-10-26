@@ -3,122 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV de Alberto Ortiz Sánchez</title>
+    <title>Alberto Ortiz Sánchez - Portfolio & CV</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4a6d35a39a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <div class="sidebar-content">
-                <img src="foto-perfil.jpg" alt="Foto de Alberto Ortiz Sánchez" class="profile-pic">
-                
-                <section class="contact-info">
-                    <h2>CONTACTO</h2>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> 685-58-41-31</li>
-                        <li><i class="fas fa-envelope"></i> albertoortizsanchez@gmail.com</li>
-                    </ul>
-                </section>
-                
-                <section class="info-extra">
-                    <h2>INFORMACIÓN</h2>
-                    <ul>
-                        <li>Facilidad para aprender otros lenguajes informáticos</li>
-                        <li>Disponibilidad para viajar</li>
-                    </ul>
-                </section>
+    <nav class="navbar">
+        <a href="#hero" class="nav-brand">Alberto O.S.</a>
+        <div class="nav-links">
+            <a href="#about">Sobre Mí</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#experience">Experiencia</a>
+            <a href="#education">Formación</a>
+            <a href="#courses">Cursos</a>
+            <a href="#contact">Contacto</a>
+        </div>
+    </nav>
 
-                <section class="languages">
-                    <h2>IDIOMAS</h2>
-                    <div class="language-item">
-                        <p>INGLÉS (Nivel B1/B2)</p>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 70%;"></div>
-                        </div>
-                    </div>
-                    <div class="language-item">
-                        <p>FRANCÉS (Nivel A2)</p>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </section>
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <img src="foto-perfil.jpg" alt="Alberto Ortiz Sánchez" class="hero-pic">
+            <h1>Alberto Ortiz Sánchez</h1>
+            <p class="tagline">Estudiante de Desarrollo de Aplicaciones Multiplataforma</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn primary-btn">Contactar</a>
+                <a href="#experience" class="btn secondary-btn">Ver Experiencia</a>
             </div>
-        </aside>
+        </div>
+    </section>
 
-        <main class="main-content">
-            <header class="main-header">
-                <h1>Alberto Ortiz Sánchez</h1>
-                <h2>Estudiante de Desarrollo de Aplicaciones Multiplataforma</h2>
-            </header>
+    <section id="about" class="section-container">
+        <h2 class="section-title">Sobre Mí</h2>
+        <div class="about-content">
+            <p>Soy Alberto Ortiz Sánchez, un estudiante proactivo y apasionado por el desarrollo de aplicaciones multiplataforma. Mi objetivo es aplicar y expandir mis conocimientos en lenguajes informáticos y entornos de programación modernos.</p>
+            <p>Con una sólida base en Bachillerato de Ciencias y una alta calificación en Selectividad, me destaco por mi facilidad para aprender y mi disponibilidad para adaptarme a nuevos desafíos. Busco oportunidades para contribuir en proyectos innovadores y seguir creciendo profesionalmente.</p>
+            <div class="personal-details">
+                <h3>Información Personal</h3>
+                <ul>
+                    <li><i class="fas fa-calendar-alt"></i> Fecha de Nacimiento: 19/08/2005</li>
+                    <li><i class="fas fa-language"></i> Facilidad para aprender otros lenguajes informáticos</li>
+                    <li><i class="fas fa-globe-americas"></i> Disponibilidad para viajar</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-            <section id="formacion" class="content-section animate-on-scroll">
-                <h2>FORMACIÓN</h2>
-                <div class="item">
-                    <h3>GRADO SUPERIOR EN DESARROLLO DE APLICACIONES MULTIPLATAFORMA</h3>
-                    <p class="sub-item">IES Padre Suárez | En realización</p>
+    <section id="skills" class="section-container bg-light">
+        <h2 class="section-title">Habilidades Técnicas y Lingüísticas</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Desarrollo & Software</h3>
+                <ul>
+                    <li><i class="fab fa-html5"></i> HTML & CSS</li>
+                    <li><i class="fab fa-js"></i> JavaScript</li>
+                    <li><i class="fab fa-python"></i> Python</li>
+                    <li><i class="fab fa-java"></i> Java</li>
+                    <li><i class="fab fa-windows"></i> C++</li>
+                    <li><i class="fas fa-cube"></i> Modelado 3D</li>
+                    <li><i class="fas fa-video"></i> Software de Vídeo</li>
+                    <li><i class="fas fa-camera-retro"></i> Edición Fotográfica</li>
+                    <li><i class="fas fa-code"></i> Aplicaciones Web</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Idiomas</h3>
+                <div class="language-item">
+                    <p>INGLÉS</p>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 70%;" data-level="B1/B2"></div></div>
                 </div>
-                <div class="item">
-                    <h3>BACHILLERATO DE CIENCIAS (2022)</h3>
-                    <p class="sub-item">IES Padre Suárez | Media: 9.10</p>
+                <div class="language-item">
+                    <p>FRANCÉS</p>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 40%;" data-level="A2"></div></div>
                 </div>
-                 <div class="item">
-                    <h3>SELECTIVIDAD ANDALUZA (2022)</h3>
-                    <p class="sub-item">Nota de acceso: 11.08</p>
-                </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <section id="experiencia" class="content-section animate-on-scroll">
-                <h2>EXPERIENCIA</h2>
-                <div class="item">
+    <section id="experience" class="section-container">
+        <h2 class="section-title">Experiencia Profesional</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
                     <h3>INFORMÁTICO EN PRÁCTICAS (2024)</h3>
-                    <p class="sub-item">IES José Hurtado | Formación en Centros de Trabajo</p>
+                    <p class="company">IES José Hurtado</p>
+                    <p class="description">Formación en Centros de Trabajo (FCT).</p>
                 </div>
-                <div class="item">
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
                     <h3>AYUDANTE DE COCINA</h3>
-                    <p class="sub-item">La Ruta del Azafrán | Actual (Trabajo a tiempo parcial)</p>
+                    <p class="company">La Ruta del Azafrán | Actual</p>
+                    <p class="description">Trabajo a tiempo parcial mientras realizo mis estudios.</p>
                 </div>
-                <div class="item">
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
                     <h3>PROYECTOS PERSONALES (DESARROLLO)</h3>
-                    <p class="sub-item">Durante estudios secundarios | Programación de robots, páginas/aplicaciones web y otros entornos (no remunerado)</p>
+                    <p class="company">Durante mis estudios secundarios</p>
+                    <p class="description">Programación de robots, desarrollo de páginas/aplicaciones web y experimentación en diversos entornos de programación.</p>
                 </div>
-                <div class="item">
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
                     <h3>CARPINTERÍA FAMILIAR</h3>
-                    <p class="sub-item">Decomad SL</p>
+                    <p class="company">Decomad SL</p>
+                    <p class="description">Experiencia en el entorno de una empresa familiar.</p>
                 </div>
-            </section>
-            
-            <section id="cursos" class="content-section animate-on-scroll">
-                <h2>CURSOS</h2>
-                 <div class="item">
-                    <h3>SISTEMA DE GESTIÓN MEDIOAMBIENTAL EN LA EMPRESA (2024)</h3>
-                    <p class="sub-item">76 horas | Campus Cámara Sevilla | Calificación: 9.05</p>
-                </div>
-                <div class="item">
-                    <h3>AUTOCAD 3D (2024)</h3>
-                    <p class="sub-item">70 horas | eusa (Diploma del SEPE) | Calificación: 9.07</p>
-                </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <section id="herramientas" class="content-section animate-on-scroll">
-                <h2>HERRAMIENTAS</h2>
-                <div class="tool-grid">
-                    <div class="tool-item">HTML & CSS</div>
-                    <div class="tool-item">JavaScript</div>
-                    <div class="tool-item">Python</div>
-                    <div class="tool-item">Java</div>
-                    <div class="tool-item">C++</div>
-                    <div class="tool-item">Modelado 3D</div>
-                    <div class="tool-item">Edición de Vídeo</div>
-                    <div class="tool-item">Edición Fotográfica</div>
-                </div>
-            </section>
-        </main>
-    </div>
+    <section id="education" class="section-container bg-light">
+        <h2 class="section-title">Formación Académica</h2>
+        <div class="education-grid">
+            <div class="education-item">
+                <h3>GRADO SUPERIOR EN DESARROLLO DE APLICACIONES MULTIPLATAFORMA</h3>
+                <p class="institution">IES Padre Suárez</p>
+                <p class="date">En realización</p>
+            </div>
+            <div class="education-item">
+                <h3>BACHILLERATO DE CIENCIAS (2022)</h3>
+                <p class="institution">IES Padre Suárez</p>
+                <p class="date">Media: 9.10</p>
+            </div>
+            <div class="education-item">
+                <h3>SELECTIVIDAD ANDALUZA (2022)</h3>
+                <p class="institution">Nota de acceso: 11.08</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="section-container">
+        <h2 class="section-title">Cursos y Certificaciones</h2>
+        <div class="courses-list">
+            <div class="course-item">
+                <h3>SISTEMA DE GESTIÓN MEDIOAMBIENTAL EN LA EMPRESA (2024)</h3>
+                <p class="details">76 horas | Campus Cámara Sevilla | Calificación: 9.05</p>
+            </div>
+            <div class="course-item">
+                <h3>AUTOCAD 3D (2024)</h3>
+                <p class="details">70 horas | eusa (Diploma del SEPE) | Calificación: 9.07</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-container bg-light">
+        <h2 class="section-title">Contacto</h2>
+        <div class="contact-info-grid">
+            <div class="contact-item">
+                <i class="fas fa-phone fa-2x"></i>
+                <p>685 58 41 31</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope fa-2x"></i>
+                <p>albertoortizsanchez@gmail.com</p>
+            </div>
+            </div>
+        <p class="footer-note">¡No dudes en contactarme para cualquier consulta o colaboración!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Alberto Ortiz Sánchez. Todos los derechos reservados.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
