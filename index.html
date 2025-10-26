@@ -14,68 +14,78 @@
     <nav class="navbar">
         <a href="#hero" class="nav-brand">Alberto O.S.</a>
         <div class="nav-links">
-            <a href="#about">Sobre Mí</a>
-            <a href="#skills">Habilidades</a>
-            <a href="#experience">Experiencia</a>
-            <a href="#education">Formación</a>
-            <a href="#courses">Cursos</a>
-            <a href="#contact">Contacto</a>
+            <a href="#about" data-lang-es="Sobre Mí" data-lang-en="About Me">Sobre Mí</a>
+            <a href="#skills" data-lang-es="Habilidades" data-lang-en="Skills">Habilidades</a>
+            <a href="#experience" data-lang-es="Experiencia" data-lang-en="Experience">Experiencia</a>
+            <a href="#education" data-lang-es="Formación" data-lang-en="Education">Formación</a>
+            <a href="#courses" data-lang-es="Cursos" data-lang-en="Courses">Cursos</a>
+            <a href="#contact" data-lang-es="Contacto" data-lang-en="Contact">Contacto</a>
+        </div>
+        <div class="nav-actions">
+            <button id="theme-switcher" class="theme-btn"><i class="fas fa-moon"></i></button>
+            <div class="lang-switcher">
+                <button id="lang-btn" class="lang-btn">ES <i class="fas fa-chevron-down"></i></button>
+                <div id="lang-dropdown" class="lang-dropdown">
+                    <a href="#" data-lang="es">Español (ES)</a>
+                    <a href="#" data-lang="en">English (EN)</a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <section id="hero" class="hero-section">
         <div class="hero-content">
             <img src="foto-perfil.jpg" alt="Alberto Ortiz Sánchez" class="hero-pic">
-            <h1>Alberto Ortiz Sánchez</h1>
-            <p class="tagline">Estudiante de Desarrollo de Aplicaciones Multiplataforma</p>
+            <h1 data-lang-es="Alberto Ortiz Sánchez" data-lang-en="Alberto Ortiz Sánchez">Alberto Ortiz Sánchez</h1>
+            <p class="tagline" data-lang-es="Estudiante de Desarrollo de Aplicaciones Multiplataforma" data-lang-en="Multiplatform Application Development Student">Estudiante de Desarrollo de Aplicaciones Multiplataforma</p>
             <div class="hero-actions">
-                <a href="#contact" class="btn primary-btn">Contactar</a>
-                <a href="#experience" class="btn secondary-btn">Ver Experiencia</a>
+                <a href="#contact" class="btn primary-btn" data-lang-es="Contactar" data-lang-en="Contact Me">Contactar</a>
+                <a href="#experience" class="btn secondary-btn" data-lang-es="Ver Experiencia" data-lang-en="View Experience">Ver Experiencia</a>
             </div>
         </div>
     </section>
 
     <section id="about" class="section-container">
-        <h2 class="section-title">Sobre Mí</h2>
+        <h2 class="section-title" data-lang-es="Sobre Mí" data-lang-en="About Me">Sobre Mí</h2>
         <div class="about-content">
-            <p>Soy Alberto Ortiz Sánchez, un estudiante proactivo y apasionado por el desarrollo de aplicaciones multiplataforma. Mi objetivo es aplicar y expandir mis conocimientos en lenguajes informáticos y entornos de programación modernos.</p>
-            <p>Con una sólida base en Bachillerato de Ciencias y una alta calificación en Selectividad, me destaco por mi facilidad para aprender y mi disponibilidad para adaptarme a nuevos desafíos. Busco oportunidades para contribuir en proyectos innovadores y seguir creciendo profesionalmente.</p>
+            <p data-lang-es="Soy Alberto Ortiz Sánchez, un estudiante proactivo y apasionado por el desarrollo de aplicaciones multiplataforma. Mi objetivo es aplicar y expandir mis conocimientos en lenguajes informáticos y entornos de programación modernos." data-lang-en="I am Alberto Ortiz Sánchez, a proactive and passionate student of multiplatform application development. My goal is to apply and expand my knowledge in modern programming languages and environments.">Soy Alberto Ortiz Sánchez, un estudiante proactivo y apasionado por el desarrollo de aplicaciones multiplataforma. Mi objetivo es aplicar y expandir mis conocimientos en lenguajes informáticos y entornos de programación modernos.</p>
+            <p data-lang-es="Con una sólida base en Bachillerato de Ciencias y una alta calificación en Selectividad, me destaco por mi facilidad para aprender y mi disponibilidad para adaptarme a nuevos desafíos. Busco oportunidades para contribuir en proyectos innovadores y seguir creciendo profesionalmente." data-lang-en="With a solid foundation from a Science Baccalaureate and high university entrance exam scores, I stand out for my ability to learn quickly and my willingness to adapt to new challenges. I am seeking opportunities to contribute to innovative projects and continue my professional growth.">Con una sólida base en Bachillerato de Ciencias y una alta calificación en Selectividad, me destaco por mi facilidad para aprender y mi disponibilidad para adaptarme a nuevos desafíos. Busco oportunidades para contribuir en proyectos innovadores y seguir creciendo profesionalmente.</p>
             <div class="personal-details">
-                <h3>Información Personal</h3>
+                <h3 data-lang-es="Información Personal" data-lang-en="Personal Details">Información Personal</h3>
                 <ul>
-                    <li><i class="fas fa-calendar-alt"></i> Fecha de Nacimiento: 19/08/2005</li>
-                    <li><i class="fas fa-language"></i> Facilidad para aprender otros lenguajes informáticos</li>
-                    <li><i class="fas fa-globe-americas"></i> Disponibilidad para viajar</li>
+                    <li><i class="fas fa-calendar-alt"></i> <span data-lang-es="Fecha de Nacimiento: 19/08/2005" data-lang-en="Date of Birth: 08/19/2005">Fecha de Nacimiento: 19/08/2005</span></li>
+                    <li><i class="fas fa-language"></i> <span data-lang-es="Facilidad para aprender otros lenguajes informáticos" data-lang-en="Quick to learn new programming languages">Facilidad para aprender otros lenguajes informáticos</span></li>
+                    <li><i class="fas fa-globe-americas"></i> <span data-lang-es="Disponibilidad para viajar" data-lang-en="Available for travel">Disponibilidad para viajar</span></li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section id="skills" class="section-container bg-light">
-        <h2 class="section-title">Habilidades Técnicas y Lingüísticas</h2>
+        <h2 class="section-title" data-lang-es="Habilidades Técnicas y Lingüísticas" data-lang-en="Technical & Language Skills">Habilidades Técnicas y Lingüísticas</h2>
         <div class="skills-grid">
             <div class="skill-category">
-                <h3>Desarrollo & Software</h3>
+                <h3 data-lang-es="Desarrollo & Software" data-lang-en="Development & Software">Desarrollo & Software</h3>
                 <ul>
                     <li><i class="fab fa-html5"></i> HTML & CSS</li>
                     <li><i class="fab fa-js"></i> JavaScript</li>
                     <li><i class="fab fa-python"></i> Python</li>
                     <li><i class="fab fa-java"></i> Java</li>
                     <li><i class="fab fa-windows"></i> C++</li>
-                    <li><i class="fas fa-cube"></i> Modelado 3D</li>
-                    <li><i class="fas fa-video"></i> Software de Vídeo</li>
-                    <li><i class="fas fa-camera-retro"></i> Edición Fotográfica</li>
-                    <li><i class="fas fa-code"></i> Aplicaciones Web</li>
+                    <li><i class="fas fa-cube"></i> <span data-lang-es="Modelado 3D" data-lang-en="3D Modeling">Modelado 3D</span></li>
+                    <li><i class="fas fa-video"></i> <span data-lang-es="Software de Vídeo" data-lang-en="Video Software">Software de Vídeo</span></li>
+                    <li><i class="fas fa-camera-retro"></i> <span data-lang-es="Edición Fotográfica" data-lang-en="Photo Editing">Edición Fotográfica</span></li>
+                    <li><i class="fas fa-code"></i> <span data-lang-es="Aplicaciones Web" data-lang-en="Web Applications">Aplicaciones Web</span></li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Idiomas</h3>
+                <h3 data-lang-es="Idiomas" data-lang-en="Languages">Idiomas</h3>
                 <div class="language-item">
-                    <p>INGLÉS</p>
+                    <p data-lang-es="INGLÉS" data-lang-en="ENGLISH">INGLÉS</p>
                     <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 70%;" data-level="B1/B2"></div></div>
                 </div>
                 <div class="language-item">
-                    <p>FRANCÉS</p>
+                    <p data-lang-es="FRANCÉS" data-lang-en="FRENCH">FRANCÉS</p>
                     <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 40%;" data-level="A2"></div></div>
                 </div>
             </div>
@@ -83,75 +93,75 @@
     </section>
 
     <section id="experience" class="section-container">
-        <h2 class="section-title">Experiencia Profesional</h2>
+        <h2 class="section-title" data-lang-es="Experiencia Profesional" data-lang-en="Professional Experience">Experiencia Profesional</h2>
         <div class="timeline">
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <h3>INFORMÁTICO EN PRÁCTICAS (2024)</h3>
+                    <h3 data-lang-es="INFORMÁTICO EN PRÁCTICAS (2024)" data-lang-en="IT INTERN (2024)">INFORMÁTICO EN PRÁCTICAS (2024)</h3>
                     <p class="company">IES José Hurtado</p>
-                    <p class="description">Formación en Centros de Trabajo (FCT).</p>
+                    <p class="description" data-lang-es="Formación en Centros de Trabajo (FCT)." data-lang-en="Workplace training program.">Formación en Centros de Trabajo (FCT).</p>
                 </div>
             </div>
             <div class="timeline-item right">
                 <div class="timeline-content">
-                    <h3>AYUDANTE DE COCINA</h3>
-                    <p class="company">La Ruta del Azafrán | Actual</p>
-                    <p class="description">Trabajo a tiempo parcial mientras realizo mis estudios.</p>
+                    <h3 data-lang-es="AYUDANTE DE COCINA" data-lang-en="KITCHEN ASSISTANT">AYUDANTE DE COCINA</h3>
+                    <p class="company" data-lang-es="La Ruta del Azafrán | Actual" data-lang-en="La Ruta del Azafrán | Current">La Ruta del Azafrán | Actual</p>
+                    <p class="description" data-lang-es="Trabajo a tiempo parcial mientras realizo mis estudios." data-lang-en="Part-time job while pursuing my studies.">Trabajo a tiempo parcial mientras realizo mis estudios.</p>
                 </div>
             </div>
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <h3>PROYECTOS PERSONALES (DESARROLLO)</h3>
-                    <p class="company">Durante mis estudios secundarios</p>
-                    <p class="description">Programación de robots, desarrollo de páginas/aplicaciones web y experimentación en diversos entornos de programación.</p>
+                    <h3 data-lang-es="PROYECTOS PERSONALES (DESARROLLO)" data-lang-en="PERSONAL PROJECTS (DEVELOPMENT)">PROYECTOS PERSONALES (DESARROLLO)</h3>
+                    <p class="company" data-lang-es="Durante mis estudios secundarios" data-lang-en="During my high school studies">Durante mis estudios secundarios</p>
+                    <p class="description" data-lang-es="Programación de robots, desarrollo de páginas/aplicaciones web y experimentación en diversos entornos de programación." data-lang-en="Programming robots, developing web pages/applications, and experimenting in various programming environments.">Programación de robots, desarrollo de páginas/aplicaciones web y experimentación en diversos entornos de programación.</p>
                 </div>
             </div>
             <div class="timeline-item right">
                 <div class="timeline-content">
-                    <h3>CARPINTERÍA FAMILIAR</h3>
+                    <h3 data-lang-es="CARPINTERÍA FAMILIAR" data-lang-en="FAMILY CARPENTRY BUSINESS">CARPINTERÍA FAMILIAR</h3>
                     <p class="company">Decomad SL</p>
-                    <p class="description">Experiencia en el entorno de una empresa familiar.</p>
+                    <p class="description" data-lang-es="Experiencia en el entorno de una empresa familiar." data-lang-en="Experience in a family business environment.">Experiencia en el entorno de una empresa familiar.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="education" class="section-container bg-light">
-        <h2 class="section-title">Formación Académica</h2>
+        <h2 class="section-title" data-lang-es="Formación Académica" data-lang-en="Academic Education">Formación Académica</h2>
         <div class="education-grid">
             <div class="education-item">
-                <h3>GRADO SUPERIOR EN DESARROLLO DE APLICACIONES MULTIPLATAFORMA</h3>
+                <h3 data-lang-es="GRADO SUPERIOR EN DESARROLLO DE APLICACIONES MULTIPLATAFORMA" data-lang-en="HIGHER DEGREE IN MULTIPLATFORM APPLICATION DEVELOPMENT">GRADO SUPERIOR EN DESARROLLO DE APLICACIONES MULTIPLATAFORMA</h3>
                 <p class="institution">IES Padre Suárez</p>
-                <p class="date">En realización</p>
+                <p class="date" data-lang-es="En realización" data-lang-en="In progress">En realización</p>
             </div>
             <div class="education-item">
-                <h3>BACHILLERATO DE CIENCIAS (2022)</h3>
+                <h3 data-lang-es="BACHILLERATO DE CIENCIAS (2022)" data-lang-en="SCIENCE BACCALAUREATE (2022)">BACHILLERATO DE CIENCIAS (2022)</h3>
                 <p class="institution">IES Padre Suárez</p>
-                <p class="date">Media: 9.10</p>
+                <p class="date" data-lang-es="Media: 9.10" data-lang-en="Average Grade: 9.10">Media: 9.10</p>
             </div>
             <div class="education-item">
-                <h3>SELECTIVIDAD ANDALUZA (2022)</h3>
-                <p class="institution">Nota de acceso: 11.08</p>
+                <h3 data-lang-es="SELECTIVIDAD ANDALUZA (2022)" data-lang-en="ANDALUSIAN UNIVERSITY ENTRANCE EXAM (2022)">SELECTIVIDAD ANDALUZA (2022)</h3>
+                <p class="institution" data-lang-es="Nota de acceso: 11.08" data-lang-en="Access Score: 11.08">Nota de acceso: 11.08</p>
             </div>
         </div>
     </section>
 
     <section id="courses" class="section-container">
-        <h2 class="section-title">Cursos y Certificaciones</h2>
+        <h2 class="section-title" data-lang-es="Cursos y Certificaciones" data-lang-en="Courses & Certifications">Cursos y Certificaciones</h2>
         <div class="courses-list">
             <div class="course-item">
-                <h3>SISTEMA DE GESTIÓN MEDIOAMBIENTAL EN LA EMPRESA (2024)</h3>
-                <p class="details">76 horas | Campus Cámara Sevilla | Calificación: 9.05</p>
+                <h3 data-lang-es="SISTEMA DE GESTIÓN MEDIOAMBIENTAL EN LA EMPRESA (2024)" data-lang-en="ENVIRONMENTAL MANAGEMENT SYSTEM IN BUSINESS (2024)">SISTEMA DE GESTIÓN MEDIOAMBIENTAL EN LA EMPRESA (2024)</h3>
+                <p class="details" data-lang-es="76 horas | Campus Cámara Sevilla | Calificación: 9.05" data-lang-en="76 hours | Campus Cámara Sevilla | Grade: 9.05">76 horas | Campus Cámara Sevilla | Calificación: 9.05</p>
             </div>
             <div class="course-item">
-                <h3>AUTOCAD 3D (2024)</h3>
-                <p class="details">70 horas | eusa (Diploma del SEPE) | Calificación: 9.07</p>
+                <h3 data-lang-es="AUTOCAD 3D (2024)" data-lang-en="AUTOCAD 3D (2024)">AUTOCAD 3D (2024)</h3>
+                <p class="details" data-lang-es="70 horas | eusa (Diploma del SEPE) | Calificación: 9.07" data-lang-en="70 hours | eusa (SEPE Diploma) | Grade: 9.07">70 horas | eusa (Diploma del SEPE) | Calificación: 9.07</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="section-container bg-light">
-        <h2 class="section-title">Contacto</h2>
+        <h2 class="section-title" data-lang-es="Contacto" data-lang-en="Contact">Contacto</h2>
         <div class="contact-info-grid">
             <div class="contact-item">
                 <i class="fas fa-phone fa-2x"></i>
@@ -161,12 +171,12 @@
                 <i class="fas fa-envelope fa-2x"></i>
                 <p>albertoortizsanchez@gmail.com</p>
             </div>
-            </div>
-        <p class="footer-note">¡No dudes en contactarme para cualquier consulta o colaboración!</p>
+        </div>
+        <p class="footer-note" data-lang-es="¡No dudes en contactarme para cualquier consulta o colaboración!" data-lang-en="Feel free to contact me for any inquiries or collaborations!">¡No dudes en contactarme para cualquier consulta o colaboración!</p>
     </section>
 
     <footer>
-        <p>&copy; 2025 Alberto Ortiz Sánchez. Todos los derechos reservados.</p>
+        <p data-lang-es="&copy; 2023 Alberto Ortiz Sánchez. Todos los derechos reservados." data-lang-en="&copy; 2023 Alberto Ortiz Sánchez. All rights reserved.">&copy; 2023 Alberto Ortiz Sánchez. Todos los derechos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
