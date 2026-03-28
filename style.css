@@ -799,14 +799,17 @@ footer {
 
 .projects-footer { text-align: center; margin-top: 10px; }
 
-/* --- ESTILOS PARA EL CV PDF (OCULTO EN WEB) --- */
+/* --- ESTILOS PARA EL CV PDF (PDF EXPORT) --- */
 #cv-template {
-    width: 800px; /* Ancho fijo para consistencia en el PDF */
-    padding: 40px;
+    width: 800px;
+    padding: 60px;
     background: #fff;
     color: #333;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.5;
+    margin: 0 auto; /* Centramos el contenido dentro del área de captura */
+    box-sizing: border-box;
+    display: block;
 }
 
 .cv-header {
