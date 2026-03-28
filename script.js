@@ -299,47 +299,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadGitHubProjects();
 
-    // =============================================
-    // 9. DESCARGAR CV (PDF DINÁMICO)
-    // =============================================
-    const downloadBtn = document.getElementById('download-cv');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', () => {
-            const element = document.getElementById('cv-template');
-
-            if (!element) return;
-
-            const lang = localStorage.getItem('language') || 'es';
-            const originalText = downloadBtn.innerHTML;
-
-            // Visual feedback
-            downloadBtn.innerHTML = lang === 'es' ? '📄 Generando...' : '📄 Generating...';
-            downloadBtn.disabled = true;
-
-            const opt = {
-                margin:       10, 
-                filename:     `CV_Alberto_Ortiz_Sanchez_${lang.toUpperCase()}.pdf`,
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { 
-                    scale: 2, 
-                    useCORS: true, 
-                    letterRendering: true,
-                    windowWidth: 850, // Un poco más que el ancho del CV (800px) para centrarlo
-                    x: 0, y: 0
-                },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-
-            // Generar PDF
-            html2pdf().set(opt).from(element).save().then(() => {
-                downloadBtn.innerHTML = originalText;
-                downloadBtn.disabled = false;
-            }).catch(err => {
-                downloadBtn.innerHTML = originalText;
-                downloadBtn.disabled = false;
-                alert(lang === 'es' ? "Error al generar el PDF." : "Error generating PDF.");
-            });
-        });
-    }
 
 });
