@@ -305,8 +305,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById('download-cv');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
+            console.log("Iniciando descarga de CV...");
             const element = document.getElementById('cv-template');
+            
+            if (!element) {
+                console.error("No se encontró el elemento #cv-template");
+                return;
+            }
+
             const lang = localStorage.getItem('language') || 'es';
+            const originalText = downloadBtn.innerHTML;
+            
+            // Feedback visual
+            downloadBtn.innerHTML = lang === 'es' ? '📄 Generando...' : '📄 Generating...';
+            downloadBtn.disabled = true;
             
             // Forzamos el renderizado para que html2canvas lo capture correctamente
             element.style.display = 'block';
@@ -318,22 +330,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 html2canvas:  { 
                     scale: 2, 
                     useCORS: true, 
-                    logging: false,
+                    logging: true, // Activamos logs de html2canvas para debug
                     letterRendering: true,
                     windowWidth: 800
                 },
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
+            console.log("Ejecutando html2pdf...");
             // Ejecutar la conversión
             html2pdf().set(opt).from(element).save().then(() => {
+                console.log("PDF generado con éxito.");
                 element.style.display = 'none';
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.disabled = false;
             }).catch(err => {
-                console.error("Error generando PDF:", err);
+                console.error("Error detallado generando PDF:", err);
                 element.style.display = 'none';
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.disabled = false;
+                alert(lang === 'es' ? "Error al generar el PDF. Por favor, inténtalo de nuevo." : "Error generating PDF. Please try again.");
             });
         });
     }
-
 
 });
