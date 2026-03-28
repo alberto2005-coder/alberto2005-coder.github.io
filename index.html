@@ -45,6 +45,9 @@
 </head>
 
 <body>
+    <!-- Barra de progreso de lectura -->
+    <div id="read-progress"></div>
+
     <nav class="navbar">
         <a href="#hero" class="nav-brand"><img src="logo.png" alt="Logo Alberto O.S." class="nav-logo"> Alberto O.S.</a>
         <div class="nav-links">
@@ -53,6 +56,8 @@
             <a href="#experience" data-lang-es="Experiencia" data-lang-en="Experience">Experiencia</a>
             <a href="#education" data-lang-es="Formación" data-lang-en="Education">Formación</a>
             <a href="#courses" data-lang-es="Cursos" data-lang-en="Courses">Cursos</a>
+            <a href="#projects" data-lang-es="Software" data-lang-en="Software">Software</a>
+            <a href="#games" data-lang-es="Videojuegos" data-lang-en="Games">Videojuegos</a>
             <a href="#contact" data-lang-es="Contacto" data-lang-en="Contact">Contacto</a>
         </div>
         <div class="nav-actions">
@@ -68,16 +73,19 @@
     </nav>
 
     <section id="hero" class="hero-section">
+        <canvas id="particles-canvas"></canvas>
         <div class="hero-content">
             <h1 data-lang-es="Alberto Ortiz Sánchez" data-lang-en="Alberto Ortiz Sánchez">Alberto Ortiz Sánchez</h1>
-            <p class="tagline" data-lang-es="Técnico Superior de Desarrollo de Aplicaciones Multiplataforma"
-                data-lang-en="Higher Technician in Multiplatform Application Development">Técnico Superior de Desarrollo de Aplicaciones
-                Multiplataforma</p>
+            <p class="tagline">
+                <span id="typing-text"></span><span class="typing-cursor">|</span>
+            </p>
             <div class="hero-actions">
                 <a href="#contact" class="btn primary-btn" data-lang-es="Contactar"
                     data-lang-en="Contact Me">Contactar</a>
                 <a href="#experience" class="btn secondary-btn" data-lang-es="Ver Experiencia"
                     data-lang-en="View Experience">Ver Experiencia</a>
+                <a href="cv.pdf" download class="btn cv-btn" data-lang-es="📄 Descargar CV"
+                    data-lang-en="📄 Download CV">📄 Descargar CV</a>
             </div>
         </div>
     </section>
@@ -308,6 +316,100 @@
                 <p class="details" data-lang-es="40 horas | Google Actívate | Completado: 17/03/2026"
                     data-lang-en="40 hours | Google Activate | Completed: 17/03/2026">40 horas | Google Actívate | Completado: 17/03/2026</p>
             </div>
+        </div>
+    </section>
+
+
+    <!-- ===== VIDEOJUEGOS ===== -->
+    <section id="games" class="section-container bg-light">
+        <h2 class="section-title" data-lang-es="Desarrollo de Videojuegos" data-lang-en="Game Development">Desarrollo de Videojuegos</h2>
+        <p class="projects-subtitle" data-lang-es="Mis creaciones indie y juegos publicados"
+            data-lang-en="My indie creations and published games">Mis creaciones indie y juegos publicados</p>
+        
+        <div class="projects-grid">
+            <!-- The Memory Game (Play Store) -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <i class="fab fa-google-play"></i>
+                    <h3 data-lang-es="The Memory Game" data-lang-en="The Memory Game">The Memory Game</h3>
+                </div>
+                <p data-lang-es="¡Entrena tu cerebro 5 minutos al día! Mejora tu memoria y desafía a tus amigos en este juego publicado en la Play Store."
+                   data-lang-en="Train your brain 5 minutes a day! Improve your memory and challenge your friends in this game published on the Play Store.">¡Entrena tu cerebro 5 minutos al día! Mejora tu memoria y desafía a tus amigos en este juego publicado en la Play Store.</p>
+                <div class="project-card-meta">
+                    <span class="project-lang">Android / Java</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.grgames.thememorygames" target="_blank" class="project-card-link">
+                    <span data-lang-es="Ver en Play Store →" data-lang-en="View on Play Store →">Ver en Play Store →</span>
+                </a>
+            </div>
+
+            <!-- Neon Dash (Itch.io) -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <i class="fas fa-gamepad"></i>
+                    <h3 data-lang-es="Neon Dash" data-lang-en="Neon Dash">Neon Dash</h3>
+                </div>
+                <p data-lang-es="Un juego de ritmo y velocidad con estética neón. Pon a prueba tus reflejos en este vertiginoso arcade."
+                   data-lang-en="A rhythm and speed game with neon aesthetics. Test your reflexes in this fast-paced arcade.">Un juego de ritmo y velocidad con estética neón. Pon a prueba tus reflejos en este vertiginoso arcade.</p>
+                <div class="project-card-meta">
+                    <span class="project-lang">Itch.io</span>
+                </div>
+                <a href="https://alberto-coder2005.itch.io/neon-dash" target="_blank" class="project-card-link">
+                    <span data-lang-es="Jugar en Itch.io →" data-lang-en="Play on Itch.io →">Jugar en Itch.io →</span>
+                </a>
+            </div>
+
+            <!-- Tetris C++ (Itch.io) -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <i class="fas fa-code"></i>
+                    <h3 data-lang-es="Tetris C++" data-lang-en="Tetris C++">Tetris C++</h3>
+                </div>
+                <p data-lang-es="Recreación clásica del Tetris desarrollada íntegramente en C++, enfocada en la lógica pura y el rendimiento."
+                   data-lang-en="Classic Tetris recreation developed entirely in C++, focused on pure logic and performance.">Recreación clásica del Tetris desarrollada íntegramente en C++, enfocada en la lógica pura y el rendimiento.</p>
+                <div class="project-card-meta">
+                    <span class="project-lang">C++ / Itch.io</span>
+                </div>
+                <a href="https://alberto-coder2005.itch.io/tetris-game-c" target="_blank" class="project-card-link">
+                    <span data-lang-es="Ver en Itch.io →" data-lang-en="View on Itch.io →">Ver en Itch.io →</span>
+                </a>
+            </div>
+
+            <!-- Perfil Game Jolt -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3 data-lang-es="Game Jolt Profile" data-lang-en="Game Jolt Profile">Game Jolt Profile</h3>
+                </div>
+                <p data-lang-es="Explora mi perfil en Game Jolt para encontrar más juegos experimentales y prototipos."
+                   data-lang-en="Explore my Game Jolt profile to find more experimental games and prototypes.">Explora mi perfil en Game Jolt para encontrar más juegos experimentales y prototipos.</p>
+                <div class="project-card-meta">
+                    <span class="project-lang">Game Jolt</span>
+                </div>
+                <a href="https://gamejolt.com/@eldestructor1/games" target="_blank" class="project-card-link">
+                    <span data-lang-es="Ver Game Jolt →" data-lang-en="View Game Jolt →">Ver Game Jolt →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROYECTOS DE GITHUB ===== -->
+    <section id="projects" class="section-container">
+        <h2 class="section-title" data-lang-es="Software & Proyectos Web" data-lang-en="Software & Web Projects">Software & Proyectos Web</h2>
+        <p class="projects-subtitle" data-lang-es="Mis últimos repositorios públicos de GitHub"
+            data-lang-en="My latest public GitHub repositories">Mis últimos repositorios públicos de GitHub</p>
+        <div id="projects-grid" class="projects-grid">
+            <div class="projects-loading">
+                <i class="fas fa-spinner fa-spin fa-2x"></i>
+                <p data-lang-es="Cargando proyectos..." data-lang-en="Loading projects...">Cargando proyectos...</p>
+            </div>
+        </div>
+        <div class="projects-footer">
+            <a href="https://github.com/alberto2005-coder" target="_blank" rel="noopener noreferrer"
+                class="btn primary-btn github-all-btn">
+                <i class="fab fa-github"></i>
+                <span data-lang-es="Ver todos en GitHub" data-lang-en="View all on GitHub">Ver todos en GitHub</span>
+            </a>
         </div>
     </section>
 
