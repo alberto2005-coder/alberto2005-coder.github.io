@@ -45,6 +45,8 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/4a6d35a39a.js" crossorigin="anonymous"></script>
+    <!-- ===== LIBRERÍA PDF ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
@@ -87,8 +89,8 @@
                     data-lang-en="Contact Me">Contactar</a>
                 <a href="#experience" class="btn secondary-btn" data-lang-es="Ver Experiencia"
                     data-lang-en="View Experience">Ver Experiencia</a>
-                <a href="cv.pdf" download class="btn cv-btn" data-lang-es="📄 Descargar CV"
-                    data-lang-en="📄 Download CV">📄 Descargar CV</a>
+                <button id="download-cv" class="btn cv-btn" data-lang-es="📄 Descargar CV"
+                    data-lang-en="📄 Download CV">📄 Descargar CV</button>
             </div>
         </div>
     </section>
@@ -457,6 +459,97 @@
             data-lang-en="Feel free to contact me for any inquiries or collaborations!">¡No dudes en contactarme para
             cualquier consulta o colaboración!</p>
     </section>
+
+    <!-- ===== PLANTILLA OCULTA PARA EL CV PDF ===== -->
+    <div id="cv-template" style="display: none;">
+        <div class="cv-header">
+            <h1 data-lang-es="Alberto Ortiz Sánchez" data-lang-en="Alberto Ortiz Sánchez">Alberto Ortiz Sánchez</h1>
+            <p class="cv-subtitle" data-lang-es="Técnico Superior DAM | Desarrollador Multiplataforma"
+                data-lang-en="Higher Technician in DAM | Multiplatform Developer">Técnico Superior DAM | Desarrollador
+                Multiplataforma</p>
+            <div class="cv-contact">
+                <span><i class="fas fa-envelope"></i> albertoortixsanchez@gmail.com</span>
+                <span><i class="fas fa-map-marker-alt"></i> Sevilla, España</span>
+                <span><i class="fab fa-github"></i> github.com/alberto2005-coder</span>
+            </div>
+        </div>
+
+        <div class="cv-main">
+            <div class="cv-left">
+                <section>
+                    <h2 data-lang-es="SOBRE MÍ" data-lang-en="ABOUT ME">SOBRE MÍ</h2>
+                    <p data-lang-es="Soy Alberto Ortiz Sánchez, apasionado por crear soluciones tecnológicas con una sólida base técnica y facilidad de aprendizaje. Especializado en desarrollo multiplataforma y con experiencia en diversos lenguajes de programación."
+                        data-lang-en="I am Alberto Ortiz Sánchez, passionate about tech solutions with a solid technical base and quick learning ability. Specialized in multiplatform development and experienced in various programming languages.">
+                        Soy Alberto Ortiz Sánchez, apasionado por crear soluciones tecnológicas con una sólida base técnica y facilidad de aprendizaje. Especializado en desarrollo multiplataforma y con experiencia en diversos lenguajes de programación.</p>
+                </section>
+
+                <section>
+                    <h2 data-lang-es="HABILIDADES" data-lang-en="SKILLS">HABILIDADES</h2>
+                    <ul class="cv-skills-list">
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Python & Java / C++</li>
+                        <li>SQL & Bases de Datos</li>
+                        <li>Linux & Servidores</li>
+                        <li>Git & GitHub</li>
+                        <li>WordPress & PrestaShop</li>
+                        <li>AutoCAD 3D & Edición</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 data-lang-es="IDIOMAS" data-lang-en="LANGUAGES">IDIOMAS</h2>
+                    <p><strong>Español:</strong> Nativo</p>
+                    <p><strong>Inglés:</strong> B1/B2 (Certificado)</p>
+                    <p><strong>Francés:</strong> A2</p>
+                </section>
+            </div>
+
+            <div class="cv-right">
+                <section>
+                    <h2 data-lang-es="EXPERIENCIA" data-lang-en="EXPERIENCE">EXPERIENCIA</h2>
+                    <div class="cv-item">
+                        <h3>Informático en Prácticas (2024)</h3>
+                        <p class="cv-meta">IES José Hurtado | Formación FCT</p>
+                    </div>
+                    <div class="cv-item">
+                        <h3>Ayudante de Cocina (Actual)</h3>
+                        <p class="cv-meta">La Ruta del Azafrán | Trabajo parcial</p>
+                    </div>
+                    <div class="cv-item">
+                        <h3>Carpintería Familiar</h3>
+                        <p class="cv-meta">Decomad SL</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 data-lang-es="FORMACIÓN" data-lang-en="EDUCATION">FORMACIÓN</h2>
+                    <div class="cv-item">
+                        <h3>Téc. Sup. en Desarrollo App Multiplataforma</h3>
+                        <p class="cv-meta">IES Padre Suárez | Completado ✓</p>
+                    </div>
+                    <div class="cv-item">
+                        <h3>Bachillerato de Ciencias</h3>
+                        <p class="cv-meta">IES Padre Suárez | Media: 9.10</p>
+                    </div>
+                    <div class="cv-item">
+                        <h3>Selectividad Andaluza (EBAU)</h3>
+                        <p class="cv-meta">Nota de acceso: 11.08 / 14</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 data-lang-es="CERTIFICACIONES DESTACADAS" data-lang-en="KEY CERTIFICATIONS">CERTIFICACIONES DESTACADAS</h2>
+                    <div class="cv-item" style="font-size: 11px;">
+                        <p>• <strong>Google:</strong> Ads, Analytics, Marketing Digital, Web & App Development.</p>
+                        <p>• <strong>Cisco:</strong> Hacker Ético (70h), C++ Advanced (70h).</p>
+                        <p>• <strong>SEPE:</strong> Gestión Medioambiental (75h), AutoCAD 3D (70h).</p>
+                        <p>• <strong>BIG School:</strong> Desarrollo con IA (2025/2026).</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p data-lang-es="&copy; 2026 Alberto Ortiz Sánchez. Todos los derechos reservados."

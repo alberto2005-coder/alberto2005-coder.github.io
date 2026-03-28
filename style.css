@@ -798,6 +798,119 @@ footer {
 }
 
 .projects-footer { text-align: center; margin-top: 10px; }
+
+/* --- ESTILOS PARA EL CV PDF (OCULTO EN WEB) --- */
+#cv-template {
+    width: 800px; /* Ancho fijo para consistencia en el PDF */
+    padding: 40px;
+    background: #fff;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+}
+
+.cv-header {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cv-header h1 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cv-subtitle {
+    font-size: 16px;
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.cv-contact {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 12px;
+    color: #666;
+}
+
+.cv-contact i {
+    color: #007bff;
+    margin-right: 5px;
+}
+
+.cv-main {
+    display: flex;
+    gap: 40px;
+}
+
+.cv-left {
+    flex: 1;
+}
+
+.cv-right {
+    flex: 2;
+}
+
+#cv-template h2 {
+    font-size: 16px;
+    color: #007bff;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.cv-skills-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    font-size: 13px;
+    padding-left: 0;
+}
+
+.cv-skills-list li {
+    position: relative;
+    padding-left: 15px;
+}
+
+.cv-skills-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #007bff;
+}
+
+.cv-item {
+    margin-bottom: 20px;
+}
+
+.cv-item h3 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.cv-meta {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+}
+
+#cv-template p {
+    font-size: 13px;
+    color: #444;
+}
+
+/* Ajustes para que html2pdf capture bien las fuentes */
+.html2pdf__container {
+    font-family: 'Poppins', sans-serif;
+}
 .github-all-btn { display: inline-flex; align-items: center; gap: 10px; }
 
 @media (max-width: 992px) {

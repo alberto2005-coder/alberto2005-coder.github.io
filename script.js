@@ -299,4 +299,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadGitHubProjects();
 
+    // =============================================
+    // 9. DESCARGAR CV (PDF DINÁMICO)
+    // =============================================
+    const downloadBtn = document.getElementById('download-cv');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            const element = document.getElementById('cv-template');
+            const lang = localStorage.getItem('language') || 'es';
+            
+            // Forzamos el renderizado para que html2canvas lo capture correctamente
+            element.style.display = 'block';
+
+            const opt = {
+                margin:       [10, 10, 10, 10],
+                filename:     `CV_Alberto_Ortiz_Sanchez_${lang.toUpperCase()}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true, 
+                    logging: false,
+                    letterRendering: true,
+                    windowWidth: 800
+                },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Ejecutar la conversión
+            html2pdf().set(opt).from(element).save().then(() => {
+                element.style.display = 'none';
+            }).catch(err => {
+                console.error("Error generando PDF:", err);
+                element.style.display = 'none';
+            });
+        });
+    }
+
+
 });
