@@ -732,6 +732,16 @@ footer {
     margin-top: -40px;
 }
 
+.subsection-title {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-top: 50px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
