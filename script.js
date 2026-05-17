@@ -4,22 +4,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. TEMA (claro/oscuro)
     // =============================================
     const themeSwitcher = document.getElementById('theme-switcher');
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        document.body.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') themeSwitcher.innerHTML = '<i class="fas fa-sun"></i>';
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const storedTheme = localStorage.getItem('theme');
+
+    // Determinar el tema inicial
+    let currentTheme = 'light';
+    if (storedTheme) {
+        currentTheme = storedTheme;
+    } else if (systemPrefersDark) {
+        currentTheme = 'dark';
     }
 
-    themeSwitcher.addEventListener('click', () => {
-        const theme = document.body.getAttribute('data-theme');
+    // Función para aplicar el tema
+    const applyTheme = (theme) => {
         if (theme === 'dark') {
-            document.body.removeAttribute('data-theme');
-            localStorage.removeItem('theme');
-            themeSwitcher.innerHTML = '<i class="fas fa-moon"></i>';
-        } else {
             document.body.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
             themeSwitcher.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            document.body.removeAttribute('data-theme');
+            themeSwitcher.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    };
+
+    // Aplicar tema inicial
+    applyTheme(currentTheme);
+
+    // Manejar el botón de cambio de tema
+    themeSwitcher.addEventListener('click', () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+
+    // Escuchar cambios en la preferencia del sistema en tiempo real
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
         }
     });
 
@@ -34,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const translatePage = (language) => {
         elementsToTranslate.forEach(el => {
             const text = el.getAttribute(`data-lang-${language}`);
-            if (text) el.innerText = text;
+            if (text) el.innerHTML = text;
         });
         langBtn.firstChild.textContent = language.toUpperCase() + ' ';
         localStorage.setItem('language', language);
