@@ -16,13 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Función para aplicar el tema
+    const langCode = () => (localStorage.getItem('language') || 'es');
+
     const applyTheme = (theme) => {
+        const en = langCode() === 'en';
         if (theme === 'dark') {
             document.body.setAttribute('data-theme', 'dark');
-            themeSwitcher.innerHTML = '<i class="fas fa-sun"></i>';
+            themeSwitcher.innerHTML = '<i class="fas fa-sun" aria-hidden="true"></i>';
+            themeSwitcher.setAttribute('aria-label', en ? 'Switch to light theme' : 'Cambiar a tema claro');
         } else {
             document.body.removeAttribute('data-theme');
-            themeSwitcher.innerHTML = '<i class="fas fa-moon"></i>';
+            themeSwitcher.innerHTML = '<i class="fas fa-moon" aria-hidden="true"></i>';
+            themeSwitcher.setAttribute('aria-label', en ? 'Switch to dark theme' : 'Cambiar a tema oscuro');
         }
     };
 
@@ -49,36 +54,132 @@ document.addEventListener('DOMContentLoaded', () => {
     // =============================================
     const langBtn = document.getElementById('lang-btn');
     const langDropdown = document.getElementById('lang-dropdown');
+    const langLabel = document.getElementById('lang-label');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
 
+    const metaByLang = {
+        es: {
+            title: 'Alberto Ortiz Sánchez | Técnico Superior DAM · Portfolio & CV',
+            description: 'Portfolio y CV de Alberto Ortiz Sánchez, Técnico Superior en Desarrollo de Aplicaciones Multiplataforma. Experiencia en HTML, CSS, JavaScript, Python, Java y más.',
+            expand: 'Abrir menú de idioma',
+            openMenu: 'Abrir menú',
+            closeMenu: 'Cerrar menú'
+        },
+        en: {
+            title: 'Alberto Ortiz Sánchez | Full Stack Developer · Portfolio & CV',
+            description: 'Portfolio and CV of Alberto Ortiz Sánchez, Higher Technician in Multiplatform Application Development. Experience with HTML, CSS, JavaScript, Python, Java and more.',
+            expand: 'Open language menu',
+            openMenu: 'Open menu',
+            closeMenu: 'Close menu'
+        }
+    };
+
     const translatePage = (language) => {
+        localStorage.setItem('language', language);
+
         const allTranslatable = document.querySelectorAll('[data-lang-es], [data-lang-en]');
         allTranslatable.forEach(el => {
             const text = el.getAttribute(`data-lang-${language}`);
             if (text) el.innerHTML = text;
         });
-        langBtn.firstChild.textContent = language.toUpperCase() + ' ';
-        localStorage.setItem('language', language);
+
+        // Idioma del documento + metadatos (SEO y lectores de pantalla)
+        document.documentElement.lang = language;
+        const meta = metaByLang[language] || metaByLang.es;
+        document.title = meta.title;
+        const desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute('content', meta.description);
+
+        if (langLabel) langLabel.textContent = language.toUpperCase();
+        langBtn.setAttribute('aria-label', meta.expand);
+
+        // CV en el idioma activo
+        document.querySelectorAll('[data-cv-link]').forEach(link => {
+            const file = language === 'en' ? link.dataset.cvEn : link.dataset.cvEs;
+            if (file) {
+                link.href = file;
+                link.setAttribute('hreflang', language);
+            }
+        });
+
+        // Textos accesibles del menú móvil y tema
+        const navToggle = document.getElementById('nav-toggle');
+        if (navToggle) {
+            const open = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-label', open ? meta.closeMenu : meta.openMenu);
+        }
+        applyTheme(document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+
         langDropdown.classList.remove('show');
+        langBtn.setAttribute('aria-expanded', 'false');
     };
 
     const currentLang = localStorage.getItem('language') || 'es';
     translatePage(currentLang);
 
-    langBtn.addEventListener('click', () => langDropdown.classList.toggle('show'));
+    langBtn.addEventListener('click', () => {
+        const isOpen = langDropdown.classList.toggle('show');
+        langBtn.setAttribute('aria-expanded', String(isOpen));
+    });
 
     langOptions.forEach(option => {
         option.addEventListener('click', (e) => {
             e.preventDefault();
-            translatePage(e.target.getAttribute('data-lang'));
+            translatePage(e.currentTarget.getAttribute('data-lang'));
         });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            langDropdown.classList.remove('show');
+            langBtn.setAttribute('aria-expanded', 'false');
+            langBtn.focus();
+        }
     });
 
     window.addEventListener('click', (e) => {
         if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
             langDropdown.classList.remove('show');
+            langBtn.setAttribute('aria-expanded', 'false');
         }
     });
+
+    // =============================================
+    // 2b. MENÚ MÓVIL
+    // =============================================
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    const closeNav = () => {
+        if (!navLinks) return;
+        navLinks.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', metaByLang[langCode()].openMenu);
+        navToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+    };
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+            navToggle.setAttribute('aria-label', metaByLang[langCode()][isOpen ? 'closeMenu' : 'openMenu']);
+            navToggle.innerHTML = isOpen
+                ? '<i class="fas fa-times" aria-hidden="true"></i>'
+                : '<i class="fas fa-bars" aria-hidden="true"></i>';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeNav);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('is-open')) closeNav();
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1250) closeNav();
+        });
+    }
 
     // =============================================
     // 3. TYPING EFFECT
@@ -112,8 +213,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return (localStorage.getItem('language') || 'es') === 'es' ? textsEs : textsEn;
     }
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     function typeLoop() {
         if (!typingEl) return;
+        if (prefersReducedMotion) {
+            typingEl.textContent = getTexts()[0];
+            return;
+        }
         const texts = getTexts();
         const currentText = texts[typingIndex];
 
@@ -142,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. PARTÍCULAS EN HERO
     // =============================================
     const canvas = document.getElementById('particles-canvas');
-    if (canvas) {
+    if (canvas && !prefersReducedMotion) {
         const ctx = canvas.getContext('2d');
         let particles = [];
 
@@ -364,5 +471,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadGitHubProjects();
 
+    // =============================================
+    // 9. COPIAR AL PORTAPAPELES
+    // =============================================
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const label = btn.querySelector('span');
+            if (!label) return;
+            const original = label.textContent;
+            const es = langCode() === 'es';
+
+            try {
+                await navigator.clipboard.writeText(btn.dataset.copy);
+            } catch (err) {
+                const helper = document.createElement('textarea');
+                helper.value = btn.dataset.copy;
+                helper.setAttribute('readonly', '');
+                helper.style.position = 'absolute';
+                helper.style.left = '-9999px';
+                document.body.appendChild(helper);
+                helper.select();
+                document.execCommand('copy');
+                helper.remove();
+            }
+
+            btn.classList.add('is-copied');
+            label.textContent = es ? btn.dataset.copiedEs : btn.dataset.copiedEn;
+            setTimeout(() => {
+                btn.classList.remove('is-copied');
+                label.textContent = original;
+            }, 2000);
+        });
+    });
 
 });

@@ -16,9 +16,12 @@
     <link rel="canonical" href="https://alberto2005-coder.github.io/">
 
     <!-- ===== FAVICON ===== -->
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
-    <meta name="theme-color" content="#343a40">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#12121d">
+    <meta name="color-scheme" content="light dark">
 
     <!-- ===== OPEN GRAPH (Facebook, WhatsApp, LinkedIn...) ===== -->
     <meta property="og:type" content="website">
@@ -26,19 +29,47 @@
     <meta property="og:title" content="Alberto Ortiz Sánchez | Técnico Superior DAM">
     <meta property="og:description"
         content="Portfolio y CV de Alberto Ortiz Sánchez. Técnico Superior en DAM con experiencia en desarrollo web, aplicaciones multiplataforma y más.">
-    <meta property="og:image" content="https://alberto2005-coder.github.io/logo.png">
-    <meta property="og:image:alt" content="Logo de Alberto O.S.">
+    <meta property="og:image" content="https://alberto2005-coder.github.io/assets/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Alberto Ortiz Sánchez — Desarrollador Full Stack">
     <meta property="og:locale" content="es_ES">
     <meta property="og:site_name" content="Alberto O.S. Portfolio">
 
     <!-- ===== TWITTER CARD ===== -->
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Alberto Ortiz Sánchez | Técnico Superior DAM">
     <meta name="twitter:description" content="Portfolio y CV de Alberto Ortiz Sánchez. Técnico Superior en DAM.">
-    <meta name="twitter:image" content="https://alberto2005-coder.github.io/logo.png">
+    <meta name="twitter:image" content="https://alberto2005-coder.github.io/assets/img/og-image.png">
+
+    <!-- ===== DATOS ESTRUCTURADOS (Schema.org) ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alberto Ortiz Sánchez",
+      "url": "https://alberto2005-coder.github.io/",
+      "image": "https://alberto2005-coder.github.io/assets/img/logo.png",
+      "jobTitle": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
+      "email": "mailto:albertoortixsanchez@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Andalucía",
+        "addressCountry": "ES"
+      },
+      "knowsLanguage": ["es", "en", "fr"],
+      "sameAs": [
+        "https://github.com/alberto2005-coder",
+        "https://alberto-coder2005.itch.io/",
+        "https://gamejolt.com/@eldestructor1/games",
+        "https://play.google.com/store/apps/details?id=com.grgames.thememorygames"
+      ],
+      "knowsAbout": ["JavaScript", "Python", "Java", "C++", "HTML", "CSS", "WordPress", "PrestaShop", "Odoo", "Unity", "Git"]
+    }
+    </script>
 
     <!-- ===== ESTILOS Y FUENTES ===== -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -52,25 +83,45 @@
     <!-- Barra de progreso de lectura -->
     <div id="read-progress"></div>
 
+    <a class="skip-link" href="#about" data-lang-es="Saltar al contenido" data-lang-en="Skip to content">Saltar al contenido</a>
+
     <nav class="navbar">
-        <a href="#hero" class="nav-brand"><img src="logo.png" alt="Logo Alberto O.S." class="nav-logo"> Alberto O.S.</a>
-        <div class="nav-links">
+        <a href="#hero" class="nav-brand">
+            <span class="nav-logo" aria-hidden="true">AO</span>
+            <span class="nav-brand-text">Alberto O.S.</span>
+        </a>
+
+        <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"
+            aria-controls="nav-links">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <div class="nav-links" id="nav-links">
             <a href="#about" data-lang-es="Sobre Mí" data-lang-en="About Me">Sobre Mí</a>
             <a href="#skills" data-lang-es="Habilidades" data-lang-en="Skills">Habilidades</a>
             <a href="#experience" data-lang-es="Experiencia" data-lang-en="Experience">Experiencia</a>
+            <a href="#projects" data-lang-es="Proyectos" data-lang-en="Projects">Proyectos</a>
+            <a href="#games" data-lang-es="Videojuegos" data-lang-en="Games">Videojuegos</a>
             <a href="#education" data-lang-es="Formación" data-lang-en="Education">Formación</a>
             <a href="#courses" data-lang-es="Cursos" data-lang-en="Courses">Cursos</a>
-            <a href="#projects" data-lang-es="Software" data-lang-en="Software">Software</a>
-            <a href="#games" data-lang-es="Videojuegos" data-lang-en="Games">Videojuegos</a>
             <a href="#contact" data-lang-es="Contacto" data-lang-en="Contact">Contacto</a>
         </div>
+
         <div class="nav-actions">
-            <button id="theme-switcher" class="theme-btn"><i class="fas fa-moon"></i></button>
+            <a href="assets/cv/CV_Alberto_Ortiz_ES.pdf" class="nav-cv-btn" download data-cv-link>
+                <i class="fas fa-file-arrow-down" aria-hidden="true"></i>
+                <span>CV</span>
+            </a>
+            <button id="theme-switcher" class="theme-btn" aria-label="Cambiar a tema oscuro">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
             <div class="lang-switcher">
-                <button id="lang-btn" class="lang-btn">ES <i class="fas fa-chevron-down"></i></button>
-                <div id="lang-dropdown" class="lang-dropdown">
-                    <a href="#" data-lang="es">Español (ES)</a>
-                    <a href="#" data-lang="en">English (EN)</a>
+                <button id="lang-btn" class="lang-btn" aria-haspopup="true" aria-expanded="false">
+                    <span id="lang-label">ES</span> <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div id="lang-dropdown" class="lang-dropdown" role="menu">
+                    <a href="#" data-lang="es" role="menuitem" lang="es">Español (ES)</a>
+                    <a href="#" data-lang="en" role="menuitem" lang="en">English (EN)</a>
                 </div>
             </div>
         </div>
@@ -79,16 +130,31 @@
     <section id="hero" class="hero-section">
         <canvas id="particles-canvas"></canvas>
         <div class="hero-content">
+            <p class="status-badge">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span data-lang-es="Disponible para incorporación" data-lang-en="Available for hire">Disponible para
+                    incorporación</span>
+            </p>
             <h1 data-lang-es="Alberto Ortiz Sánchez" data-lang-en="Alberto Ortiz Sánchez">Alberto Ortiz Sánchez</h1>
+            <p class="hero-role" data-lang-es="Desarrollador Full Stack · Estudiante de Máster FP en IA"
+                data-lang-en="Full Stack Developer · FP Master's Student in AI">Desarrollador Full Stack ·
+                Estudiante de Máster FP en IA</p>
             <p class="tagline">
-                <span id="typing-text"></span><span class="typing-cursor">|</span>
+                <span id="typing-text"></span><span class="typing-cursor" aria-hidden="true">|</span>
             </p>
             <div class="hero-actions">
-                <a href="#contact" class="btn primary-btn" data-lang-es="Contactar"
-                    data-lang-en="Contact Me">Contactar</a>
-                <a href="#experience" class="btn secondary-btn" data-lang-es="Ver Experiencia"
-                    data-lang-en="View Experience">Ver Experiencia</a>
+                <a href="assets/cv/CV_Alberto_Ortiz_ES.pdf" class="btn cv-btn" download data-cv-link
+                    data-cv-es="assets/cv/CV_Alberto_Ortiz_ES.pdf" data-cv-en="assets/cv/CV_Alberto_Ortiz_EN.pdf">
+                    <i class="fas fa-download" aria-hidden="true"></i>
+                    <span data-lang-es="Descargar CV" data-lang-en="Download CV">Descargar CV</span>
+                </a>
+                <a href="#projects" class="btn secondary-btn" data-lang-es="Ver proyectos"
+                    data-lang-en="View projects">Ver proyectos</a>
             </div>
+            <p class="hero-contact">
+                <a href="#contact" data-lang-es="¿Hablamos? Contáctame →" data-lang-en="Let's talk? Contact me →">¿Hablamos?
+                    Contáctame →</a>
+            </p>
         </div>
     </section>
 
@@ -108,16 +174,18 @@
             <div class="personal-details">
                 <h3 data-lang-es="Información Personal" data-lang-en="Personal Details">Información Personal</h3>
                 <ul>
-                    <li><i class="fas fa-calendar-alt"></i> <span data-lang-es="Fecha de Nacimiento: 19/08/2005"
-                            data-lang-en="Date of Birth: 08/19/2005">Fecha de Nacimiento: 19/08/2005</span></li>
-                    <li><i class="fas fa-language"></i> <span
-                            data-lang-es="Facilidad para aprender otros lenguajes informáticos"
-                            data-lang-en="Quick to learn new programming languages">Facilidad para aprender otros
-                            lenguajes informáticos</span></li>
+                    <li><i class="fas fa-location-dot"></i> <span data-lang-es="Ubicación: Granada, Andalucía (España)"
+                            data-lang-en="Location: Granada, Andalusia (Spain)">Ubicación: Granada, Andalucía
+                            (España)</span></li>
+                    <li><i class="fas fa-language"></i> <span data-lang-es="Español nativo · Inglés B1 · Francés A2"
+                            data-lang-en="Native Spanish · English B1 · French A2">Español nativo · Inglés B1 · Francés
+                            A2</span></li>
                     <li><i class="fas fa-car"></i> <span data-lang-es="Permiso de Conducir B (Coche)"
                             data-lang-en="Driver's License B (Car)">Permiso de Conducir B (Coche)</span></li>
-                    <li><i class="fas fa-globe-americas"></i> <span data-lang-es="Disponibilidad para viajar"
-                            data-lang-en="Available for travel">Disponibilidad para viajar</span></li>
+                    <li><i class="fas fa-globe-americas"></i> <span
+                            data-lang-es="Disponibilidad para viajar y movilidad geográfica"
+                            data-lang-en="Available for travel and relocation">Disponibilidad para viajar y movilidad
+                            geográfica</span></li>
                 </ul>
             </div>
         </div>
@@ -266,10 +334,175 @@
         </div>
     </section>
 
+    <!-- ===== RECONOCIMIENTO ===== -->
+    <section id="recommendation" class="section-container">
+        <h2 class="section-title" data-lang-es="Reconocimiento" data-lang-en="Recognition">Reconocimiento</h2>
+        <div class="recommendation-card">
+            <i class="fas fa-award recommendation-icon" aria-hidden="true"></i>
+            <div class="recommendation-body">
+                <p data-lang-es="Tras desarrollar la web oficial de la Fundación Inspiring Girls Panamá (50 horas de voluntariado), su Directora Ejecutiva emitió una carta de recomendación profesional destacando el profesionalismo, la calidad técnica y el trabajo colaborativo."
+                    data-lang-en="After building the official website of the Inspiring Girls Panama Foundation (50 volunteer hours), its Executive Director issued a professional recommendation letter highlighting professionalism, technical quality and collaborative work.">
+                    Tras desarrollar la web oficial de la Fundación Inspiring Girls Panamá (50 horas de
+                    voluntariado), su Directora Ejecutiva emitió una carta de recomendación profesional destacando el
+                    profesionalismo, la calidad técnica y el trabajo colaborativo.</p>
+                <p class="recommendation-author">
+                    <strong>Dra. Iraira Butcher Boza</strong>
+                    <span data-lang-es="Directora Ejecutiva · Fundación Inspiring Girls Panamá"
+                        data-lang-en="Executive Director · Inspiring Girls Panama Foundation">Directora Ejecutiva ·
+                        Fundación Inspiring Girls Panamá</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIDEOJUEGOS ===== -->
+    <section id="games" class="section-container bg-light">
+        <h2 class="section-title" data-lang-es="Desarrollo de Videojuegos" data-lang-en="Game Development">Desarrollo de
+            Videojuegos</h2>
+        <p class="projects-subtitle" data-lang-es="Mis creaciones indie y juegos publicados"
+            data-lang-en="My indie creations and published games">Mis creaciones indie y juegos publicados</p>
+
+        <div class="projects-grid">
+            <!-- The Memory Game (Play Store) -->
+            <div class="project-card">
+                <div class="project-media" style="--cover: url('assets/projects/the-memory-game.jpg')">
+                    <img src="assets/projects/the-memory-game.jpg" alt="" loading="lazy" width="640" height="360"
+                        onerror="this.classList.add('is-missing')">
+                    <span class="project-media-fallback" aria-hidden="true"><i class="fab fa-google-play"></i></span>
+                </div>
+                <div class="project-card-header">
+                    <i class="fab fa-google-play"></i>
+                    <h3 data-lang-es="The Memory Game" data-lang-en="The Memory Game">The Memory Game</h3>
+                </div>
+                <p data-lang-es="¡Entrena tu cerebro 5 minutos al día! Mejora tu memoria y desafía a tus amigos en este juego publicado en la Play Store."
+                    data-lang-en="Train your brain 5 minutes a day! Improve your memory and challenge your friends in this game published on the Play Store.">
+                    ¡Entrena tu cerebro 5 minutos al día! Mejora tu memoria y desafía a tus amigos en este juego
+                    publicado en la Play Store.</p>
+                <div class="project-card-meta">
+                    <span class="project-lang">Unity / C#</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.grgames.thememorygames" target="_blank"
+                    class="project-card-link">
+                    <span data-lang-es="Ver en Play Store →" data-lang-en="View on Play Store →">Ver en Play Store
+                        →</span>
+                </a>
+            </div>
+
+            <!-- Neon Dash (Itch.io) -->
+            <div class="project-card">
+                <div class="project-media" style="--cover: url('assets/projects/neon-dash.jpg')">
+                    <img src="assets/projects/neon-dash.jpg" alt="" loading="lazy" width="640" height="360"
+                        onerror="this.classList.add('is-missing')">
+                    <span class="project-media-fallback" aria-hidden="true"><i class="fas fa-gamepad"></i></span>
+                </div>
+                <div class="project-card-header">
+                    <i class="fas fa-gamepad"></i>
+                    <h3 data-lang-es="Neon Dash" data-lang-en="Neon Dash">Neon Dash</h3>
+                </div>
+                <p data-lang-es="Un juego de ritmo y velocidad con estética neón. Pon a prueba tus reflejos en este vertiginoso arcade."
+                    data-lang-en="A rhythm and speed game with neon aesthetics. Test your reflexes in this fast-paced arcade.">
+                    Un juego de ritmo y velocidad con estética neón. Pon a prueba tus reflejos en este vertiginoso
+                    arcade.</p>
+                <div class="project-card-meta">
+                    <span class="project-lang">Flutter / Dart</span>
+                </div>
+                <a href="https://alberto-coder2005.itch.io/neon-dash" target="_blank" class="project-card-link">
+                    <span data-lang-es="Jugar en Itch.io →" data-lang-en="Play on Itch.io →">Jugar en Itch.io →</span>
+                </a>
+            </div>
+
+            <!-- Tetris C++ (Itch.io) -->
+            <div class="project-card">
+                <div class="project-media" style="--cover: url('assets/projects/tetris-cpp.jpg')">
+                    <img src="assets/projects/tetris-cpp.jpg" alt="" loading="lazy" width="640" height="360"
+                        onerror="this.classList.add('is-missing')">
+                    <span class="project-media-fallback" aria-hidden="true"><i class="fas fa-code"></i></span>
+                </div>
+                <div class="project-card-header">
+                    <i class="fas fa-code"></i>
+                    <h3 data-lang-es="Tetris C++" data-lang-en="Tetris C++">Tetris C++</h3>
+                </div>
+                <p data-lang-es="Recreación clásica del Tetris desarrollada íntegramente en C++, enfocada en la lógica pura y el rendimiento."
+                    data-lang-en="Classic Tetris recreation developed entirely in C++, focused on pure logic and performance.">
+                    Recreación clásica del Tetris desarrollada íntegramente en C++, enfocada en la lógica pura y el
+                    rendimiento.</p>
+                <div class="project-card-meta">
+                    <span class="project-lang">C++ / Itch.io</span>
+                </div>
+                <a href="https://alberto-coder2005.itch.io/tetris-game-c" target="_blank" class="project-card-link">
+                    <span data-lang-es="Ver en Itch.io →" data-lang-en="View on Itch.io →">Ver en Itch.io →</span>
+                </a>
+            </div>
+
+            <!-- Perfil Game Jolt -->
+            <div class="project-card">
+                <div class="project-media project-media--empty">
+                    <span class="project-media-fallback" aria-hidden="true"><i class="fas fa-bolt"></i></span>
+                </div>
+                <div class="project-card-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3 data-lang-es="Game Jolt Profile" data-lang-en="Game Jolt Profile">Game Jolt Profile</h3>
+                </div>
+                <p data-lang-es="Explora mi perfil en Game Jolt para encontrar más juegos experimentales y prototipos."
+                    data-lang-en="Explore my Game Jolt profile to find more experimental games and prototypes.">Explora
+                    mi perfil en Game Jolt para encontrar más juegos experimentales y prototipos.</p>
+                <div class="project-card-meta">
+                    <span class="project-lang">Game Jolt</span>
+                </div>
+                <a href="https://gamejolt.com/@eldestructor1/games" target="_blank" class="project-card-link">
+                    <span data-lang-es="Ver Game Jolt →" data-lang-en="View Game Jolt →">Ver Game Jolt →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROYECTOS DE GITHUB ===== -->
+    <section id="projects" class="section-container">
+        <h2 class="section-title" data-lang-es="Software & Proyectos" data-lang-en="Software & Projects">
+            Software & Proyectos</h2>
+        <p class="projects-subtitle" data-lang-es="Mi actividad y código en repositorios públicos de GitHub"
+            data-lang-en="My activity and code in public GitHub repositories">Mi actividad y código en repositorios
+            públicos de GitHub</p>
+
+        <h3 class="subsection-title" data-lang-es="Proyectos Propios" data-lang-en="Own Projects">Proyectos Propios</h3>
+        <div id="projects-grid" class="projects-grid">
+            <div class="projects-loading">
+                <i class="fas fa-spinner fa-spin fa-2x"></i>
+                <p data-lang-es="Cargando proyectos..." data-lang-en="Loading projects...">Cargando proyectos...</p>
+            </div>
+        </div>
+
+        <h3 class="subsection-title" data-lang-es="Contribuciones & Colaboraciones"
+            data-lang-en="Contributions & Collaborations">Contribuciones & Colaboraciones</h3>
+        <div id="contributions-grid" class="projects-grid">
+            <div class="projects-loading">
+                <i class="fas fa-spinner fa-spin fa-2x"></i>
+                <p data-lang-es="Cargando contribuciones..." data-lang-en="Loading contributions...">Cargando
+                    contribuciones...</p>
+            </div>
+        </div>
+        <div class="projects-footer">
+            <a href="https://github.com/alberto2005-coder" target="_blank" rel="noopener noreferrer"
+                class="btn primary-btn github-all-btn">
+                <i class="fab fa-github"></i>
+                <span data-lang-es="Ver todos en GitHub" data-lang-en="View all on GitHub">Ver todos en GitHub</span>
+            </a>
+        </div>
+    </section>
+
     <section id="education" class="section-container bg-light">
         <h2 class="section-title" data-lang-es="Formación Académica" data-lang-en="Academic Education">Formación
             Académica</h2>
         <div class="education-grid">
+            <div class="education-item education-item--current">
+                <h3 data-lang-es="MÁSTER DE FP EN APRENDIZAJE AUTOMÁTICO: GESTIÓN DE DATOS Y ENTRENAMIENTO <span class='badge-new'>En curso</span>"
+                    data-lang-en="HIGHER VOCATIONAL MASTER'S IN MACHINE LEARNING: DATA MANAGEMENT AND TRAINING <span class='badge-new'>Ongoing</span>">
+                    MÁSTER DE FP EN APRENDIZAJE AUTOMÁTICO: GESTIÓN DE DATOS Y ENTRENAMIENTO <span
+                        class="badge-new">En curso</span></h3>
+                <p class="institution">IES Zaidín Vergeles</p>
+                <p class="date" data-lang-es="2026 — Actualidad · Granada"
+                    data-lang-en="2026 — Present · Granada">2026 — Actualidad · Granada</p>
+            </div>
             <div class="education-item">
                 <h3 data-lang-es="TÉCNICO SUPERIOR EN DESARROLLO DE APLICACIONES MULTIPLATAFORMA"
                     data-lang-en="HIGHER TECHNICIAN IN MULTIPLATFORM APPLICATION DEVELOPMENT">TÉCNICO SUPERIOR EN
@@ -477,137 +710,38 @@
     </section>
 
 
-    <!-- ===== VIDEOJUEGOS ===== -->
-    <section id="games" class="section-container bg-light">
-        <h2 class="section-title" data-lang-es="Desarrollo de Videojuegos" data-lang-en="Game Development">Desarrollo de
-            Videojuegos</h2>
-        <p class="projects-subtitle" data-lang-es="Mis creaciones indie y juegos publicados"
-            data-lang-en="My indie creations and published games">Mis creaciones indie y juegos publicados</p>
-
-        <div class="projects-grid">
-            <!-- The Memory Game (Play Store) -->
-            <div class="project-card">
-                <div class="project-card-header">
-                    <i class="fab fa-google-play"></i>
-                    <h3 data-lang-es="The Memory Game" data-lang-en="The Memory Game">The Memory Game</h3>
-                </div>
-                <p data-lang-es="¡Entrena tu cerebro 5 minutos al día! Mejora tu memoria y desafía a tus amigos en este juego publicado en la Play Store."
-                    data-lang-en="Train your brain 5 minutes a day! Improve your memory and challenge your friends in this game published on the Play Store.">
-                    ¡Entrena tu cerebro 5 minutos al día! Mejora tu memoria y desafía a tus amigos en este juego
-                    publicado en la Play Store.</p>
-                <div class="project-card-meta">
-                    <span class="project-lang">Unity / C#</span>
-                </div>
-                <a href="https://play.google.com/store/apps/details?id=com.grgames.thememorygames" target="_blank"
-                    class="project-card-link">
-                    <span data-lang-es="Ver en Play Store →" data-lang-en="View on Play Store →">Ver en Play Store
-                        →</span>
-                </a>
-            </div>
-
-            <!-- Neon Dash (Itch.io) -->
-            <div class="project-card">
-                <div class="project-card-header">
-                    <i class="fas fa-gamepad"></i>
-                    <h3 data-lang-es="Neon Dash" data-lang-en="Neon Dash">Neon Dash</h3>
-                </div>
-                <p data-lang-es="Un juego de ritmo y velocidad con estética neón. Pon a prueba tus reflejos en este vertiginoso arcade."
-                    data-lang-en="A rhythm and speed game with neon aesthetics. Test your reflexes in this fast-paced arcade.">
-                    Un juego de ritmo y velocidad con estética neón. Pon a prueba tus reflejos en este vertiginoso
-                    arcade.</p>
-                <div class="project-card-meta">
-                    <span class="project-lang">Flutter / Dart</span>
-                </div>
-                <a href="https://alberto-coder2005.itch.io/neon-dash" target="_blank" class="project-card-link">
-                    <span data-lang-es="Jugar en Itch.io →" data-lang-en="Play on Itch.io →">Jugar en Itch.io →</span>
-                </a>
-            </div>
-
-            <!-- Tetris C++ (Itch.io) -->
-            <div class="project-card">
-                <div class="project-card-header">
-                    <i class="fas fa-code"></i>
-                    <h3 data-lang-es="Tetris C++" data-lang-en="Tetris C++">Tetris C++</h3>
-                </div>
-                <p data-lang-es="Recreación clásica del Tetris desarrollada íntegramente en C++, enfocada en la lógica pura y el rendimiento."
-                    data-lang-en="Classic Tetris recreation developed entirely in C++, focused on pure logic and performance.">
-                    Recreación clásica del Tetris desarrollada íntegramente en C++, enfocada en la lógica pura y el
-                    rendimiento.</p>
-                <div class="project-card-meta">
-                    <span class="project-lang">C++ / Itch.io</span>
-                </div>
-                <a href="https://alberto-coder2005.itch.io/tetris-game-c" target="_blank" class="project-card-link">
-                    <span data-lang-es="Ver en Itch.io →" data-lang-en="View on Itch.io →">Ver en Itch.io →</span>
-                </a>
-            </div>
-
-            <!-- Perfil Game Jolt -->
-            <div class="project-card">
-                <div class="project-card-header">
-                    <i class="fas fa-bolt"></i>
-                    <h3 data-lang-es="Game Jolt Profile" data-lang-en="Game Jolt Profile">Game Jolt Profile</h3>
-                </div>
-                <p data-lang-es="Explora mi perfil en Game Jolt para encontrar más juegos experimentales y prototipos."
-                    data-lang-en="Explore my Game Jolt profile to find more experimental games and prototypes.">Explora
-                    mi perfil en Game Jolt para encontrar más juegos experimentales y prototipos.</p>
-                <div class="project-card-meta">
-                    <span class="project-lang">Game Jolt</span>
-                </div>
-                <a href="https://gamejolt.com/@eldestructor1/games" target="_blank" class="project-card-link">
-                    <span data-lang-es="Ver Game Jolt →" data-lang-en="View Game Jolt →">Ver Game Jolt →</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== PROYECTOS DE GITHUB ===== -->
-    <section id="projects" class="section-container">
-        <h2 class="section-title" data-lang-es="Software & Proyectos" data-lang-en="Software & Projects">
-            Software & Proyectos</h2>
-        <p class="projects-subtitle" data-lang-es="Mi actividad y código en repositorios públicos de GitHub"
-            data-lang-en="My activity and code in public GitHub repositories">Mi actividad y código en repositorios
-            públicos de GitHub</p>
-
-        <h3 class="subsection-title" data-lang-es="Proyectos Propios" data-lang-en="Own Projects">Proyectos Propios</h3>
-        <div id="projects-grid" class="projects-grid">
-            <div class="projects-loading">
-                <i class="fas fa-spinner fa-spin fa-2x"></i>
-                <p data-lang-es="Cargando proyectos..." data-lang-en="Loading projects...">Cargando proyectos...</p>
-            </div>
-        </div>
-
-        <h3 class="subsection-title" data-lang-es="Contribuciones & Colaboraciones"
-            data-lang-en="Contributions & Collaborations">Contribuciones & Colaboraciones</h3>
-        <div id="contributions-grid" class="projects-grid">
-            <div class="projects-loading">
-                <i class="fas fa-spinner fa-spin fa-2x"></i>
-                <p data-lang-es="Cargando contribuciones..." data-lang-en="Loading contributions...">Cargando
-                    contribuciones...</p>
-            </div>
-        </div>
-        <div class="projects-footer">
-            <a href="https://github.com/alberto2005-coder" target="_blank" rel="noopener noreferrer"
-                class="btn primary-btn github-all-btn">
-                <i class="fab fa-github"></i>
-                <span data-lang-es="Ver todos en GitHub" data-lang-en="View all on GitHub">Ver todos en GitHub</span>
-            </a>
-        </div>
-    </section>
-
     <section id="contact" class="section-container bg-light">
         <h2 class="section-title" data-lang-es="Contacto" data-lang-en="Contact">Contacto</h2>
-        <div class="contact-info-grid">
-            <div class="contact-item">
-                <a href="mailto:albertoortixsanchez@gmail.com">
-                    <i class="fas fa-envelope fa-2x"></i>
-                    <p>albertoortixsanchez@gmail.com</p>
-                </a>
-            </div>
-            <div class="contact-item">
-                <i class="fab fa-discord fa-2x"></i>
-                <p>eldestructor7614</p>
+        <div class="contact-card">
+            <p class="contact-label" data-lang-es="Escríbeme" data-lang-en="Email me">Escríbeme</p>
+            <a class="contact-email" href="mailto:albertoortixsanchez@gmail.com">albertoortixsanchez@gmail.com</a>
+            <button class="copy-btn" type="button" data-copy="albertoortixsanchez@gmail.com"
+                data-copied-es="¡Copiado!" data-copied-en="Copied!">
+                <i class="fas fa-copy" aria-hidden="true"></i>
+                <span data-lang-es="Copiar email" data-lang-en="Copy email">Copiar email</span>
+            </button>
+        </div>
 
-            </div>
+        <p class="contact-socials-title" data-lang-es="O encuéntrame en" data-lang-en="Or find me on">O encuéntrame
+            en</p>
+        <div class="contact-socials">
+            <a href="https://github.com/alberto2005-coder" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span>
+            </a>
+            <a href="https://alberto-coder2005.itch.io/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-itch-io" aria-hidden="true"></i><span>Itch.io</span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.grgames.thememorygames" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fab fa-google-play" aria-hidden="true"></i><span>Google Play</span>
+            </a>
+            <a href="https://gamejolt.com/@eldestructor1/games" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-bolt" aria-hidden="true"></i><span>Game Jolt</span>
+            </a>
+            <button class="contact-social-btn" type="button" data-copy="eldestructor7614"
+                data-copied-es="Usuario copiado" data-copied-en="Username copied">
+                <i class="fab fa-discord" aria-hidden="true"></i><span>Discord: eldestructor7614</span>
+            </button>
         </div>
         <p class="footer-note" data-lang-es="¡No dudes en contactarme para cualquier consulta o colaboración!"
             data-lang-en="Feel free to contact me for any inquiries or collaborations!">¡No dudes en contactarme para
@@ -616,12 +750,20 @@
 
 
     <footer>
-        <p data-lang-es="&copy; 2026 Alberto Ortiz Sánchez. Todos los derechos reservados."
-            data-lang-en="&copy; 2026 Alberto Ortiz Sánchez. All rights reserved.">&copy; 2026 Alberto Ortiz Sánchez.
-            Todos los derechos reservados.</p>
+        <div class="footer-inner">
+            <p data-lang-es="&copy; 2026 Alberto Ortiz Sánchez. Todos los derechos reservados."
+                data-lang-en="&copy; 2026 Alberto Ortiz Sánchez. All rights reserved.">&copy; 2026 Alberto Ortiz
+                Sánchez. Todos los derechos reservados.</p>
+            <p class="footer-links">
+                <a href="assets/cv/CV_Alberto_Ortiz_ES.pdf" download>CV (ES)</a>
+                <a href="assets/cv/CV_Alberto_Ortiz_EN.pdf" download>CV (EN)</a>
+                <a href="https://github.com/alberto2005-coder" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://alberto-coder2005.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
+            </p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
