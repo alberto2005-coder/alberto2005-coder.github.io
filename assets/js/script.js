@@ -359,116 +359,39 @@ document.addEventListener('DOMContentLoaded', () => {
     if (skillsSection) progressBarObserver.observe(skillsSection);
 
     // =============================================
-    // 8. PROYECTOS DESDE GITHUB API
+    // 8. PROYECTOS DESDE GITHUB API (ENRIQUECIMIENTO DINÁMICO)
     // =============================================
-    const projectsGrid = document.getElementById('projects-grid');
-    const contributionsGrid = document.getElementById('contributions-grid');
     const GITHUB_USER = 'alberto2005-coder';
-    const lang = localStorage.getItem('language') || 'es';
-
-    const langColors = {
-        JavaScript: '#f1e05a', Python: '#3572A5', Java: '#b07219',
-        HTML: '#e34c26', CSS: '#563d7c', 'C++': '#f34b7d',
-        TypeScript: '#2b7489', PHP: '#4F5D95', default: '#007bff'
-    };
-
-    function getLangColor(language) {
-        return langColors[language] || langColors.default;
-    }
 
     async function loadGitHubProjects() {
         try {
-            // Aumentamos per_page a 50 para asegurar capturar suficientes proyectos propios y contribuciones (forks)
-            const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=created&per_page=50&type=public`);
-            if (!res.ok) throw new Error('API error');
+            const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=50&type=public`);
+            if (!res.ok) {
+                // Si la API alcanza el límite de peticiones (403) o falla, mantenemos los proyectos estáticos sin bloquear
+                console.warn(`[GitHub API] Respuesta no OK (${res.status}). Se conservan los repositorios estáticos.`);
+                return;
+            }
             const repos = await res.json();
+            if (!Array.isArray(repos)) return;
 
-            // Filtrar y separar
-            // 1. Proyectos propios (no forks y omitiendo la web del portfolio)
-            const ownRepos = repos.filter(r => !r.fork && r.name !== `${GITHUB_USER}.github.io`).slice(0, 6);
-            // 2. Contribuciones (forks)
-            const forkedRepos = repos.filter(r => r.fork && r.name !== `${GITHUB_USER}.github.io`).slice(0, 6);
-
-            // Renderizar proyectos propios
-            if (ownRepos.length === 0) {
-                projectsGrid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:var(--text-color);" data-lang-es="No se encontraron repositorios públicos." data-lang-en="No public repositories found.">${lang === 'es' ? 'No se encontraron repositorios públicos.' : 'No public repositories found.'}</p>`;
-            } else {
-                projectsGrid.innerHTML = ownRepos.map(repo => {
-                    const descEs = repo.description || 'Sin descripción';
-                    const descEn = repo.description || 'No description';
-                    const language = repo.language || '';
-                    const langBadge = language
-                        ? `<span class="project-lang" style="border-left: 3px solid ${getLangColor(language)}">${language}</span>`
-                        : '';
-                    const stars = repo.stargazers_count > 0
-                        ? `<span class="project-stars">⭐ ${repo.stargazers_count}</span>`
-                        : '';
-                    const linkTextEs = 'Ver repositorio →';
-                    const linkTextEn = 'View repository →';
-
-                    return `
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <i class="fab fa-github"></i>
-                            <h3>${repo.name}</h3>
-                        </div>
-                        <p data-lang-es="${descEs}" data-lang-en="${descEn}">${lang === 'es' ? descEs : descEn}</p>
-                        <div class="project-card-meta">
-                            ${langBadge}
-                            ${stars}
-                        </div>
-                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="project-card-link" data-lang-es="${linkTextEs}" data-lang-en="${linkTextEn}">
-                            ${lang === 'es' ? linkTextEs : linkTextEn}
-                        </a>
-                    </div>`;
-                }).join('');
-            }
-
-            // Renderizar contribuciones
-            if (forkedRepos.length === 0) {
-                contributionsGrid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:var(--text-color);" data-lang-es="No se encontraron contribuciones públicas." data-lang-en="No public contributions found.">${lang === 'es' ? 'No se encontraron contribuciones públicas.' : 'No public contributions found.'}</p>`;
-            } else {
-                contributionsGrid.innerHTML = forkedRepos.map(repo => {
-                    const descEs = repo.description || 'Sin descripción';
-                    const descEn = repo.description || 'No description';
-                    const language = repo.language || '';
-                    const langBadge = language
-                        ? `<span class="project-lang" style="border-left: 3px solid ${getLangColor(language)}">${language}</span>`
-                        : '';
-                    const stars = repo.stargazers_count > 0
-                        ? `<span class="project-stars">⭐ ${repo.stargazers_count}</span>`
-                        : '';
-                    const linkTextEs = 'Ver contribución →';
-                    const linkTextEn = 'View contribution →';
-
-                    return `
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <i class="fas fa-code-branch" style="color: var(--accent-color);"></i>
-                            <h3>${repo.name}</h3>
-                        </div>
-                        <p data-lang-es="${descEs}" data-lang-en="${descEn}">${lang === 'es' ? descEs : descEn}</p>
-                        <div class="project-card-meta">
-                            ${langBadge}
-                            ${stars}
-                        </div>
-                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="project-card-link" data-lang-es="${linkTextEs}" data-lang-en="${linkTextEn}">
-                            ${lang === 'es' ? linkTextEs : linkTextEn}
-                        </a>
-                    </div>`;
-                }).join('');
-            }
-
+            // Enriquecer dinámicamente las tarjetas estáticas con datos en vivo (estrellas, etc.)
+            repos.forEach(repo => {
+                if (repo.stargazers_count > 0) {
+                    const card = document.querySelector(`.project-card[data-repo="${repo.name}"]`);
+                    if (card) {
+                        const meta = card.querySelector('.project-card-meta');
+                        if (meta && !meta.querySelector('.project-stars')) {
+                            const starsSpan = document.createElement('span');
+                            starsSpan.className = 'project-stars';
+                            starsSpan.textContent = `⭐ ${repo.stargazers_count}`;
+                            meta.appendChild(starsSpan);
+                        }
+                    }
+                }
+            });
         } catch (err) {
-            const errorMsgEs = 'No se pudieron cargar los proyectos. Visita el perfil de GitHub directamente.';
-            const errorMsgEn = 'Could not load projects. Visit the GitHub profile directly.';
-            const errorHtml = `
-                <div class="projects-loading">
-                    <i class="fas fa-exclamation-triangle fa-2x" style="color:#dc3545"></i>
-                    <p data-lang-es="${errorMsgEs}" data-lang-en="${errorMsgEn}">${lang === 'es' ? errorMsgEs : errorMsgEn}</p>
-                </div>`;
-            projectsGrid.innerHTML = errorHtml;
-            contributionsGrid.innerHTML = errorHtml;
+            // Falla de red silenciosa: los proyectos estáticos siguen viéndose perfectamente
+            console.warn('[GitHub API] Error al conectar con GitHub. Conservando listado estático:', err);
         }
     }
 
