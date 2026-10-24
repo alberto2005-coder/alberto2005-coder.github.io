@@ -1,0 +1,26 @@
+{
+  "name": "Alberto Ortiz Sánchez | Portfolio & CV",
+  "short_name": "Alberto Ortiz",
+  "description": "Portfolio y CV de Alberto Ortiz Sánchez, Técnico Superior DAM.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#12121d",
+  "theme_color": "#12121d",
+  "icons": [
+    {
+      "src": "assets/img/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
