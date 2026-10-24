@@ -63,14 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Portfolio y CV de Alberto Ortiz Sánchez, Técnico Superior en Desarrollo de Aplicaciones Multiplataforma. Experiencia en HTML, CSS, JavaScript, Python, Java y más.',
             expand: 'Abrir menú de idioma',
             openMenu: 'Abrir menú',
-            closeMenu: 'Cerrar menú'
+            closeMenu: 'Cerrar menú',
+            cvLabel: 'Descargar CV en PDF'
         },
         en: {
             title: 'Alberto Ortiz Sánchez | Full Stack Developer · Portfolio & CV',
             description: 'Portfolio and CV of Alberto Ortiz Sánchez, Higher Technician in Multiplatform Application Development. Experience with HTML, CSS, JavaScript, Python, Java and more.',
             expand: 'Open language menu',
             openMenu: 'Open menu',
-            closeMenu: 'Close menu'
+            closeMenu: 'Close menu',
+            cvLabel: 'Download CV as PDF'
         }
     };
 
@@ -100,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.href = file;
                 link.setAttribute('hreflang', language);
             }
+            link.setAttribute('aria-label', meta.cvLabel);
         });
 
         // Textos accesibles del menú móvil y tema

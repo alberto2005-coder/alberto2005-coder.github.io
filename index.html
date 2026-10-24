@@ -58,7 +58,18 @@
         "addressCountry": "ES"
       },
       "knowsLanguage": ["es", "en", "fr"],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "IES Padre Suárez"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "IES Zaidín Vergeles"
+        }
+      ],
       "sameAs": [
+        "https://www.linkedin.com/in/alberto-ortiz-sanchez",
         "https://github.com/alberto2005-coder",
         "https://alberto-coder2005.itch.io/",
         "https://gamejolt.com/@eldestructor1/games",
@@ -69,7 +80,7 @@
     </script>
 
     <!-- ===== ESTILOS Y FUENTES ===== -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=20261024b">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -86,9 +97,9 @@
     <a class="skip-link" href="#about" data-lang-es="Saltar al contenido" data-lang-en="Skip to content">Saltar al contenido</a>
 
     <nav class="navbar">
-        <a href="#hero" class="nav-brand">
-            <span class="nav-logo" aria-hidden="true">AO</span>
-            <span class="nav-brand-text">Alberto O.S.</span>
+        <a href="#hero" class="nav-brand" aria-label="Alberto O.S. — inicio">
+            <img class="nav-logo" src="assets/img/logo-mark.png" alt="" width="312" height="144">
+            <span class="nav-brand-text" aria-hidden="true">Alberto O.S.</span>
         </a>
 
         <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"
@@ -108,7 +119,8 @@
         </div>
 
         <div class="nav-actions">
-            <a href="assets/cv/CV_Alberto_Ortiz_ES.pdf" class="nav-cv-btn" download data-cv-link>
+            <a href="assets/cv/CV_Alberto_Ortiz_ES.pdf" class="nav-cv-btn" download data-cv-link
+                data-cv-es="assets/cv/CV_Alberto_Ortiz_ES.pdf" data-cv-en="assets/cv/CV_Alberto_Ortiz_EN.pdf">
                 <i class="fas fa-file-arrow-down" aria-hidden="true"></i>
                 <span>CV</span>
             </a>
@@ -171,6 +183,11 @@
                 Con una sólida base en Bachillerato de Ciencias y una alta calificación en Selectividad, me destaco por
                 mi facilidad para aprender y mi disponibilidad para adaptarme a nuevos desafíos. Busco oportunidades
                 para contribuir en proyectos innovadores y seguir creciendo profesionalmente.</p>
+            <p data-lang-es="Actualmente amplío mi formación con el Máster de FP en Aprendizaje Automático: Gestión de Datos y Entrenamiento (IES Zaidín Vergeles), orientado a aplicar inteligencia artificial y análisis de datos a proyectos reales."
+                data-lang-en="I am currently expanding my training with the Higher Vocational Master's in Machine Learning: Data Management and Training (IES Zaidín Vergeles), focused on applying artificial intelligence and data analysis to real projects.">
+                Actualmente amplío mi formación con el Máster de FP en Aprendizaje Automático: Gestión de Datos y
+                Entrenamiento (IES Zaidín Vergeles), orientado a aplicar inteligencia artificial y análisis de datos a
+                proyectos reales.</p>
             <div class="personal-details">
                 <h3 data-lang-es="Información Personal" data-lang-en="Personal Details">Información Personal</h3>
                 <ul>
@@ -228,6 +245,23 @@
                     <li><i class="fab fa-linux"></i> Linux</li>
                     <li><i class="fas fa-server"></i> <span data-lang-es="Servidores"
                             data-lang-en="Servers">Servidores</span></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3 data-lang-es="IA &amp; Datos" data-lang-en="AI &amp; Data">IA &amp; Datos</h3>
+                <ul>
+                    <li><i class="fas fa-brain"></i> <span data-lang-es="Aprendizaje Automático (en formación)"
+                            data-lang-en="Machine Learning (in training)">Aprendizaje Automático (en formación)</span></li>
+                    <li><i class="fas fa-database"></i> <span data-lang-es="Gestión y Tratamiento de Datos"
+                            data-lang-en="Data Management & Processing">Gestión y Tratamiento de Datos</span></li>
+                    <li><i class="fas fa-robot"></i> <span data-lang-es="Agentes de IA"
+                            data-lang-en="AI Agents">Agentes de IA</span></li>
+                    <li><i class="fas fa-terminal"></i> <span data-lang-es="Desarrollo asistido con IA (Claude Code)"
+                            data-lang-en="AI-assisted development (Claude Code)">Desarrollo asistido con IA (Claude
+                            Code)</span></li>
+                    <li><i class="fas fa-chart-line"></i> Google Analytics</li>
+                    <li><i class="fas fa-magnifying-glass-chart"></i> <span data-lang-es="SEO para IA y Google"
+                            data-lang-en="SEO for AI & Google">SEO para IA y Google</span></li>
                 </ul>
             </div>
             <div class="skill-category">
@@ -365,9 +399,10 @@
         <div class="projects-grid">
             <!-- The Memory Game (Play Store) -->
             <div class="project-card">
-                <div class="project-media" style="--cover: url('assets/projects/the-memory-game.jpg')">
-                    <img src="assets/projects/the-memory-game.jpg" alt="" loading="lazy" width="640" height="360"
-                        onerror="this.classList.add('is-missing')">
+                <div class="project-media">
+                    <img class="project-media-bg" src="assets/projects/the-memory-game.jpg" alt="" aria-hidden="true">
+                    <img class="project-media-main" src="assets/projects/the-memory-game.jpg" alt="" loading="lazy"
+                        width="640" height="360" onerror="this.classList.add('is-missing')">
                     <span class="project-media-fallback" aria-hidden="true"><i class="fab fa-google-play"></i></span>
                 </div>
                 <div class="project-card-header">
@@ -390,9 +425,10 @@
 
             <!-- Neon Dash (Itch.io) -->
             <div class="project-card">
-                <div class="project-media" style="--cover: url('assets/projects/neon-dash.jpg')">
-                    <img src="assets/projects/neon-dash.jpg" alt="" loading="lazy" width="640" height="360"
-                        onerror="this.classList.add('is-missing')">
+                <div class="project-media">
+                    <img class="project-media-bg" src="assets/projects/neon-dash.jpg" alt="" aria-hidden="true">
+                    <img class="project-media-main" src="assets/projects/neon-dash.jpg" alt="" loading="lazy"
+                        width="640" height="360" onerror="this.classList.add('is-missing')">
                     <span class="project-media-fallback" aria-hidden="true"><i class="fas fa-gamepad"></i></span>
                 </div>
                 <div class="project-card-header">
@@ -413,9 +449,10 @@
 
             <!-- Tetris C++ (Itch.io) -->
             <div class="project-card">
-                <div class="project-media" style="--cover: url('assets/projects/tetris-cpp.jpg')">
-                    <img src="assets/projects/tetris-cpp.jpg" alt="" loading="lazy" width="640" height="360"
-                        onerror="this.classList.add('is-missing')">
+                <div class="project-media">
+                    <img class="project-media-bg" src="assets/projects/tetris-cpp.jpg" alt="" aria-hidden="true">
+                    <img class="project-media-main" src="assets/projects/tetris-cpp.jpg" alt="" loading="lazy"
+                        width="640" height="360" onerror="this.classList.add('is-missing')">
                     <span class="project-media-fallback" aria-hidden="true"><i class="fas fa-code"></i></span>
                 </div>
                 <div class="project-card-header">
@@ -714,17 +751,22 @@
         <h2 class="section-title" data-lang-es="Contacto" data-lang-en="Contact">Contacto</h2>
         <div class="contact-card">
             <p class="contact-label" data-lang-es="Escríbeme" data-lang-en="Email me">Escríbeme</p>
-            <a class="contact-email" href="mailto:albertoortixsanchez@gmail.com">albertoortixsanchez@gmail.com</a>
-            <button class="copy-btn" type="button" data-copy="albertoortixsanchez@gmail.com"
-                data-copied-es="¡Copiado!" data-copied-en="Copied!">
-                <i class="fas fa-copy" aria-hidden="true"></i>
-                <span data-lang-es="Copiar email" data-lang-en="Copy email">Copiar email</span>
-            </button>
+            <div class="contact-email-row">
+                <a class="contact-email" href="mailto:albertoortixsanchez@gmail.com">albertoortixsanchez@gmail.com</a>
+                <button class="copy-btn" type="button" data-copy="albertoortixsanchez@gmail.com"
+                    data-copied-es="¡Copiado!" data-copied-en="Copied!">
+                    <i class="fas fa-copy" aria-hidden="true"></i>
+                    <span data-lang-es="Copiar email" data-lang-en="Copy email">Copiar email</span>
+                </button>
+            </div>
         </div>
 
         <p class="contact-socials-title" data-lang-es="O encuéntrame en" data-lang-en="Or find me on">O encuéntrame
             en</p>
         <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/alberto-ortiz-sanchez" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span>
+            </a>
             <a href="https://github.com/alberto2005-coder" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span>
             </a>
@@ -748,6 +790,36 @@
             cualquier consulta o colaboración!</p>
     </section>
 
+    <!-- ===== COMPARTIR / QR ===== -->
+    <section id="share" class="section-container">
+        <h2 class="section-title" data-lang-es="Comparte" data-lang-en="Share">Comparte</h2>
+        <div class="share-card">
+            <a class="share-qr" href="assets/img/qr-portfolio.png" target="_blank" rel="noopener">
+                <img src="assets/img/qr-portfolio.svg" alt="Código QR con el enlace al portfolio de Alberto Ortiz Sánchez"
+                    width="220" height="220">
+            </a>
+            <div class="share-body">
+                <h3 data-lang-es="Escanea y pásalo" data-lang-en="Scan and pass it on">Escanea y pásalo</h3>
+                <p data-lang-es="Abre el portfolio en el móvil o compártelo al instante con quien quieras. También puedes descargar el QR para imprimirlo o enviarlo."
+                    data-lang-en="Open the portfolio on your phone or share it instantly with anyone. You can also download the QR to print it or send it.">
+                    Abre el portfolio en el móvil o compártelo al instante con quien quieras. También puedes descargar
+                    el QR para imprimirlo o enviarlo.</p>
+                <p class="share-url">alberto2005-coder.github.io</p>
+                <div class="share-actions">
+                    <button class="copy-btn" type="button" data-copy="https://alberto2005-coder.github.io/"
+                        data-copied-es="¡Enlace copiado!" data-copied-en="Link copied!">
+                        <i class="fas fa-link" aria-hidden="true"></i>
+                        <span data-lang-es="Copiar enlace" data-lang-en="Copy link">Copiar enlace</span>
+                    </button>
+                    <a class="copy-btn" href="assets/img/qr-portfolio.png" download="qr-portfolio-alberto.png">
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        <span data-lang-es="Descargar QR" data-lang-en="Download QR">Descargar QR</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <footer>
         <div class="footer-inner">
@@ -758,12 +830,14 @@
                 <a href="assets/cv/CV_Alberto_Ortiz_ES.pdf" download>CV (ES)</a>
                 <a href="assets/cv/CV_Alberto_Ortiz_EN.pdf" download>CV (EN)</a>
                 <a href="https://github.com/alberto2005-coder" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/alberto-ortiz-sanchez" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://alberto-coder2005.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
             </p>
         </div>
     </footer>
 
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js?v=20261024b"></script>
 </body>
 
 </html>
