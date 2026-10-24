@@ -16,10 +16,9 @@
     <link rel="canonical" href="https://alberto2005-coder.github.io/">
 
     <!-- ===== FAVICON ===== -->
-    <link rel="icon" href="favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/img/icon-96.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#12121d">
@@ -48,92 +47,104 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Alberto Ortiz Sánchez",
-      "jobTitle": "Desarrollador Full Stack · Técnico Superior DAM",
-      "url": "https://alberto2005-coder.github.io/",
-      "image": [
-        "https://alberto2005-coder.github.io/assets/img/logo.png",
-        "https://alberto2005-coder.github.io/assets/img/icon-512.png"
-      ],
-      "gender": "Male",
-      "email": "albertoortixsanchez@gmail.com",
-      "nationality": {
-        "@type": "Country",
-        "name": "Spain"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Granada",
-        "addressRegion": "Andalucía",
-        "addressCountry": "ES"
-      },
-      "knowsLanguage": [
+      "@graph": [
         {
-          "@type": "Language",
-          "name": "Spanish",
-          "alternateName": "es"
+          "@type": "WebSite",
+          "@id": "https://alberto2005-coder.github.io/#website",
+          "url": "https://alberto2005-coder.github.io/",
+          "name": "Alberto Ortiz Sánchez",
+          "alternateName": ["Alberto O.S. Portfolio", "alberto2005-coder"]
         },
         {
-          "@type": "Language",
-          "name": "English",
-          "alternateName": "en"
-        },
-        {
-          "@type": "Language",
-          "name": "French",
-          "alternateName": "fr"
+          "@type": "Person",
+          "@id": "https://alberto2005-coder.github.io/#person",
+          "name": "Alberto Ortiz Sánchez",
+          "jobTitle": "Desarrollador Full Stack · Técnico Superior DAM",
+          "url": "https://alberto2005-coder.github.io/",
+          "image": [
+            "https://alberto2005-coder.github.io/assets/img/logo.png",
+            "https://alberto2005-coder.github.io/assets/img/icon-512.png"
+          ],
+          "gender": "Male",
+          "email": "albertoortixsanchez@gmail.com",
+          "nationality": {
+            "@type": "Country",
+            "name": "Spain"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Granada",
+            "addressRegion": "Andalucía",
+            "addressCountry": "ES"
+          },
+          "knowsLanguage": [
+            {
+              "@type": "Language",
+              "name": "Spanish",
+              "alternateName": "es"
+            },
+            {
+              "@type": "Language",
+              "name": "English",
+              "alternateName": "en"
+            },
+            {
+              "@type": "Language",
+              "name": "French",
+              "alternateName": "fr"
+            }
+          ],
+          "alumniOf": [
+            {
+              "@type": "EducationalOrganization",
+              "name": "IES Zaidín Vergeles",
+              "description": "Máster de FP en Aprendizaje Automático: Gestión de Datos y Entrenamiento"
+            },
+            {
+              "@type": "EducationalOrganization",
+              "name": "IES Padre Suárez",
+              "description": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) y Bachillerato de Ciencias"
+            }
+          ],
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "IBM Explore Emerging Tech"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Google Analytics Certification"
+            }
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/alberto-ortiz-sanchez",
+            "https://github.com/alberto2005-coder",
+            "https://alberto-coder2005.itch.io/",
+            "https://gamejolt.com/@eldestructor1/games",
+            "https://play.google.com/store/apps/details?id=com.grgames.thememorygames"
+          ],
+          "knowsAbout": [
+            "Desarrollo Full Stack",
+            "Inteligencia Artificial",
+            "Aprendizaje Automático",
+            "Desarrollo de Videojuegos",
+            "Ciberseguridad & OSINT",
+            "Criptografía y Cifrado AES-256",
+            "Creación de Compiladores e Intérpretes",
+            "Python (Faster-Whisper, Ollama)",
+            "Java (Spring Boot, Swing)",
+            "C++",
+            "TypeScript (React 19, Three.js, Tauri)",
+            "Kotlin & Jetpack Compose",
+            "Flutter & Dart",
+            "Odoo & PrestaShop ERP",
+            "Docker y Despliegue de Aplicaciones"
+          ]
         }
-      ],
-      "alumniOf": [
-        {
-          "@type": "EducationalOrganization",
-          "name": "IES Zaidín Vergeles",
-          "description": "Máster de FP en Aprendizaje Automático: Gestión de Datos y Entrenamiento"
-        },
-        {
-          "@type": "EducationalOrganization",
-          "name": "IES Padre Suárez",
-          "description": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) y Bachillerato de Ciencias"
-        }
-      ],
-      "hasCredential": [
-        {
-          "@type": "EducationalOccupationalCredential",
-          "name": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma"
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "name": "IBM Explore Emerging Tech"
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "name": "Google Analytics Certification"
-        }
-      ],
-      "sameAs": [
-        "https://www.linkedin.com/in/alberto-ortiz-sanchez",
-        "https://github.com/alberto2005-coder",
-        "https://alberto-coder2005.itch.io/",
-        "https://gamejolt.com/@eldestructor1/games",
-        "https://play.google.com/store/apps/details?id=com.grgames.thememorygames"
-      ],
-      "knowsAbout": [
-        "Desarrollo Full Stack",
-        "Inteligencia Artificial",
-        "Aprendizaje Automático",
-        "Desarrollo de Videojuegos",
-        "Ciberseguridad & OSINT",
-        "Criptografía y Cifrado AES-256",
-        "Creación de Compiladores e Intérpretes",
-        "Python (Faster-Whisper, Ollama)",
-        "Java (Spring Boot, Swing)",
-        "C++",
-        "TypeScript (React 19, Three.js, Tauri)",
-        "Kotlin & Jetpack Compose",
-        "Flutter & Dart",
-        "Odoo & PrestaShop ERP",
-        "Docker y Despliegue de Aplicaciones"
       ]
     }
     </script>
