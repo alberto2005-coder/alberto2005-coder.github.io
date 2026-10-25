@@ -645,7 +645,7 @@ body[data-theme="dark"] .hero-section {
     color: var(--primary-color);
     margin-bottom: 5px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
     flex-wrap: wrap;
     word-break: break-word;
