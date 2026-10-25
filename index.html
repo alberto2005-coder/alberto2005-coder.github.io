@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- ===== SEGURIDAD BÁSICA ===== -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https:; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
     <!-- ===== SEO BÁSICO ===== -->
     <title>Alberto Ortiz Sánchez | Técnico Superior DAM · Portfolio & CV</title>
     <meta name="description"
@@ -472,8 +480,8 @@
             <!-- The Memory Game (Play Store) -->
             <div class="project-card">
                 <div class="project-media">
-                    <img class="project-media-bg" src="assets/projects/the-memory-game.jpg" alt="Fondo The Memory Game" aria-hidden="true">
-                    <img class="project-media-main" src="assets/projects/the-memory-game.jpg" alt="The Memory Game — Videojuego publicado en Google Play Store" loading="lazy"
+                    <img class="project-media-bg" src="assets/projects/the-memory-game.jpg" alt="Fondo The Memory Game" aria-hidden="true" width="640" height="360">
+                    <img class="project-media-main" src="assets/projects/the-memory-game.jpg" alt="The Memory Game — Videojuego publicado en Google Play Store"
                         width="640" height="360" onerror="this.classList.add('is-missing')">
                     <span class="project-media-fallback" aria-hidden="true"><i class="fab fa-google-play"></i></span>
                 </div>
@@ -498,8 +506,8 @@
             <!-- Neon Dash (Itch.io) -->
             <div class="project-card">
                 <div class="project-media">
-                    <img class="project-media-bg" src="assets/projects/neon-dash.jpg" alt="Fondo Neon Dash" aria-hidden="true">
-                    <img class="project-media-main" src="assets/projects/neon-dash.jpg" alt="Neon Dash — Videojuego arcade de ritmo y velocidad en Itch.io" loading="lazy"
+                    <img class="project-media-bg" src="assets/projects/neon-dash.jpg" alt="Fondo Neon Dash" aria-hidden="true" width="640" height="360">
+                    <img class="project-media-main" src="assets/projects/neon-dash.jpg" alt="Neon Dash — Videojuego arcade de ritmo y velocidad en Itch.io"
                         width="640" height="360" onerror="this.classList.add('is-missing')">
                     <span class="project-media-fallback" aria-hidden="true"><i class="fas fa-gamepad"></i></span>
                 </div>
@@ -522,8 +530,8 @@
             <!-- Tetris C++ (Itch.io) -->
             <div class="project-card">
                 <div class="project-media">
-                    <img class="project-media-bg" src="assets/projects/tetris-cpp.jpg" alt="Fondo Tetris C++" aria-hidden="true">
-                    <img class="project-media-main" src="assets/projects/tetris-cpp.jpg" alt="Tetris C++ — Recreación clásica desarrollada en C++ en Itch.io" loading="lazy"
+                    <img class="project-media-bg" src="assets/projects/tetris-cpp.jpg" alt="Fondo Tetris C++" aria-hidden="true" width="640" height="360">
+                    <img class="project-media-main" src="assets/projects/tetris-cpp.jpg" alt="Tetris C++ — Recreación clásica desarrollada en C++ en Itch.io"
                         width="640" height="360" onerror="this.classList.add('is-missing')">
                     <span class="project-media-fallback" aria-hidden="true"><i class="fas fa-code"></i></span>
                 </div>
