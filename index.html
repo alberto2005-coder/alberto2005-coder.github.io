@@ -168,17 +168,77 @@
         rel="stylesheet">
     <!-- ===== ICONOS (FontAwesome Stable CDN) ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-109ZZCRWHV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { window.dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-109ZZCRWHV');
-    </script>
 </head>
 
 <body>
+    <div id="cookie-consent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies">
+        <div class="cookie-panel">
+            <div class="cookie-copy">
+                <h3>Uso de cookies</h3>
+                <p>Utilizo Google Analytics para entender cómo interactúan las personas con la web y mejorar el contenido. Puedes aceptar o rechazar el uso de estas cookies.</p>
+            </div>
+            <div class="cookie-actions">
+                <button type="button" class="cookie-btn cookie-btn-secondary" data-cookie-action="reject">Rechazar</button>
+                <button type="button" class="cookie-btn cookie-btn-primary" data-cookie-action="accept">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const storageKey = 'portfolio-cookie-consent';
+            const banner = document.getElementById('cookie-consent');
+
+            if (!banner) return;
+
+            function loadAnalytics() {
+                if (window.gtag) return;
+
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = function () {
+                    window.dataLayer.push(arguments);
+                };
+
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-109ZZCRWHV';
+                document.head.appendChild(script);
+
+                window.gtag('js', new Date());
+                window.gtag('config', 'G-109ZZCRWHV');
+            }
+
+            const savedChoice = localStorage.getItem(storageKey);
+
+            if (savedChoice === 'accepted') {
+                banner.remove();
+                loadAnalytics();
+                return;
+            }
+
+            if (savedChoice === 'rejected') {
+                banner.remove();
+                return;
+            }
+
+            const buttons = banner.querySelectorAll('[data-cookie-action]');
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const action = button.dataset.cookieAction;
+                    const consent = action === 'accept' ? 'accepted' : 'rejected';
+                    localStorage.setItem(storageKey, consent);
+
+                    if (action === 'accept') {
+                        loadAnalytics();
+                    }
+
+                    banner.classList.add('is-hidden');
+                    setTimeout(() => banner.remove(), 250);
+                });
+            });
+        })();
+    </script>
+
     <!-- Barra de progreso de lectura -->
     <div id="read-progress"></div>
 
