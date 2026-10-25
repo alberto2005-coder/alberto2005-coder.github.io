@@ -902,8 +902,17 @@ footer {
     .timeline-item::after { left: 13px; }
     .timeline-item.right { left: 0%; padding-left: 50px; }
     .timeline-content { text-align: left; }
-    .timeline-content h3 { font-size: 1.1em; word-break: break-word; overflow-wrap: anywhere; }
+    .timeline-content h3 { font-size: 1.1em; }
     .education-grid, .courses-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .timeline-item { padding-left: 38px; padding-right: 8px; }
+    .timeline::after { left: 14px; }
+    .timeline-item::after { left: 7px; width: 20px; height: 20px; }
+    .timeline-content { padding: 16px 18px; }
+    .timeline-content h3 { font-size: 1em; }
+    .section-container { padding: 50px 14px; }
 }
 
 @media (max-width: 576px) {
