@@ -448,6 +448,13 @@ body[data-theme="dark"] .hero-section {
     .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+@media (min-width: 1280px) {
+    .skills-grid { max-width: 1320px; }
+    .skill-category { padding: 28px 24px; }
+    .skill-category h3 { font-size: clamp(2rem, 1.6vw, 3rem); }
+    .skill-category ul { gap: 18px 16px; }
+}
+
 .skill-category {
     background-color: var(--bg-main);
     padding: 30px;
@@ -474,15 +481,21 @@ body[data-theme="dark"] .hero-section {
 
 .skill-category ul {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 14px;
+    align-items: stretch;
 }
 
 .skill-category li {
-    font-size: 1em;
+    font-size: clamp(0.98rem, 1vw, 1.2rem);
     display: flex;
     align-items: center;
+    gap: 12px;
+    min-height: 52px;
+    line-height: 1.35;
     transition: color 0.3s ease;
+    width: 100%;
+    word-break: break-word;
 }
 
 .skill-category li:hover {
@@ -490,7 +503,9 @@ body[data-theme="dark"] .hero-section {
 }
 
 .skill-category li i {
-    margin-right: 12px;
+    flex-shrink: 0;
+    width: 1.5em;
+    text-align: center;
     font-size: 1.2em;
     transition: color 0.3s ease;
 }
@@ -1395,6 +1410,11 @@ footer .footer-links a:hover { color: #fff; }
     .theme-btn { width: 36px; height: 36px; font-size: 1em; }
     .lang-btn { padding: 6px 10px; font-size: 0.9em; gap: 5px; }
     .hero-role { font-size: 0.85em; letter-spacing: 0.1em; }
+    .skills-grid { gap: 20px; }
+    .skill-category { padding: 22px 18px; }
+    .skill-category h3 { font-size: clamp(1.5rem, 6vw, 2rem); }
+    .skill-category ul { gap: 14px 10px; }
+    .skill-category li { min-height: 46px; }
     .project-media { margin: -25px -25px 14px; }
     .recommendation-card { flex-direction: column; padding: 26px; gap: 14px; }
     .contact-card { padding: 22px; }
