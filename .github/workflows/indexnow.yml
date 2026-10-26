@@ -1,0 +1,24 @@
+name: Notificar Indexación a Motores de Búsqueda
+
+on:
+  push:
+    branches:
+      - main  # Cambia esto a 'master' o 'gh-pages' si tu rama de producción de GitHub Pages se llama diferente
+
+jobs:
+  indexnow-submission:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Enviar URL al endpoint central de IndexNow (Bing, Yandex y otros)
+        run: |
+          curl -i "https://api.indexnow.org/indexnow?url=https://albertoortiz.is-a.dev/&key=3f9c2a7e5b1d48c6a0e7d2b94f6c81a5"
+
+
+
+      - name: Enviar URL de respaldo directo a los servidores de Yandex
+        run: |
+          curl -i "https://yandex.com/indexnow?url=https://albertoortiz.is-a.dev/&key=3f9c2a7e5b1d48c6a0e7d2b94f6c81a5"
+
