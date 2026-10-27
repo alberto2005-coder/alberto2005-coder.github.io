@@ -115,6 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         langDropdown.classList.remove('show');
         langBtn.setAttribute('aria-expanded', 'false');
+
+        // Avisa a otros componentes (p. ej. placeholders del formulario)
+        document.dispatchEvent(new CustomEvent('langchange', { detail: { language } }));
     };
 
     const currentLang = localStorage.getItem('language') || 'es';
@@ -377,7 +380,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Enriquecer dinámicamente las tarjetas estáticas con datos en vivo (estrellas, etc.)
             repos.forEach(repo => {
                 if (repo.stargazers_count > 0) {
-                    const card = document.querySelector(`.project-card[data-repo="${repo.name}"]`);
+                    // repo.name viene de la API externa: se escapa para no romper el selector
+                    const card = document.querySelector(`.project-card[data-repo="${CSS.escape(repo.name)}"]`);
                     if (card) {
                         const meta = card.querySelector('.project-card-meta');
                         if (meta && !meta.querySelector('.project-stars')) {
@@ -429,5 +433,95 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 2000);
         });
     });
+
+    /* ===== Formulario de contacto (Web3Forms por AJAX) ===== */
+    const contactForm = document.getElementById('contact-form');
+
+    if (contactForm) {
+        const statusEl = document.getElementById('form-status');
+        const submitBtn = contactForm.querySelector('.contact-form-submit');
+        const btnLabel = submitBtn ? submitBtn.querySelector('span') : null;
+
+        const setStatus = (type, message) => {
+            if (!statusEl) return;
+            statusEl.className = 'form-status is-visible';
+            if (type) statusEl.classList.add(`is-${type}`);
+            statusEl.textContent = message;
+        };
+
+        const clearStatus = () => {
+            if (!statusEl) return;
+            statusEl.className = 'form-status';
+            statusEl.textContent = '';
+        };
+
+        // Traducir placeholders al cambiar de idioma
+        const syncPlaceholders = () => {
+            const lang = langCode();
+            contactForm.querySelectorAll('[data-placeholder-es]').forEach(el => {
+                const value = el.getAttribute(`data-placeholder-${lang}`);
+                if (value) el.setAttribute('placeholder', value);
+            });
+        };
+        syncPlaceholders();
+
+        // El traductor global solo cambia innerHTML; aquí los placeholders se actualizan aparte
+        document.addEventListener('langchange', syncPlaceholders);
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            clearStatus();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            const originalLabel = btnLabel ? btnLabel.textContent : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.classList.add('is-loading');
+            }
+            if (btnLabel) {
+                btnLabel.textContent = langCode() === 'es' ? 'Enviando…' : 'Sending…';
+            }
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { Accept: 'application/json' }
+                });
+
+                const data = await response.json().catch(() => ({}));
+
+                // Éxito si la API responde OK y no indica fallo explícito
+                if (response.ok && data.success !== false) {
+                    contactForm.reset();
+                    syncPlaceholders();
+                    setStatus('success', langCode() === 'es'
+                        ? '¡Mensaje enviado! Te responderé lo antes posible.'
+                        : 'Message sent! I will get back to you as soon as possible.');
+                } else {
+                    setStatus('error', (langCode() === 'es'
+                        ? 'No se pudo enviar: '
+                        : 'Could not send: ') + (data.message || (langCode() === 'es'
+                            ? 'intenta de nuevo.'
+                            : 'try again.')));
+                }
+            } catch (err) {
+                setStatus('error', langCode() === 'es'
+                    ? 'Error de red. Revisa tu conexión e inténtalo de nuevo.'
+                    : 'Network error. Check your connection and try again.');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('is-loading');
+                }
+                if (btnLabel) btnLabel.textContent = originalLabel;
+            }
+        });
+    }
 
 });
