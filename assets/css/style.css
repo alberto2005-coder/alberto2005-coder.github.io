@@ -1457,6 +1457,26 @@ section[id] { scroll-margin-top: 90px; }
     cursor: not-allowed;
 }
 
+/* hCaptcha: centrado y adaptado al tema */
+.contact-captcha {
+    display: flex;
+    justify-content: center;
+    margin: 2px auto;
+    min-height: 78px;
+}
+
+.contact-captcha iframe {
+    max-width: 100%;
+}
+
+@media (max-width: 576px) {
+    .contact-captcha {
+        transform: scale(0.92);
+        transform-origin: top center;
+        min-height: 72px;
+    }
+}
+
 .contact-form-submit.is-loading i {
     animation: form-spin 0.9s linear infinite;
 }

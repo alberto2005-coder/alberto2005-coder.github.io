@@ -18,6 +18,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para aplicar el tema
     const langCode = () => (localStorage.getItem('language') || 'es');
 
+    // =============================================
+    // hCaptcha: mantener el widget en el mismo tema que la web
+    // =============================================
+    const syncCaptchaTheme = (theme) => {
+        const box = document.querySelector('.h-captcha');
+        if (!box) return;
+
+        const hcTheme = theme === 'dark' ? 'dark' : 'light';
+
+        // Si el tema no cambia, no se toca nada (así no se pierde
+        // la casilla ya resuelta al cambiar de idioma, por ejemplo)
+        if (box.getAttribute('data-theme') === hcTheme && box.querySelector('iframe')) return;
+
+        box.setAttribute('data-theme', hcTheme);
+
+        // Si el widget ya está montado hay que volver a renderizarlo,
+        // porque hCaptcha solo lee data-theme en el momento del render.
+        if (window.hcaptcha && box.querySelector('iframe')) {
+            try {
+                window.hcaptcha.remove();
+                box.innerHTML = '';
+                window.hcaptcha.render(box, {
+                    sitekey: box.getAttribute('data-sitekey'),
+                    theme: hcTheme
+                });
+            } catch (err) {
+                console.warn('[hCaptcha] No se pudo cambiar el tema:', err);
+            }
+        }
+    };
+
     const applyTheme = (theme) => {
         const en = langCode() === 'en';
         if (theme === 'dark') {
@@ -29,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
             themeSwitcher.innerHTML = '<i class="fas fa-moon" aria-hidden="true"></i>';
             themeSwitcher.setAttribute('aria-label', en ? 'Switch to dark theme' : 'Cambiar a tema oscuro');
         }
+
+        syncCaptchaTheme(theme);
     };
 
     // Aplicar tema inicial
@@ -475,6 +508,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!contactForm.checkValidity()) {
                 contactForm.reportValidity();
+                return;
+            }
+
+            // hCaptcha obligatorio: si no está resuelto, no se envía
+            const captchaResponse = contactForm.querySelector('textarea[name="h-captcha-response"]');
+            if (captchaResponse && !captchaResponse.value.trim()) {
+                setStatus('error', langCode() === 'es'
+                    ? 'Por favor, marca el captcha antes de enviar.'
+                    : 'Please complete the captcha before sending.');
                 return;
             }
 

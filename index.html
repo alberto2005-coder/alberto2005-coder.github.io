@@ -7,7 +7,7 @@
 
     <!-- ===== SEGURIDAD BÁSICA ===== -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://api.github.com https://api.web3forms.com https://www.googletagmanager.com https://www.google-analytics.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; upgrade-insecure-requests">
+        content="default-src 'self'; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://newassets.hcaptcha.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://newassets.hcaptcha.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://web3forms.com https://hcaptcha.com https://js.hcaptcha.com https://newassets.hcaptcha.com; connect-src 'self' https://api.github.com https://api.web3forms.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.hcaptcha.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-src 'self' https://*.hcaptcha.com; frame-ancestors 'none'; upgrade-insecure-requests">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -1249,7 +1249,6 @@
                     value="Nuevo mensaje desde Portfolio (albertoortiz.is-a.dev)">
                 <input type="hidden" name="from_name" value="Portfolio Contact Form">
                 <input type="hidden" name="redirect" value="https://albertoortiz.is-a.dev/">
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                 <div class="contact-form-row">
                     <div class="form-group">
@@ -1274,6 +1273,9 @@
                         placeholder="¿En qué puedo ayudarte?"
                         data-placeholder-es="¿En qué puedo ayudarte?" data-placeholder-en="How can I help you?"></textarea>
                 </div>
+
+                <!-- hCaptcha: protege el formulario contra bots (Web3Forms lo gestiona solo) -->
+                <div class="h-captcha contact-captcha" data-captcha="true"></div>
 
                 <button type="submit" class="btn primary-btn contact-form-submit">
                     <i class="fas fa-paper-plane" aria-hidden="true"></i>
@@ -1361,6 +1363,8 @@
     </footer>
 
     <script src="assets/js/script.js?v=20261024c"></script>
+    <!-- hCaptcha para Web3Forms: carga el widget del captcha -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
 
 </html>
