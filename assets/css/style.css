@@ -1145,6 +1145,7 @@ section[id] { scroll-margin-top: 90px; }
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.85;
+    margin-top: 0;
     margin-bottom: 14px;
 }
 
