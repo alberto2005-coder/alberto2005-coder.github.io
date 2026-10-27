@@ -1,0 +1,22 @@
+# Alberto Ortiz Sánchez
+
+> Portfolio profesional de Alberto Ortiz Sánchez, desarrollador Full Stack en Granada, España.
+
+Este sitio presenta su experiencia, formación, proyectos de software y videojuegos, habilidades técnicas y medios de contacto. Está disponible en español e inglés.
+
+## Secciones
+
+- [Sobre mí](https://albertoortiz.is-a.dev/#about): perfil y presentación profesional.
+- [Habilidades](https://albertoortiz.is-a.dev/#skills): tecnologías, herramientas e idiomas.
+- [Experiencia](https://albertoortiz.is-a.dev/#experience): experiencia profesional y prácticas.
+- [Proyectos](https://albertoortiz.is-a.dev/#projects): proyectos de software y contribuciones.
+- [Videojuegos](https://albertoortiz.is-a.dev/#games): videojuegos publicados y proyectos indie.
+- [Formación](https://albertoortiz.is-a.dev/#education): estudios académicos.
+- [Cursos y certificaciones](https://albertoortiz.is-a.dev/#courses): formación complementaria.
+- [Contacto](https://albertoortiz.is-a.dev/#contact): opciones de contacto profesional.
+
+## Perfiles
+
+- [GitHub](https://github.com/alberto2005-coder)
+- [LinkedIn](https://www.linkedin.com/in/alberto-ortiz-sanchez)
+- [Itch.io](https://alberto-coder2005.itch.io/)

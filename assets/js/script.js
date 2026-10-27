@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 const bars = entry.target.querySelectorAll('.progress-bar-fill');
                 bars.forEach(bar => {
-                    const width = bar.style.width;
+                    const width = bar.dataset.width;
                     bar.style.width = '0%';
                     setTimeout(() => { bar.style.width = width; bar.classList.add('animated'); }, 300);
                 });

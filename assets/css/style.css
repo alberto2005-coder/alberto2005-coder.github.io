@@ -104,10 +104,11 @@ ul {
     flex: 1 1 auto;
 }
 
-.cookie-copy h3 {
+.cookie-title {
     margin: 0 0 6px;
     font-size: clamp(1.1rem, 1.5vw, 1.5rem);
     color: #ffffff;
+    font-weight: 700;
 }
 
 .cookie-copy p {
@@ -992,6 +993,17 @@ footer {
     font-weight: 600;
     border: 1px solid var(--border-color);
 }
+
+.project-lang--python { border-left: 3px solid #3572A5; }
+.project-lang--javascript { border-left: 3px solid #f1e05a; }
+.project-lang--typescript { border-left: 3px solid #2b7489; }
+.project-lang--dart { border-left: 3px solid #00B4AB; }
+.project-lang--kotlin { border-left: 3px solid #F18E33; }
+.project-lang--java { border-left: 3px solid #b07219; }
+.project-lang--csharp { border-left: 3px solid #178600; }
+.project-lang--swift { border-left: 3px solid #F05138; }
+
+.project-card-header .project-branch-icon { color: var(--accent-color); }
 
 .project-stars { font-size: 0.85em; color: var(--text-color); }
 
