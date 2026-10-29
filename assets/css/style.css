@@ -1684,6 +1684,61 @@ body[data-theme="dark"] .form-status.is-error {
 
 footer .footer-links a { color: rgba(255, 255, 255, 0.75); }
 footer .footer-links a:hover { color: #fff; }
+footer .footer-links button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+footer .footer-links button:hover { color: #fff; }
+
+/* --- Información legal y avisos --- */
+.form-privacy {
+    margin-top: 10px;
+    font-size: 0.85em;
+    text-align: center;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+.form-privacy a { text-decoration: underline; }
+
+.cookie-more {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.85em;
+    text-decoration: underline;
+}
+.cookie-more:hover { text-decoration: none; }
+
+.legal-updated {
+    text-align: center;
+    font-size: 0.9em;
+    opacity: 0.85;
+    margin-bottom: 8px;
+}
+.legal-intro {
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+}
+.legal-content {
+    max-width: 920px;
+    margin: 0 auto;
+}
+.legal-content p { margin-bottom: 14px; }
+.legal-content h3 { margin: 22px 0 8px; font-size: 1.05em; }
+.legal-content h3:first-child { margin-top: 0; }
+.legal-content ul {
+    list-style: disc;
+    padding-left: 22px;
+    margin-bottom: 14px;
+}
+.legal-content li { margin-bottom: 7px; }
+.legal-content a { text-decoration: underline; }
 
 /* --- Navegación responsive con menú hamburguesa --- */
 @media (max-width: 1250px) {
