@@ -165,7 +165,7 @@
     </script>
 
     <!-- ===== ESTILOS Y FUENTES ===== -->
-    <link rel="stylesheet" href="assets/css/style.css?v=20261027a">
+    <link rel="stylesheet" href="assets/css/style.css?v=20261029a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -190,14 +190,22 @@
         aria-label="Consentimiento de cookies">
         <div class="cookie-panel">
             <div class="cookie-copy">
-                <p class="cookie-title">Uso de cookies</p>
-                <p>Utilizo Google Analytics para entender cómo interactúan las personas con la web y mejorar el
+                <p class="cookie-title" data-lang-es="Uso de cookies" data-lang-en="Cookie usage">Uso de cookies</p>
+                <p data-lang-es="Utilizo Google Analytics para entender cómo interactúan las personas con la web y
+                    mejorar el contenido. Puedes aceptar o rechazar el uso de estas cookies."
+                    data-lang-en="I use Google Analytics to understand how people interact with the site and improve
+                    the content. You can accept or reject these cookies.">
+                    Utilizo Google Analytics para entender cómo interactúan las personas con la web y mejorar el
                     contenido. Puedes aceptar o rechazar el uso de estas cookies.</p>
+                <a class="cookie-more" href="informacion-legal.html#cookies"
+                    data-lang-es="Más información sobre las cookies"
+                    data-lang-en="More information about cookies">Más información sobre las cookies</a>
             </div>
             <div class="cookie-actions">
                 <button type="button" class="cookie-btn cookie-btn-secondary"
-                    data-cookie-action="reject">Rechazar</button>
-                <button type="button" class="cookie-btn cookie-btn-primary" data-cookie-action="accept">Aceptar</button>
+                    data-cookie-action="reject" data-lang-es="Rechazar" data-lang-en="Reject">Rechazar</button>
+                <button type="button" class="cookie-btn cookie-btn-primary"
+                    data-cookie-action="accept" data-lang-es="Aceptar" data-lang-en="Accept">Aceptar</button>
             </div>
         </div>
     </div>
@@ -207,7 +215,17 @@
             const storageKey = 'portfolio-cookie-consent';
             const banner = document.getElementById('cookie-consent');
 
+            // Retirar el consentimiento desde el pie de página ("Configurar cookies")
+            document.querySelectorAll('[data-cookie-config]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    localStorage.removeItem(storageKey);
+                    location.reload();
+                });
+            });
+
             if (!banner) return;
+
+            const CONSENT_TTL = 24 * 30 * 24 * 60 * 60 * 1000; // ~24 meses (recomendación AEPD)
 
             function loadAnalytics() {
                 if (window.gtag) return;
@@ -226,7 +244,27 @@
                 window.gtag('config', 'G-109ZZCRWHV');
             }
 
-            const savedChoice = localStorage.getItem(storageKey);
+            function readConsent() {
+                const raw = localStorage.getItem(storageKey);
+                if (!raw) return null;
+
+                try {
+                    const data = JSON.parse(raw);
+                    if (data && typeof data === 'object' && data.value) {
+                        if (Date.now() - data.ts > CONSENT_TTL) {
+                            localStorage.removeItem(storageKey);
+                            return null;
+                        }
+                        return data.value;
+                    }
+                } catch (e) { /* valor antiguo guardado como texto plano */ }
+
+                // Migración de valores antiguos (sin fecha): se renueva la marca de tiempo
+                localStorage.setItem(storageKey, JSON.stringify({ value: raw, ts: Date.now() }));
+                return raw;
+            }
+
+            const savedChoice = readConsent();
 
             if (savedChoice === 'accepted') {
                 banner.remove();
@@ -244,7 +282,7 @@
                 button.addEventListener('click', () => {
                     const action = button.dataset.cookieAction;
                     const consent = action === 'accept' ? 'accepted' : 'rejected';
-                    localStorage.setItem(storageKey, consent);
+                    localStorage.setItem(storageKey, JSON.stringify({ value: consent, ts: Date.now() }));
 
                     if (action === 'accept') {
                         loadAnalytics();
@@ -1091,7 +1129,7 @@
             </div>
             <div class="course-item">
                 <h3 data-lang-es="<i class='fas fa-hands-helping'></i> VOLUNTARIADO Y RECOMENDACIÓN PROFESIONAL (2026)"
-                    data-lang-en="<i class='fas fa-hands-helping'></i> VOLUNTEER WORK &amp; PROFESSIONAL RECOMMENDATION (2026)>
+                    data-lang-en="<i class='fas fa-hands-helping'></i> VOLUNTEER WORK &amp; PROFESSIONAL RECOMMENDATION (2026)">
                     <i class="fas fa-hands-helping"></i> VOLUNTARIADO Y RECOMENDACIÓN PROFESIONAL (2026)
                 </h3>
                 <p class="details"
@@ -1332,6 +1370,15 @@
                 <!-- hCaptcha: protege el formulario contra bots (Web3Forms lo gestiona solo) -->
                 <div class="h-captcha contact-captcha" data-captcha="true"></div>
 
+                <!-- Aviso de privacidad (capa informativa del RGPD junto al formulario) -->
+                <p class="form-privacy"
+                    data-lang-es="Al enviar este formulario, tus datos (nombre, correo y mensaje) se usarán únicamente para responder a tu consulta. Consulta la <a href='informacion-legal.html#privacidad'>política de privacidad</a>."
+                    data-lang-en="When you submit this form, your data (name, email and message) will be used solely to reply to your inquiry. See the <a href='informacion-legal.html#privacidad'>privacy policy</a>.">
+                    Al enviar este formulario, tus datos (nombre, correo y mensaje) se usarán únicamente para
+                    responder a tu consulta. Consulta la <a
+                        href="informacion-legal.html#privacidad">política de privacidad</a>.
+                </p>
+
                 <button type="submit" class="btn primary-btn contact-form-submit">
                     <i class="fas fa-paper-plane" aria-hidden="true"></i>
                     <span data-lang-es="Enviar mensaje" data-lang-en="Send message">Enviar mensaje</span>
@@ -1414,6 +1461,14 @@
                 <a href="https://www.linkedin.com/in/alberto-ortiz-sanchez" target="_blank"
                     rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://alberto-coder2005.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
+                <a href="informacion-legal.html#aviso-legal" data-lang-es="Aviso legal"
+                    data-lang-en="Legal notice">Aviso legal</a>
+                <a href="informacion-legal.html#privacidad" data-lang-es="Privacidad"
+                    data-lang-en="Privacy">Privacidad</a>
+                <a href="informacion-legal.html#cookies" data-lang-es="Cookies"
+                    data-lang-en="Cookies">Cookies</a>
+                <button type="button" data-cookie-config data-lang-es="Configurar cookies"
+                    data-lang-en="Cookie settings">Configurar cookies</button>
             </p>
         </div>
     </footer>

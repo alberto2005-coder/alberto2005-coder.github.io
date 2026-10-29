@@ -21,6 +21,7 @@ jobs:
             "key": "3f9c2a7e5b1d48c6a0e7d2b94f6c81a5",
             "keyLocation": "https://albertoortiz.is-a.dev/3f9c2a7e5b1d48c6a0e7d2b94f6c81a5.txt",
             "urlList": [
-              "https://albertoortiz.is-a.dev/"
+              "https://albertoortiz.is-a.dev/",
+              "https://albertoortiz.is-a.dev/informacion-legal.html"
             ]
           }'
