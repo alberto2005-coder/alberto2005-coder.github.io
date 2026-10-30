@@ -99,11 +99,13 @@
             const banner = document.getElementById('cookie-consent');
 
             // Retirar el consentimiento desde el pie de página ("Configurar cookies")
-            document.querySelectorAll('[data-cookie-config]').forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    localStorage.removeItem(storageKey);
-                    location.reload();
-                });
+            // Delegación en document: este script se ejecuta antes de que el pie exista en el DOM
+            document.addEventListener('click', function (e) {
+                var btn = e.target && e.target.closest ? e.target.closest('[data-cookie-config]') : null;
+                if (!btn) return;
+                e.preventDefault();
+                localStorage.removeItem(storageKey);
+                location.reload();
             });
 
             if (!banner) return;
@@ -498,6 +500,8 @@
                     data-lang-en="Privacy">Privacidad</a>
                 <a href="informacion-legal.html#cookies" data-lang-es="Cookies"
                     data-lang-en="Cookies">Cookies</a>
+                <button type="button" data-cookie-config data-lang-es="Configurar cookies"
+                    data-lang-en="Cookie settings">Configurar cookies</button>
             </p>
         </div>
     </footer>
