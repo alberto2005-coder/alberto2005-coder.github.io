@@ -92,16 +92,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const metaByLang = {
         es: {
-            title: 'Alberto Ortiz Sánchez | Técnico Superior DAM · Portfolio & CV',
-            description: 'Portfolio y CV de Alberto Ortiz Sánchez, Técnico Superior en Desarrollo de Aplicaciones Multiplataforma. Experiencia en HTML, CSS, JavaScript, Python, Java y más.',
+            title: 'Alberto Ortiz Sánchez | Desarrollador Full Stack en Granada',
+            description: 'Portfolio de Alberto Ortiz Sánchez, desarrollador Full Stack en Granada. Experiencia en desarrollo web, software e inteligencia artificial.',
             expand: 'Abrir menú de idioma',
             openMenu: 'Abrir menú',
             closeMenu: 'Cerrar menú',
             cvLabel: 'Descargar CV en PDF'
         },
         en: {
-            title: 'Alberto Ortiz Sánchez | Full Stack Developer · Portfolio & CV',
-            description: 'Portfolio and CV of Alberto Ortiz Sánchez, Higher Technician in Multiplatform Application Development. Experience with HTML, CSS, JavaScript, Python, Java and more.',
+            title: 'Alberto Ortiz Sánchez | Full Stack Developer in Granada',
+            description: 'Portfolio of Alberto Ortiz Sánchez, Full Stack Developer in Granada. Experience in web development, software and artificial intelligence.',
             expand: 'Open language menu',
             openMenu: 'Open menu',
             closeMenu: 'Close menu',
