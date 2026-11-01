@@ -190,3 +190,4 @@ Todos los proyectos están alojados bajo el perfil de GitHub: **https://github.c
 - **AutoCAD 3D** (70 horas | EUSA / Diploma del SEPE | Calificación: 9.07, 2024)
 - **Sistema de Gestión Medioambiental en la Empresa** (75 horas | Campus Cámara Andalucía / SEPE | Calificación: 9.05, 2024)
 - **Certificado de Voluntariado y Carta de Recomendación Profesional** (50 horas | Fundación Inspiring Girls Panamá, Septiembre 2026)
+
