@@ -4,6 +4,8 @@
 
 Este sitio web (`https://albertoortiz.is-a.dev/`) presenta su perfil profesional, proyectos de código abierto, desarrollo de videojuegos, habilidades técnicas e información de contacto.
 
+> Para consultar la versión exhaustiva con descripción detallada de todos los proyectos de software, experiencia y certificaciones, accede a: [llms-full.txt](https://albertoortiz.is-a.dev/llms-full.txt).
+
 - **Nombre completo**: Alberto Ortiz Sánchez
 - **Alias / Usuario**: alberto2005-coder | alberto-coder2005
 - **Rol principal**: Desarrollador Full Stack · Especialista en DAM e Inteligencia Artificial

@@ -1,0 +1,192 @@
+# Alberto Ortiz Sánchez — Portfolio Completo (llms-full.txt)
+
+> Documento completo de perfil profesional, experiencia laboral, proyectos de software, desarrollo de videojuegos, formación académica y certificaciones de Alberto Ortiz Sánchez para modelos de lenguaje (LLMs) y agentes de IA.
+
+---
+
+## 1. Datos Personales e Identidad Digital
+
+- **Nombre completo**: Alberto Ortiz Sánchez
+- **Alias y nombres de usuario**: 
+  - GitHub: `alberto2005-coder` (https://github.com/alberto2005-coder)
+  - Itch.io: `alberto-coder2005` (https://alberto-coder2005.itch.io/)
+  - Discord: `eldestructor7614`
+  - Game Jolt: `@eldestructor1` (https://gamejolt.com/@eldestructor1/games)
+- **Rol profesional**: Desarrollador Web Full Stack · Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) · Estudiante de Máster de FP en Inteligencia Artificial y Machine Learning
+- **Ubicación**: Granada, Andalucía, España (Disponible para incorporación, movilidad geográfica y trabajo remoto/híbrido)
+- **Idiomas**:
+  - Español: Nativo
+  - Inglés: B1 (Cambridge)
+  - Francés: A2
+- **Permiso de conducir**: B (Coche)
+- **Sitio web oficial**: https://albertoortiz.is-a.dev/
+- **Contacto**:
+  - Correo principal: `contacto@albertoortiz.is-a.dev`
+  - Correo alternativo: `albertoortixsanchez@gmail.com`
+  - LinkedIn: https://www.linkedin.com/in/alberto-ortiz-sanchez
+  - GitHub: https://github.com/alberto2005-coder
+
+---
+
+## 2. Resumen Profesional
+
+Alberto Ortiz Sánchez es un desarrollador Full Stack y Técnico Superior DAM apasionado por crear software innovador, seguro y de alto rendimiento. Cuenta con una sólida base científica, destacando por su capacidad de aprendizaje rápido, resolución autónoma de problemas y versatilidad técnica. Combina experiencia práctica en desarrollo web, creación de videojuegos, herramientas de ciberseguridad/OSINT y especialización actual en Inteligencia Artificial, Aprendizaje Automático y Agentes Autónomos.
+
+---
+
+## 3. Habilidades Técnicas
+
+- **Lenguajes de programación**: Python, Java, JavaScript, TypeScript, C++, C#, Kotlin, Dart, Swift, HTML5, CSS3, SQL.
+- **Frameworks y librerías**: React 19, Three.js, Tauri, Spring Boot, Swing, Flutter, Jetpack Compose, ASP.NET Core MVC, discord.py.
+- **Inteligencia Artificial y Datos**: Aprendizaje Automático (Machine Learning), Ollama, Faster-Whisper, Groq, OpenAI API, Agentes de IA, Claude Code, tratamiento y análisis de datos.
+- **Ciberseguridad y Criptografía**: Criptografía simétrica AES-256, arquitectura Zero-Knowledge, esteganografía, OSINT (inteligencia de fuentes abiertas), hacking ético, seguridad web (cabeceras HTTP, CSP).
+- **Plataformas, CMS y ERP**: Odoo ERP (desarrollo y módulos), PrestaShop (módulos y personalización), WordPress (desarrollo de plugins y temas).
+- **Bases de datos y Persistencia**: MySQL, PostgreSQL, SQL Server, Room Database (Android), Random Access Files (RAF), XML.
+- **DevOps, Sistemas y Herramientas**: Docker, Linux, Git & GitHub, macOS/UNIX kernel (sysctl), Google Analytics, SEO técnico para IA y Google.
+- **Videojuegos y Multimedia**: Unity, C#, modelado 3D (AutoCAD), procesamiento de vídeo/audio multihilo con FFmpeg.
+
+---
+
+## 4. Experiencia Laboral y Voluntariados
+
+### Desarrollador Web Full Stack Voluntario (2026)
+- **Organización**: Fundación Inspiring Girls Panamá
+- **Dedicación**: 50 horas de voluntariado
+- **Descripción**: Desarrollo integral de la plataforma web oficial (Frontend, Backend y gestor de contenidos CMS autónomo y fácil de administrar estilo WordPress). Trabajo coordinado para desplegar una plataforma funcional y accesible.
+- **Reconocimiento**: Reconocido con Carta de Recomendación Profesional emitida por la Directora Ejecutiva Dra. Iraira Butcher Boza, destacando su profesionalismo, calidad técnica y trabajo colaborativo.
+
+### Desarrollador de Software en Prácticas (2026)
+- **Empresa**: Lynx Devs (Granada)
+- **Modalidad**: Formación en Centros de Trabajo (FCT)
+- **Descripción**: 
+  - Desarrollo y mantenimiento de módulos y flujos de gestión en el ERP Odoo.
+  - Desarrollo de módulos a medida y configuración avanzada en PrestaShop.
+  - Desarrollo de aplicaciones SaaS y software a medida.
+  - Creación y mantenimiento de sitios web en WordPress y desarrollo de plugins/módulos personalizados.
+
+### Informático en Prácticas (2024)
+- **Institución**: IES José Hurtado
+- **Modalidad**: Formación en Centros de Trabajo (FCT)
+- **Descripción**: Montaje, diagnóstico y configuración de equipos informáticos; soporte técnico y resolución de incidencias de hardware y periféricos; administración y desarrollo de portales web en WordPress.
+
+### Experiencia Complementaria
+- **Ayudante de cocina**: La Ruta del Azafrán (trabajo a tiempo parcial durante los estudios).
+- **Carpintería familiar**: Decomad SL (entorno de empresa familiar, resolución de problemas y atención al cliente).
+
+---
+
+## 5. Proyectos Propios de Software (Open Source en GitHub)
+
+Todos los proyectos están alojados bajo el perfil de GitHub: **https://github.com/alberto2005-coder**
+
+1. **auto-clipper-ai** (Python)
+   - *Enlace*: https://github.com/alberto2005-coder/auto-clipper-ai
+   - *Descripción*: Herramienta de IA para creación automática de clips virales para TikTok, Shorts y Reels. Transcribe audio mediante Faster-Whisper, selecciona ganchos dinámicos con LLMs (Ollama, Groq, OpenAI), genera subtítulos animados en formato ASS y reencuadra vídeo automáticamente a formato vertical 9:16.
+
+2. **aegis-osint-suite** (JavaScript / Docker)
+   - *Enlace*: https://github.com/alberto2005-coder/aegis-osint-suite
+   - *Descripción*: Plataforma integral de inteligencia de fuentes abiertas (OSINT), análisis forense de metadatos de archivos y suite de herramientas de criptografía y esteganografía en tiempo real desplegable en contenedores Docker.
+
+3. **echo-protocol** (TypeScript / React 19 / Three.js / Tauri)
+   - *Enlace*: https://github.com/alberto2005-coder/echo-protocol
+   - *Descripción*: Cyberpunk arena FPS 3D de ritmo frenético ejecutable en el navegador web y como aplicación de escritorio nativa para Windows con Tauri. Cuenta con renderizado Three.js, audio procedural y UI bilingüe (español/inglés).
+
+4. **NovaEscrow** (Python)
+   - *Enlace*: https://github.com/alberto2005-coder/NovaEscrow
+   - *Descripción*: Bot automatizado de custodia criptográfica multi-cadena para Discord. Soporta Bitcoin (BTC), Litecoin (LTC), Solana (SOL), Ethereum (ETH), USDT y USDC con derivación determinista de wallets, cifrado AES de claves privadas y monitorización en tiempo real de transacciones blockchain.
+
+5. **eco-lang** (Python)
+   - *Enlace*: https://github.com/alberto2005-coder/eco-lang
+   - *Descripción*: Lenguaje de programación estructurado en español. Incluye diseño completo de intérprete, análisis léxico (lexer), análisis sintáctico (parser), AST, IDE de escritorio nativo, IDE web e instalador ejecutable independiente sin dependencias externas.
+
+6. **AviTrack** (Flutter / Dart)
+   - *Enlace*: https://github.com/alberto2005-coder/AviTrack
+   - *Descripción*: Aplicación móvil nativa en Flutter para Android diseñada para criadores de aves: gestión exhaustiva de nidadas, trazabilidad genealógica y almacenamiento de datos 100% privado y local.
+
+7. **Noticias_android** (Kotlin / Jetpack Compose)
+   - *Enlace*: https://github.com/alberto2005-coder/Noticias_android
+   - *Descripción*: Aplicación nativa moderna en Android construida con Kotlin y Jetpack Compose. Consume fuentes de noticias reactivas, almacena y persiste datos localmente con Room Database y programa sincronizaciones en segundo plano con WorkManager.
+
+8. **aurascan-web-auditor** (JavaScript)
+   - *Enlace*: https://github.com/alberto2005-coder/aurascan-web-auditor
+   - *Descripción*: Herramienta de auditoría técnica web 100% en cliente: análisis de métricas Core Web Vitals, diagnóstico de SEO on-page en tiempo real y escáner de seguridad y cabeceras HTTP desde el propio navegador.
+
+9. **FFmpegSuit** (Java / Swing)
+   - *Enlace*: https://github.com/alberto2005-coder/ffmpeg
+   - *Descripción*: Aplicación de escritorio en Java con interfaz gráfica Swing y CLI para procesamiento multimedia con FFmpeg. Permite conversión de formatos, recodificación multihilo, escalado y soporte Drag & Drop de archivos por lotes.
+
+10. **HermitVault** (Python / Criptografía)
+    - *Enlace*: https://github.com/alberto2005-coder/HermitVault
+    - *Descripción*: Gestor de contraseñas de alta seguridad con arquitectura Zero-Knowledge y cifrado simétrico AES-256. Diseño offline-first sin servidores en la nube para garantizar máxima privacidad y resistencia a filtraciones de datos.
+
+11. **odoo-dynamic-pricing** (Python / Odoo ERP)
+    - *Enlace*: https://github.com/alberto2005-coder/odoo-dynamic-pricing
+    - *Descripción*: Módulo avanzado para el ERP Odoo enfocado en la fijación dinámica de precios. Integra web scraping multihilo de precios de competidores en tiempo real y algoritmos de repricing automatizado según márgenes comerciales.
+
+12. **MonitorPro** (Swift / SwiftUI / UNIX)
+    - *Enlace*: https://github.com/alberto2005-coder/MonitorPro
+    - *Descripción*: Monitor de sistema en tiempo real para entornos macOS/UNIX nativo en Swift y SwiftUI. Consulta métricas de bajo nivel del kernel mediante llamadas sysctl, monitorizando uso de CPU por hilo, memoria y sensores en la barra de menú.
+
+---
+
+## 6. Contribuciones y Otros Proyectos
+
+- **NyxEditor** (TypeScript): Fork personalizado de Visual Studio Code optimizado para productividad con integración nativa de GitLab, iconografía Material Design y configuraciones optimizadas. (https://github.com/alberto2005-coder/NyxEditor)
+- **Proyecto_ficheros** (Java / Spring Boot): Aplicación web desarrollada con Spring Boot para la gestión y estructuración de archivos, implementando persistencia no relacional mediante RAF (Random Access Files) y XML. (https://github.com/alberto2005-coder/Proyecto_ficheros)
+- **ClientReportManager** (C# / ASP.NET Core MVC / SQL Server): Sistema web administrativo para gestión de clientes, cuadros de mando interactivos, generación de métricas y exportación de reportes CSV. (https://github.com/alberto2005-coder/ClientReportManager)
+- **Bot-juegos** (Python / discord.py): Bot interactivo de Discord enfocado en minijuegos comunitarios (Tres en Raya JvJ e IA, adivinanzas con Modals y mecánicas por turnos). (https://github.com/alberto2005-coder/Bot-juegos)
+
+---
+
+## 7. Videojuegos Publicados
+
+- **The Memory Game** (Unity / C#): Videojuego de agilidad mental y entrenamiento de memoria publicado en Google Play Store con tablas de clasificación. (https://play.google.com/store/apps/details?id=com.grgames.thememorygames)
+- **Neon Dash** (Flutter / Dart): Arcade frenético de ritmo y reflejos con estética de neón publicado en Itch.io. (https://alberto-coder2005.itch.io/neon-dash)
+- **Tetris C++** (C++): Recreación clásica del juego Tetris programada íntegramente en C++, enfocada en lógica pura y rendimiento algorítmico. (https://alberto-coder2005.itch.io/tetris-game-c)
+- **Perfil Game Jolt**: Catálogo de prototipos y videojuegos experimentales. (https://gamejolt.com/@eldestructor1/games)
+
+---
+
+## 8. Formación Académica
+
+1. **Máster de FP en Aprendizaje Automático: Gestión de Datos y Entrenamiento** (En curso, 2026 — Actualidad)
+   - *Centro*: IES Zaidín Vergeles (Granada)
+   - *Especialidad*: Inteligencia artificial aplicada, preparación de datasets, entrenamiento y optimización de modelos de Machine Learning.
+2. **Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)** (Completado)
+   - *Centro*: IES Padre Suárez (Granada)
+   - *Competencias*: Desarrollo de software multiplataforma, bases de datos relacionales y no relacionales, desarrollo móvil, aplicaciones empresariales.
+3. **Bachillerato de Ciencias** (Completado, 2022)
+   - *Centro*: IES Padre Suárez (Granada)
+   - *Calificación*: Nota media de **9.10**
+4. **Selectividad Andaluza** (2022)
+   - *Calificación*: Nota de acceso de **11.08**
+
+---
+
+## 9. Cursos y Certificaciones
+
+- **Deploying Web Applications on AWS, v3** (3h 37m | Master.dev, Octubre 2026)
+- **Backend System Design** (7h 17m | Master.dev, Octubre 2026)
+- **Build an Agent That Never Sleeps** (5h 1m | Master.dev, Octubre 2026)
+- **Claude Code** (1h 56m | Master.dev, Octubre 2026)
+- **JavaScript: The Hard Parts, v3** (9h 43m | Master.dev, Octubre 2026)
+- **Web Security, v2** (4h 28m | Master.dev, Octubre 2026)
+- **Explore Emerging Tech** (IBM SkillsBuild | Verificación Credly: https://www.credly.com/go/7d8BE7yL, Junio 2026)
+- **Curso de IA: De 0 a Agentes** (6 horas | BIG school, Junio 2026)
+- **SEO para IA y Google** (6 horas | BIG school, Mayo 2026)
+- **Claude Code in Action** (Anthropic Academy, Abril 2026)
+- **Ciberseguridad y Hacking Ético** (6 horas | BIG school, Abril 2026)
+- **C++ Advanced** (70 horas | Cisco Networking Academy | Verificación Credly: https://www.credly.com/badges/fe838dbd-dc8d-4795-befd-1ff16d6648d5/public_url, Marzo 2026)
+- **Hacker Ético** (70 horas | Cisco Networking Academy | Verificación Credly: https://www.credly.com/badges/cbbc40dd-e7c8-4a72-bcbb-d0f4eae5fac7/public_url, Marzo 2026)
+- **Google Ads Measurement Certification** (Google Skillshop | Certificación oficial: https://skillshop.credential.net/c85d9678-babd-4690-9da2-ceabe2872223#acc.RAbepWEc, Marzo 2026)
+- **Google Analytics Certification** (Google Skillshop | Certificación oficial: https://skillshop.credential.net/04a2d9e7-2253-47eb-990d-67dd32b87823#acc.vVSg2AkO, Marzo 2026)
+- **Fundamentos de Marketing Digital** (40 horas | Google Actívate, Marzo 2026)
+- **Desarrollo de Apps Móviles** (40 horas | Google Actívate, Marzo 2026)
+- **Desarrollo con IA: De 0 a Producción** (6 horas | BIG school, Marzo 2026)
+- **Unity Essentials** (Unity Technologies | Verificación Credly: https://www.credly.com/go/wv2ApmEO, Septiembre 2025)
+- **Unity Junior Programmer** (Unity Technologies | Verificación Credly: https://www.credly.com/badges/48be8870-9d4e-439f-ab88-239d94d8c008/public_url, Septiembre 2025)
+- **Curso de Iniciación al Desarrollo con IA** (6 horas | BIG school, 2025)
+- **Introducción al Desarrollo Web: HTML y CSS** (40 horas | Google Actívate, Abril 2025)
+- **AutoCAD 3D** (70 horas | EUSA / Diploma del SEPE | Calificación: 9.07, 2024)
+- **Sistema de Gestión Medioambiental en la Empresa** (75 horas | Campus Cámara Andalucía / SEPE | Calificación: 9.05, 2024)
+- **Certificado de Voluntariado y Carta de Recomendación Profesional** (50 horas | Fundación Inspiring Girls Panamá, Septiembre 2026)
