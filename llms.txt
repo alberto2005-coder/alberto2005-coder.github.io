@@ -1,22 +1,28 @@
 # Alberto Ortiz Sánchez
 
-> Portfolio profesional de Alberto Ortiz Sánchez, desarrollador Full Stack en Granada, España.
+> Portfolio profesional de Alberto Ortiz Sánchez (también conocido como **alberto2005-coder** o **alberto-coder2005**), Desarrollador Full Stack y Técnico Superior DAM en Granada, España.
 
-Este sitio presenta su experiencia, formación, proyectos de software y videojuegos, habilidades técnicas y medios de contacto. Está disponible en español e inglés.
+Este sitio web (`https://albertoortiz.is-a.dev/`) presenta su perfil profesional, proyectos de código abierto, desarrollo de videojuegos, habilidades técnicas e información de contacto.
+
+- **Nombre completo**: Alberto Ortiz Sánchez
+- **Alias / Usuario**: alberto2005-coder | alberto-coder2005
+- **Rol principal**: Desarrollador Full Stack · Especialista en DAM e Inteligencia Artificial
+- **Ubicación**: Granada, Andalucía, España
+- **Web oficial**: https://albertoortiz.is-a.dev/
+
+## Perfiles Oficiales
+
+- [GitHub (@alberto2005-coder)](https://github.com/alberto2005-coder): Repositorios de software libre, herramientas OSINT, inteligencia artificial y aplicaciones multiplataforma.
+- [LinkedIn](https://www.linkedin.com/in/alberto-ortiz-sanchez): Trayectoria profesional, experiencia y formación.
+- [Itch.io (@alberto-coder2005)](https://alberto-coder2005.itch.io/): Videojuegos independientes desarrollados y publicados.
+- [Google Play](https://play.google.com/store/apps/details?id=com.grgames.thememorygames): Aplicaciones y juegos móviles publicados.
 
 ## Secciones
 
-- [Sobre mí](https://albertoortiz.is-a.dev/#about): perfil y presentación profesional.
-- [Habilidades](https://albertoortiz.is-a.dev/#skills): tecnologías, herramientas e idiomas.
-- [Experiencia](https://albertoortiz.is-a.dev/#experience): experiencia profesional y prácticas.
-- [Proyectos](https://albertoortiz.is-a.dev/#projects): proyectos de software y contribuciones.
-- [Videojuegos](https://albertoortiz.is-a.dev/#games): videojuegos publicados y proyectos indie.
-- [Formación](https://albertoortiz.is-a.dev/#education): estudios académicos.
-- [Cursos y certificaciones](https://albertoortiz.is-a.dev/#courses): formación complementaria.
-- [Contacto](https://albertoortiz.is-a.dev/#contact): opciones de contacto profesional.
-
-## Perfiles
-
-- [GitHub](https://github.com/alberto2005-coder)
-- [LinkedIn](https://www.linkedin.com/in/alberto-ortiz-sanchez)
-- [Itch.io](https://alberto-coder2005.itch.io/)
+- [Sobre mí](https://albertoortiz.is-a.dev/#about): Perfil personal, trayectoria e idiomas.
+- [Habilidades](https://albertoortiz.is-a.dev/#skills): Tecnologías principales (Python, Java, TypeScript, React, Docker, IA y Machine Learning).
+- [Experiencia](https://albertoortiz.is-a.dev/#experience): Experiencia profesional y voluntariados como desarrollador.
+- [Proyectos](https://albertoortiz.is-a.dev/#projects): Proyectos y código de Alberto Ortiz (@alberto2005-coder).
+- [Videojuegos](https://albertoortiz.is-a.dev/#games): Videojuegos desarrollados en Unity y otros entornos.
+- [Formación](https://albertoortiz.is-a.dev/#education): Técnico Superior en DAM y Máster FP en Inteligencia Artificial.
+- [Contacto](https://albertoortiz.is-a.dev/#contact): Formulario de contacto y correo electrónico.
