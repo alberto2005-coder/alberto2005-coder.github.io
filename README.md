@@ -162,3 +162,20 @@ Live in production at: **[https://albertoortiz.is-a.dev/](https://albertoortiz.i
 ---
 
 ⭐ *Desarrollado y mantenido por Alberto Ortiz Sánchez — 2026*
+
+---
+
+## 🛠️ Mantenimiento del sitio
+
+- **Fuente única**: edita `index.html` (español, con los textos en inglés en `data-lang-en`). La versión inglesa `en/index.html` **se genera**, no se edita a mano:
+
+  ```bash
+  pip install beautifulsoup4
+  python3 scripts/build_en.py      # regenera /en/index.html
+  python3 scripts/verify_site.py   # enlaces, canonical, hreflang, sitemap, JSON-LD, sincronía
+  ```
+
+- El CSS incrustado en `index.html` debe coincidir con `assets/css/style.css` (el verificador avisa si no).
+- Si cambias `assets/js/script.js`, sube el parámetro `?v=` en `index.html` para invalidar la caché (GitHub Pages cachea ~10 min).
+- Al añadir una página nueva, inclúyela en `sitemap.xml` y en la lista de `.github/workflows/indexnow.yml`.
+

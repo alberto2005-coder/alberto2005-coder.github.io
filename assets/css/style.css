@@ -1144,7 +1144,8 @@ section[id] { scroll-margin-top: 90px; }
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    opacity: 0.85;
+    color: #fff; /* sobre el degradado azul del hero; antes heredaba el gris oscuro de los h2 (contraste insuficiente en tema claro) */
+    opacity: 0.9;
     margin-top: 0;
     margin-bottom: 14px;
 }

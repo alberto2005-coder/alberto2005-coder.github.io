@@ -16,7 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Función para aplicar el tema
-    const langCode = () => (localStorage.getItem('language') || 'es');
+    // Idioma activo = atributo lang del documento (en / y /en/ lo fija el propio HTML;
+    // en páginas con traducción dinámica lo actualiza translatePage).
+    const langCode = () => (document.documentElement.lang === 'en' ? 'en' : 'es');
+    // Páginas con una URL por idioma (/ y /en/): el HTML ya viene traducido.
+    const isStaticLang = document.documentElement.hasAttribute('data-static-lang');
 
     // =============================================
     // hCaptcha: mantener el widget en el mismo tema que la web
@@ -93,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const metaByLang = {
         es: {
             title: 'Alberto Ortiz Sánchez | Desarrollador Full Stack en Granada',
-            description: 'Portfolio de Alberto Ortiz Sánchez, desarrollador Full Stack en Granada. Experiencia en desarrollo web, software e inteligencia artificial.',
+            description: 'Desarrollador Full Stack en Granada: webs a medida, Odoo, PrestaShop, WordPress, videojuegos con Unity e IA. Consulta proyectos, experiencia y CV.',
             expand: 'Abrir menú de idioma',
             openMenu: 'Abrir menú',
             closeMenu: 'Cerrar menú',
@@ -101,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             title: 'Alberto Ortiz Sánchez | Full Stack Developer in Granada',
-            description: 'Portfolio of Alberto Ortiz Sánchez, Full Stack Developer in Granada. Experience in web development, software and artificial intelligence.',
+            description: 'Full Stack Developer in Granada: custom websites, Odoo, PrestaShop, WordPress, Unity games and AI. Explore projects, experience and CV.',
             expand: 'Open language menu',
             openMenu: 'Open menu',
             closeMenu: 'Close menu',
@@ -110,20 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const translatePage = (language) => {
-        localStorage.setItem('language', language);
+        // Se recuerda la preferencia (la usa, por ejemplo, la página de información legal)
+        try { localStorage.setItem('language', language); } catch (e) { /* almacenamiento bloqueado */ }
 
-        const allTranslatable = document.querySelectorAll('[data-lang-es], [data-lang-en]');
-        allTranslatable.forEach(el => {
-            const text = el.getAttribute(`data-lang-${language}`);
-            if (text) el.innerHTML = text;
-        });
-
-        // Idioma del documento + metadatos (SEO y lectores de pantalla)
-        document.documentElement.lang = language;
         const meta = metaByLang[language] || metaByLang.es;
-        document.title = meta.title;
-        const desc = document.querySelector('meta[name="description"]');
-        if (desc) desc.setAttribute('content', meta.description);
+
+        if (!isStaticLang) {
+            const allTranslatable = document.querySelectorAll('[data-lang-es], [data-lang-en]');
+            allTranslatable.forEach(el => {
+                const text = el.getAttribute(`data-lang-${language}`);
+                if (text) el.innerHTML = text;
+            });
+
+            // Idioma del documento + metadatos (SEO y lectores de pantalla)
+            document.documentElement.lang = language;
+            document.title = meta.title;
+            const desc = document.querySelector('meta[name="description"]');
+            if (desc) desc.setAttribute('content', meta.description);
+        }
 
         if (langLabel) langLabel.textContent = language.toUpperCase();
         langBtn.setAttribute('aria-label', meta.expand);
@@ -153,7 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.dispatchEvent(new CustomEvent('langchange', { detail: { language } }));
     };
 
-    const currentLang = localStorage.getItem('language') || 'es';
+    // En / y /en/ manda la URL; en el resto, la preferencia guardada.
+    const currentLang = isStaticLang
+        ? langCode()
+        : (localStorage.getItem('language') || 'es');
     translatePage(currentLang);
 
     langBtn.addEventListener('click', () => {
@@ -163,8 +174,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     langOptions.forEach(option => {
         option.addEventListener('click', (e) => {
+            const target = e.currentTarget.getAttribute('data-lang');
+            if (isStaticLang) {
+                // Cada idioma tiene su propia URL: se deja navegar con el enlace real.
+                // Si ya estás en ese idioma, solo se cierra el menú.
+                if (target === langCode()) {
+                    e.preventDefault();
+                    langDropdown.classList.remove('show');
+                    langBtn.setAttribute('aria-expanded', 'false');
+                } else {
+                    try { localStorage.setItem('language', target); } catch (err) { /* ignorar */ }
+                }
+                return;
+            }
             e.preventDefault();
-            translatePage(e.currentTarget.getAttribute('data-lang'));
+            translatePage(target);
         });
     });
 
@@ -249,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pauseTime = 2000;
 
     function getTexts() {
-        return (localStorage.getItem('language') || 'es') === 'es' ? textsEs : textsEn;
+        return langCode() === 'es' ? textsEs : textsEn;
     }
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

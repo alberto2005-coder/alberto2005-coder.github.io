@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-static-lang>
 
 <head>
     <meta charset="UTF-8">
@@ -8,19 +8,20 @@
     <!-- ===== SEGURIDAD BÁSICA ===== -->
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://newassets.hcaptcha.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://newassets.hcaptcha.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://web3forms.com https://hcaptcha.com https://js.hcaptcha.com https://newassets.hcaptcha.com; connect-src 'self' https://api.github.com https://api.web3forms.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.hcaptcha.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-src 'self' https://*.hcaptcha.com; upgrade-insecure-requests">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+    <!-- Nota: X-Content-Type-Options, Permissions-Policy y frame-ancestors solo funcionan como cabecera HTTP
+         (GitHub Pages no permite configurarlas), por eso no se declaran con <meta>. -->
 
     <!-- ===== SEO BÁSICO ===== -->
     <title>Alberto Ortiz Sánchez | Desarrollador Full Stack en Granada</title>
     <meta name="description"
-        content="Portfolio de Alberto Ortiz Sánchez, desarrollador Full Stack en Granada. Experiencia en desarrollo web, software e inteligencia artificial.">
-    <meta name="keywords"
-        content="Alberto Ortiz Sánchez, alberto2005-coder, alberto-coder2005, desarrollador Full Stack, Granada, portfolio, desarrollo web, software, inteligencia artificial, DAM, HTML, CSS, JavaScript, Python, Java">
+        content="Desarrollador Full Stack en Granada: webs a medida, Odoo, PrestaShop, WordPress, videojuegos con Unity e IA. Consulta proyectos, experiencia y CV.">
     <meta name="author" content="Alberto Ortiz Sánchez">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://albertoortiz.is-a.dev/">
+    <link rel="alternate" hreflang="es" href="https://albertoortiz.is-a.dev/">
+    <link rel="alternate" hreflang="en" href="https://albertoortiz.is-a.dev/en/">
+    <link rel="alternate" hreflang="x-default" href="https://albertoortiz.is-a.dev/">
     <link rel="me" href="https://github.com/alberto2005-coder">
     <link rel="me" href="https://www.linkedin.com/in/alberto-ortiz-sanchez">
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context Summary">
@@ -43,19 +44,20 @@
     <meta property="og:url" content="https://albertoortiz.is-a.dev/">
     <meta property="og:title" content="Alberto Ortiz Sánchez | Desarrollador Full Stack en Granada">
     <meta property="og:description"
-        content="Portfolio de Alberto Ortiz Sánchez, desarrollador Full Stack en Granada. Proyectos y experiencia en desarrollo web, software e inteligencia artificial.">
+        content="Desarrollador Full Stack en Granada: webs a medida, Odoo, PrestaShop, WordPress, videojuegos con Unity e IA. Consulta proyectos, experiencia y CV.">
     <meta property="og:image" content="https://albertoortiz.is-a.dev/assets/img/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Alberto Ortiz Sánchez — Desarrollador Full Stack">
     <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Alberto Ortiz Sánchez">
 
     <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Alberto Ortiz Sánchez | Desarrollador Full Stack en Granada">
     <meta name="twitter:description"
-        content="Portfolio de Alberto Ortiz Sánchez, desarrollador Full Stack en Granada. Proyectos y experiencia en desarrollo web, software e inteligencia artificial.">
+        content="Desarrollador Full Stack en Granada: webs a medida, Odoo, PrestaShop, WordPress, videojuegos con Unity e IA. Consulta proyectos, experiencia y CV.">
     <meta name="twitter:image" content="https://albertoortiz.is-a.dev/assets/img/og-image.png">
 
     <!-- ===== DATOS ESTRUCTURADOS: NOMBRE DEL SITIO (Google Search) ===== -->
@@ -63,6 +65,9 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://albertoortiz.is-a.dev/#website",
+      "inLanguage": ["es", "en"],
+      "publisher": { "@id": "https://albertoortiz.is-a.dev/#person" },
       "name": "Alberto Ortiz Sánchez",
       "alternateName": [
         "Alberto O.S. Portfolio",
@@ -83,6 +88,7 @@
       "name": "Alberto Ortiz Sánchez",
       "alternateName": ["alberto2005-coder", "alberto-coder2005"],
       "jobTitle": "Desarrollador Full Stack · Técnico Superior DAM",
+      "description": "Desarrollador Full Stack en Granada especializado en desarrollo web, Odoo, PrestaShop, WordPress, videojuegos con Unity e inteligencia artificial.",
       "url": "https://albertoortiz.is-a.dev/",
       "image": [
         "https://albertoortiz.is-a.dev/assets/img/logo.png",
@@ -1324,7 +1330,8 @@ section[id] { scroll-margin-top: 90px; }
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    opacity: 0.85;
+    color: #fff; /* sobre el degradado azul del hero; antes heredaba el gris oscuro de los h2 (contraste insuficiente en tema claro) */
+    opacity: 0.9;
     margin-top: 0;
     margin-bottom: 14px;
 }
@@ -2196,8 +2203,8 @@ footer .footer-links button:hover { color: #fff; }
                     <span id="lang-label">ES</span> <i class="fas fa-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div id="lang-dropdown" class="lang-dropdown" role="menu">
-                    <a href="#" data-lang="es" role="menuitem" lang="es">Español (ES)</a>
-                    <a href="#" data-lang="en" role="menuitem" lang="en">English (EN)</a>
+                    <a href="/" data-lang="es" role="menuitem" lang="es" hreflang="es">Español (ES)</a>
+                    <a href="/en/" data-lang="en" role="menuitem" lang="en" hreflang="en">English (EN)</a>
                 </div>
             </div>
         </div>
@@ -3331,7 +3338,7 @@ footer .footer-links button:hover { color: #fff; }
         </div>
     </footer>
 
-    <script src="assets/js/script.js?v=20261030b" defer></script>
+    <script src="assets/js/script.js?v=20261103a" defer></script>
     <!-- Web3Forms + hCaptcha: carga diferida. El script del formulario (y el captcha con él)
          solo se descarga cuando el visitante se acerca a la sección de contacto
          (mejora el TBT y la puntuación de PageSpeed). -->

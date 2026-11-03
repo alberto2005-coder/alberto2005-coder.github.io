@@ -1,1 +1,22 @@
+# Secretos y configuración local: nunca deben publicarse en GitHub Pages
+.env
+.env.*
+*.pem
+*.key
 
+# Copias de seguridad y temporales
+*.bak
+*.old
+*.orig
+*.swp
+*~
+Thumbs.db
+.DS_Store
+
+# Dependencias y artefactos de trabajo
+node_modules/
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+*.zip

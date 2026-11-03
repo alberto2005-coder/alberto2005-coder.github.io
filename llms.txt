@@ -10,7 +10,7 @@ Este sitio web (`https://albertoortiz.is-a.dev/`) presenta su perfil profesional
 - **Alias / Usuario**: alberto2005-coder | alberto-coder2005
 - **Rol principal**: Desarrollador Full Stack · Especialista en DAM e Inteligencia Artificial
 - **Ubicación**: Granada, Andalucía, España
-- **Web oficial**: https://albertoortiz.is-a.dev/
+- **Web oficial**: https://albertoortiz.is-a.dev/ (español) · https://albertoortiz.is-a.dev/en/ (English)
 
 ## Perfiles Oficiales
 
