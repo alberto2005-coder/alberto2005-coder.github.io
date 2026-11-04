@@ -70,6 +70,7 @@ KNOWS_ABOUT_EN = {
     "Aprendizaje Automático": "Machine Learning",
     "Desarrollo de Videojuegos": "Game Development",
     "Ciberseguridad & OSINT": "Cybersecurity & OSINT",
+    "Hacking Ético": "Ethical Hacking",
     "Criptografía y Cifrado AES-256": "Cryptography and AES-256 Encryption",
     "Creación de Compiladores e Intérpretes": "Compiler and Interpreter Design",
     "Odoo & PrestaShop ERP": "Odoo & PrestaShop ERP",
@@ -84,6 +85,7 @@ ALUMNI_EN = {
 CRED_EN = {
     "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma":
         "Higher Technician in Multiplatform Application Development",
+    "Hacker Ético": "Ethical Hacker",
 }
 
 
