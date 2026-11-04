@@ -28,3 +28,4 @@ Este sitio web (`https://albertoortiz.is-a.dev/`) presenta su perfil profesional
 - [Videojuegos](https://albertoortiz.is-a.dev/#games): Videojuegos desarrollados en Unity y otros entornos.
 - [Formación](https://albertoortiz.is-a.dev/#education): Técnico Superior en DAM y Máster FP en Inteligencia Artificial.
 - [Contacto](https://albertoortiz.is-a.dev/#contact): Formulario de contacto y correo electrónico.
+- [Información legal](https://albertoortiz.is-a.dev/informacion-legal/): Aviso legal, política de privacidad y política de cookies.

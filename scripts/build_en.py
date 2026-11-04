@@ -114,6 +114,11 @@ def main():
     canonical = soup.find("link", rel="canonical")
     canonical["href"] = f"{BASE}/en/"
 
+    # El formulario de contacto vuelve a la portada del idioma activo aunque falle el JS
+    redirect = soup.find("input", attrs={"name": "redirect"})
+    if redirect is not None:
+        redirect["value"] = f"{BASE}/en/"
+
     # --- Textos: equivalente estático de translatePage('en') -------------------
     for el in soup.select("[data-lang-en]"):
         html_en = el["data-lang-en"]

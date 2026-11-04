@@ -383,9 +383,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!readProgress) return;
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
+        if (docHeight <= 0) {
+            readProgress.style.width = '0%';
+            return;
+        }
+        const progress = Math.min(100, (scrollTop / docHeight) * 100);
         readProgress.style.width = progress + '%';
-    });
+    }, { passive: true });
 
     // =============================================
     // 6. ANIMACIONES AL HACER SCROLL
