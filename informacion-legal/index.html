@@ -13,7 +13,7 @@
          (GitHub Pages no permite configurarlas), por eso no se declaran con <meta>. -->
 
     <!-- ===== SEO ===== -->
-    <title>Información legal | Alberto Ortiz Sánchez</title>
+    <title>Alberto Ortiz Sánchez | Información legal</title>
     <meta name="description"
         content="Aviso legal, política de privacidad y política de cookies del portfolio de Alberto Ortiz Sánchez.">
     <meta name="author" content="Alberto Ortiz Sánchez">
@@ -33,17 +33,22 @@
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://albertoortiz.is-a.dev/informacion-legal/">
-    <meta property="og:title" content="Información legal | Alberto Ortiz Sánchez">
+    <meta property="og:title" content="Alberto Ortiz Sánchez | Información legal">
     <meta property="og:description"
         content="Aviso legal, política de privacidad y política de cookies del portfolio de Alberto Ortiz Sánchez.">
     <meta property="og:image" content="https://albertoortiz.is-a.dev/assets/img/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Alberto Ortiz Sánchez — Información legal">
+    <meta property="og:image:alt" content="Alberto Ortiz Sánchez | Información legal">
     <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Alberto Ortiz Sánchez">
+
+    <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Información legal | Alberto Ortiz Sánchez">
+    <meta name="twitter:title" content="Alberto Ortiz Sánchez | Información legal">
+    <meta name="twitter:description"
+        content="Aviso legal, política de privacidad y política de cookies del portfolio de Alberto Ortiz Sánchez.">
     <meta name="twitter:image" content="https://albertoortiz.is-a.dev/assets/img/og-image.png">
 
     <!-- ===== ESTILOS Y FUENTES ===== -->
@@ -2398,7 +2403,8 @@ footer .footer-links button:hover { color: #fff; }
 
             const metaByLang = {
                 es: {
-                    title: 'Información legal | Alberto Ortiz Sánchez',
+                    title: 'Alberto Ortiz Sánchez | Información legal',
+                    imageAlt: 'Alberto Ortiz Sánchez | Información legal',
                     description: 'Aviso legal, política de privacidad y política de cookies del portfolio de Alberto Ortiz Sánchez.',
                     expand: 'Abrir menú de idioma',
                     openMenu: 'Abrir menú',
@@ -2406,7 +2412,8 @@ footer .footer-links button:hover { color: #fff; }
                     cvLabel: 'Descargar CV en PDF'
                 },
                 en: {
-                    title: 'Legal Information | Alberto Ortiz Sánchez',
+                    title: 'Alberto Ortiz Sánchez | Legal information',
+                    imageAlt: 'Alberto Ortiz Sánchez | Legal information',
                     description: 'Legal notice, privacy policy and cookie policy of the portfolio of Alberto Ortiz Sánchez.',
                     expand: 'Open language menu',
                     openMenu: 'Open menu',
@@ -2430,8 +2437,19 @@ footer .footer-links button:hover { color: #fff; }
                 });
                 const meta = metaByLang[language] || metaByLang.es;
                 document.title = meta.title;
-                const desc = document.querySelector('meta[name="description"]');
-                if (desc) desc.setAttribute('content', meta.description);
+                // Mantiene sincronizados los metadatos SEO y sociales al cambiar de idioma
+                const metaTags = {
+                    'meta[name="description"]': meta.description,
+                    'meta[property="og:title"]': meta.title,
+                    'meta[property="og:description"]': meta.description,
+                    'meta[property="og:image:alt"]': meta.imageAlt,
+                    'meta[name="twitter:title"]': meta.title,
+                    'meta[name="twitter:description"]': meta.description
+                };
+                Object.entries(metaTags).forEach(([selector, value]) => {
+                    const tag = document.querySelector(selector);
+                    if (tag && value) tag.setAttribute('content', value);
+                });
 
                 if (langLabel) langLabel.textContent = language.toUpperCase();
                 langBtn.setAttribute('aria-label', meta.expand);

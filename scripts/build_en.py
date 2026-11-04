@@ -58,7 +58,7 @@ ALT_EN = {
 
 # Datos estructurados (JSON-LD) que están en español en la página original
 JSONLD_EN = {
-    "jobTitle": "Full Stack Developer · Higher Technician in Multiplatform App Development (DAM)",
+    "jobTitle": "Full Stack Developer · Higher Technician in Multiplatform Application Development (DAM)",
     "description": (
         "Full Stack Developer in Granada specialised in web development, Odoo, "
         "PrestaShop, WordPress, Unity games and artificial intelligence."
@@ -108,7 +108,7 @@ def main():
     set_meta(soup, "property", "og:url", f"{BASE}/en/")
     set_meta(soup, "property", "og:locale", "en_US")
     set_meta(soup, "property", "og:locale:alternate", "es_ES")
-    set_meta(soup, "property", "og:image:alt", "Alberto Ortiz Sánchez — Full Stack Developer")
+    set_meta(soup, "property", "og:image:alt", "Alberto Ortiz Sánchez | Full Stack Developer")
     set_meta(soup, "name", "twitter:title", TITLE_EN)
     set_meta(soup, "name", "twitter:description", DESC_EN)
     canonical = soup.find("link", rel="canonical")
