@@ -1,4 +1,4 @@
-# 🌐 Alberto Ortiz Sánchez — Portfolio Oficial & Showcase de Ingeniería
+# Alberto Ortiz Sánchez — Portfolio Oficial & Showcase de Ingeniería
 
 [![Sitio Web Oficial](https://img.shields.io/badge/Sitio_Web-albertoortiz.is--a.dev-0b5ed7?style=for-the-badge&logo=googlechrome&logoColor=white)](https://albertoortiz.is-a.dev/)
 [![GitHub](https://img.shields.io/badge/GitHub-alberto2005--coder-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/alberto2005-coder)
@@ -8,7 +8,14 @@
 
 ---
 
-## 🇪🇸 Español
+## Español
+
+### Índice
+
+1. [Proyectos Interactivos y Videojuegos (Detalle Técnico)](#proyectos-interactivos-y-videojuegos-detalle-técnico)
+2. [Proyectos Destacados de Software & IA](#proyectos-destacados-de-software-ia)
+3. [Arquitectura Web & Optimizaciones del Portfolio](#arquitectura-web-optimizaciones-del-portfolio)
+4. [Mantenimiento del sitio](#mantenimiento-del-sitio)
 
 Repositorio del sitio web personal y portfolio profesional de **Alberto Ortiz Sánchez** ([@alberto2005-coder](https://github.com/alberto2005-coder)), Desarrollador Full Stack y Técnico Superior DAM especializado en Inteligencia Artificial y Machine Learning en Granada, España.
 
@@ -16,7 +23,7 @@ Desplegado en producción en: **[https://albertoortiz.is-a.dev/](https://alberto
 
 ---
 
-### 🕹️ Proyectos Interactivos y Videojuegos (Detalle Técnico)
+### Proyectos Interactivos y Videojuegos (Detalle Técnico)
 
 #### 1. Tetris C++
 * **Tecnologías**: C++ moderno (C++17/20), lógica algorítmica matricial, renderizado eficiente en consola/búfer gráfico.
@@ -52,7 +59,7 @@ Desplegado en producción en: **[https://albertoortiz.is-a.dev/](https://alberto
 
 ---
 
-### 🚀 Proyectos Destacados de Software & IA
+### Proyectos Destacados de Software & IA
 
 | Proyecto | Stack Principal | Descripción Clave |
 | :--- | :--- | :--- |
@@ -69,7 +76,7 @@ Desplegado en producción en: **[https://albertoortiz.is-a.dev/](https://alberto
 
 ---
 
-### 🛠️ Arquitectura Web & Optimizaciones del Portfolio
+### Arquitectura Web & Optimizaciones del Portfolio
 
 * **Rendimiento extremo sin frameworks pesados**: Maquetación en HTML5 semántico, CSS moderno con variables y animaciones nativas por GPU, y JavaScript ES6+ modular diferido.
 * **PWA & Offline Ready**: Service Worker y [site.webmanifest](site.webmanifest) con iconos maskable y convenciones PWA de escritorio y móvil.
@@ -78,11 +85,30 @@ Desplegado en producción en: **[https://albertoortiz.is-a.dev/](https://alberto
   * [llms.txt](llms.txt): Índice y resumen estructurado para LLMs (`LLM Context Summary`).
   * [llms-full.txt](llms-full.txt): Contexto completo sin compresión (`Full LLM Context`) con todo el historial de proyectos y formación.
 * **Seguridad reforzada**: Políticas estrictas de *Content Security Policy* (CSP), cabeceras HTTP de protección y `.well-known/security.txt` bajo estándar RFC 9116.
+### Mantenimiento del sitio
+
+- **Fuente única**: edita `index.html` (español, con los textos en inglés en `data-lang-en`). La versión inglesa `en/index.html` **se genera**, no se edita a mano:
+
+  ```bash
+  pip install beautifulsoup4
+  python3 scripts/build_en.py      # regenera /en/index.html
+  python3 scripts/verify_site.py   # enlaces, canonical, hreflang, sitemap, JSON-LD, sincronía
+  ```
+
+- El CSS incrustado en `index.html` debe coincidir con `assets/css/style.css` (el verificador avisa si no).
+- Si cambias `assets/js/script.js`, sube el parámetro `?v=` en `index.html` para invalidar la caché (GitHub Pages cachea ~10 min).
+- Al añadir una página nueva, inclúyela en `sitemap.xml` y en la lista de `.github/workflows/indexnow.yml`.
 
 ---
----
 
-## 🇬🇧 English
+## English
+
+### Table of contents
+
+1. [Interactive Projects & Video Games (Technical Deep Dive)](#interactive-projects-video-games-technical-deep-dive)
+2. [Featured Software & AI Engineering Projects](#featured-software-ai-engineering-projects)
+3. [AI & Machine-Readable Standards](#ai-machine-readable-standards)
+4. [Site maintenance](#site-maintenance)
 
 Repository of the official personal website and engineering portfolio of **Alberto Ortiz Sánchez** ([@alberto2005-coder](https://github.com/alberto2005-coder)), Full Stack Developer and Higher Technician in Multiplatform Application Development specialized in Artificial Intelligence and Machine Learning based in Granada, Spain.
 
@@ -90,7 +116,7 @@ Live in production at: **[https://albertoortiz.is-a.dev/](https://albertoortiz.i
 
 ---
 
-### 🕹️ Interactive Projects & Video Games (Technical Deep Dive)
+### Interactive Projects & Video Games (Technical Deep Dive)
 
 #### 1. Tetris C++
 * **Technologies**: Modern C++ (C++17/20), matrix algorithm logic, low-level console / graphic buffer rendering.
@@ -126,7 +152,7 @@ Live in production at: **[https://albertoortiz.is-a.dev/](https://albertoortiz.i
 
 ---
 
-### 🚀 Featured Software & AI Engineering Projects
+### Featured Software & AI Engineering Projects
 
 * **[auto-clipper-ai](https://github.com/alberto2005-coder/auto-clipper-ai)**: Automated viral short clip creator powered by Faster-Whisper, LLMs (Ollama/Groq) and FFmpeg 9:16 smart reframing.
 * **[aegis-osint-suite](https://github.com/alberto2005-coder/aegis-osint-suite)**: Open-source intelligence platform, forensic metadata inspection, and real-time steganography in Docker.
@@ -141,17 +167,30 @@ Live in production at: **[https://albertoortiz.is-a.dev/](https://albertoortiz.i
 
 ---
 
-### 📜 AI & Machine-Readable Standards
+### AI & Machine-Readable Standards
 
 * `llms.txt`: Canonical markdown summary designed for LLM agents ([LLM Context Summary](https://albertoortiz.is-a.dev/llms.txt)).
 * `llms-full.txt`: Comprehensive uncompressed project & credential documentation ([Full LLM Context](https://albertoortiz.is-a.dev/llms-full.txt)).
 * `site.webmanifest`: PWA compliance with maskable & any icon variants.
 * `sitemap.xml`: Canonical sitemap with live change frequency and priorities.
 * `.well-known/security.txt`: RFC 9116 security disclosure guidelines.
+### Site maintenance
+
+- **Single source**: edit `index.html` (Spanish, with the English strings in `data-lang-en`). The English version `en/index.html` **is generated**, never hand-edited:
+
+  ```bash
+  pip install beautifulsoup4
+  python3 scripts/build_en.py      # regenerates /en/index.html
+  python3 scripts/verify_site.py   # links, canonical, hreflang, sitemap, JSON-LD, sync
+  ```
+
+- The CSS embedded in `index.html` must match `assets/css/style.css` (the verifier warns otherwise).
+- If you change `assets/js/script.js`, bump the `?v=` parameter in `index.html` to invalidate the cache (GitHub Pages caches for ~10 min).
+- When adding a new page, list it in `sitemap.xml` and in `.github/workflows/indexnow.yml`.
 
 ---
 
-## 📬 Contact & Links
+## Contact & Links
 
 * **Official Website**: [https://albertoortiz.is-a.dev/](https://albertoortiz.is-a.dev/)
 * **Email**: [contacto@albertoortiz.is-a.dev](mailto:contacto@albertoortiz.is-a.dev) / [albertoortixsanchez@gmail.com](mailto:albertoortixsanchez@gmail.com)
@@ -162,20 +201,3 @@ Live in production at: **[https://albertoortiz.is-a.dev/](https://albertoortiz.i
 ---
 
 ⭐ *Desarrollado y mantenido por Alberto Ortiz Sánchez — 2026*
-
----
-
-## 🛠️ Mantenimiento del sitio
-
-- **Fuente única**: edita `index.html` (español, con los textos en inglés en `data-lang-en`). La versión inglesa `en/index.html` **se genera**, no se edita a mano:
-
-  ```bash
-  pip install beautifulsoup4
-  python3 scripts/build_en.py      # regenera /en/index.html
-  python3 scripts/verify_site.py   # enlaces, canonical, hreflang, sitemap, JSON-LD, sincronía
-  ```
-
-- El CSS incrustado en `index.html` debe coincidir con `assets/css/style.css` (el verificador avisa si no).
-- Si cambias `assets/js/script.js`, sube el parámetro `?v=` en `index.html` para invalidar la caché (GitHub Pages cachea ~10 min).
-- Al añadir una página nueva, inclúyela en `sitemap.xml` y en la lista de `.github/workflows/indexnow.yml`.
-
