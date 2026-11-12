@@ -6,6 +6,8 @@
 [![Itch.io](https://img.shields.io/badge/Itch.io-alberto--coder2005-fa5c5c?style=for-the-badge&logo=itch.io&logoColor=white)](https://alberto-coder2005.itch.io/)
 [![Google Play](https://img.shields.io/badge/Google_Play-GR_Games-414141?style=for-the-badge&logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=com.grgames.thememorygames)
 
+[Español](#español) · [English](#english)
+
 ---
 
 ## Español
@@ -16,6 +18,7 @@
 2. [Proyectos Destacados de Software & IA](#proyectos-destacados-de-software-ia)
 3. [Arquitectura Web & Optimizaciones del Portfolio](#arquitectura-web-optimizaciones-del-portfolio)
 4. [Mantenimiento del sitio](#mantenimiento-del-sitio)
+5. [Licencia](#licencia)
 
 Repositorio del sitio web personal y portfolio profesional de **Alberto Ortiz Sánchez** ([@alberto2005-coder](https://github.com/alberto2005-coder)), Desarrollador Full Stack y Técnico Superior DAM especializado en Inteligencia Artificial y Machine Learning en Granada, España.
 
@@ -85,6 +88,7 @@ Desplegado en producción en: **[https://albertoortiz.is-a.dev/](https://alberto
   * [llms.txt](llms.txt): Índice y resumen estructurado para LLMs (`LLM Context Summary`).
   * [llms-full.txt](llms-full.txt): Contexto completo sin compresión (`Full LLM Context`) con todo el historial de proyectos y formación.
 * **Seguridad reforzada**: Políticas estrictas de *Content Security Policy* (CSP), cabeceras HTTP de protección y `.well-known/security.txt` bajo estándar RFC 9116.
+
 ### Mantenimiento del sitio
 
 - **Fuente única**: edita `index.html` (español, con los textos en inglés en `data-lang-en`). La versión inglesa `en/index.html` **se genera**, no se edita a mano:
@@ -99,6 +103,10 @@ Desplegado en producción en: **[https://albertoortiz.is-a.dev/](https://alberto
 - Si cambias `assets/js/script.js`, sube el parámetro `?v=` en `index.html` para invalidar la caché (GitHub Pages cachea ~10 min).
 - Al añadir una página nueva, inclúyela en `sitemap.xml` y en la lista de `.github/workflows/indexnow.yml`.
 
+### Licencia
+
+**GPL-3.0** — © 2026 Alberto Ortiz Sánchez. El código del sitio puede usarse, copiarse y modificarse; si lo redistribuyes, publica la fuente bajo la misma licencia y conserva la atribución. Consulta [LICENSE](LICENSE).
+
 ---
 
 ## English
@@ -109,6 +117,7 @@ Desplegado en producción en: **[https://albertoortiz.is-a.dev/](https://alberto
 2. [Featured Software & AI Engineering Projects](#featured-software-ai-engineering-projects)
 3. [AI & Machine-Readable Standards](#ai-machine-readable-standards)
 4. [Site maintenance](#site-maintenance)
+5. [License](#license)
 
 Repository of the official personal website and engineering portfolio of **Alberto Ortiz Sánchez** ([@alberto2005-coder](https://github.com/alberto2005-coder)), Full Stack Developer and Higher Technician in Multiplatform Application Development specialized in Artificial Intelligence and Machine Learning based in Granada, Spain.
 
@@ -174,6 +183,7 @@ Live in production at: **[https://albertoortiz.is-a.dev/](https://albertoortiz.i
 * `site.webmanifest`: PWA compliance with maskable & any icon variants.
 * `sitemap.xml`: Canonical sitemap with live change frequency and priorities.
 * `.well-known/security.txt`: RFC 9116 security disclosure guidelines.
+
 ### Site maintenance
 
 - **Single source**: edit `index.html` (Spanish, with the English strings in `data-lang-en`). The English version `en/index.html` **is generated**, never hand-edited:
@@ -187,6 +197,10 @@ Live in production at: **[https://albertoortiz.is-a.dev/](https://albertoortiz.i
 - The CSS embedded in `index.html` must match `assets/css/style.css` (the verifier warns otherwise).
 - If you change `assets/js/script.js`, bump the `?v=` parameter in `index.html` to invalidate the cache (GitHub Pages caches for ~10 min).
 - When adding a new page, list it in `sitemap.xml` and in `.github/workflows/indexnow.yml`.
+
+### License
+
+**GPL-3.0** — © 2026 Alberto Ortiz Sánchez. The site's code may be used, copied and modified; if you redistribute it, publish the source under the same license and keep the attribution. See [LICENSE](LICENSE).
 
 ---
 
