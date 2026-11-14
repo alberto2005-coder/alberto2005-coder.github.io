@@ -15,8 +15,8 @@
 ### Índice
 
 1. [Proyectos Interactivos y Videojuegos (Detalle Técnico)](#proyectos-interactivos-y-videojuegos-detalle-técnico)
-2. [Proyectos Destacados de Software & IA](#proyectos-destacados-de-software-ia)
-3. [Arquitectura Web & Optimizaciones del Portfolio](#arquitectura-web-optimizaciones-del-portfolio)
+2. [Proyectos Destacados de Software & IA](#proyectos-destacados-de-software--ia)
+3. [Arquitectura Web & Optimizaciones del Portfolio](#arquitectura-web--optimizaciones-del-portfolio)
 4. [Mantenimiento del sitio](#mantenimiento-del-sitio)
 5. [Licencia](#licencia)
 
@@ -113,9 +113,9 @@ Desplegado en producción en: **[https://albertoortiz.is-a.dev/](https://alberto
 
 ### Table of contents
 
-1. [Interactive Projects & Video Games (Technical Deep Dive)](#interactive-projects-video-games-technical-deep-dive)
-2. [Featured Software & AI Engineering Projects](#featured-software-ai-engineering-projects)
-3. [AI & Machine-Readable Standards](#ai-machine-readable-standards)
+1. [Interactive Projects & Video Games (Technical Deep Dive)](#interactive-projects--video-games-technical-deep-dive)
+2. [Featured Software & AI Engineering Projects](#featured-software--ai-engineering-projects)
+3. [AI & Machine-Readable Standards](#ai--machine-readable-standards)
 4. [Site maintenance](#site-maintenance)
 5. [License](#license)
 
