@@ -24,8 +24,8 @@
     <link rel="alternate" hreflang="x-default" href="https://albertoortiz.is-a.dev/">
     <link rel="me" href="https://github.com/alberto2005-coder">
     <link rel="me" href="https://www.linkedin.com/in/alberto-ortiz-sanchez">
-    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context Summary">
-    <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Full LLM Context">
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context Summary">
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full LLM Context">
 
     <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/png" href="/assets/img/favicon-96x96.png?v=3" sizes="96x96" />
@@ -60,6 +60,7 @@
     <meta name="twitter:description"
         content="Desarrollador Full Stack en Granada: webs a medida, Odoo, PrestaShop, WordPress, videojuegos con Unity e IA. Consulta proyectos, experiencia y CV.">
     <meta name="twitter:image" content="https://albertoortiz.is-a.dev/assets/img/og-image.png">
+    <meta name="twitter:image:alt" content="Alberto Ortiz Sánchez | Desarrollador Full Stack">
 
     <!-- ===== DATOS ESTRUCTURADOS: NOMBRE DEL SITIO (Google Search) ===== -->
     <script type="application/ld+json">
@@ -87,19 +88,21 @@
       "@type": "Person",
       "@id": "https://albertoortiz.is-a.dev/#person",
       "name": "Alberto Ortiz Sánchez",
-      "alternateName": ["alberto2005-coder", "alberto-coder2005"],
+      "alternateName": [
+        "alberto2005-coder",
+        "alberto-coder2005"
+      ],
       "jobTitle": "Desarrollador Full Stack · Técnico Superior DAM",
       "description": "Desarrollador Full Stack en Granada especializado en desarrollo web, Odoo, PrestaShop, WordPress, videojuegos con Unity e inteligencia artificial.",
       "url": "https://albertoortiz.is-a.dev/",
-      "image": [
-        "https://albertoortiz.is-a.dev/assets/img/logo.png",
-        "https://albertoortiz.is-a.dev/assets/img/icon-512.png"
-      ],
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://albertoortiz.is-a.dev/assets/img/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
       "gender": "Male",
-      "email": [
-        "contacto@albertoortiz.is-a.dev",
-        "albertoortixsanchez@gmail.com"
-      ],
+      "email": "contacto@albertoortiz.is-a.dev",
       "nationality": {
         "@type": "Country",
         "name": "Spain"
@@ -155,34 +158,49 @@
         {
           "@type": "EducationalOccupationalCredential",
           "name": "Hacker Ético",
-          "recognizedBy": { "@type": "Organization", "name": "Cisco Networking Academy" },
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Cisco Networking Academy"
+          },
           "url": "https://www.credly.com/badges/cbbc40dd-e7c8-4a72-bcbb-d0f4eae5fac7/public_url",
           "dateCreated": "2026-03"
         },
         {
           "@type": "EducationalOccupationalCredential",
           "name": "C++ Advanced",
-          "recognizedBy": { "@type": "Organization", "name": "Cisco Networking Academy" },
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Cisco Networking Academy"
+          },
           "url": "https://www.credly.com/badges/fe838dbd-dc8d-4795-befd-1ff16d6648d5/public_url",
           "dateCreated": "2026-03"
         },
         {
           "@type": "EducationalOccupationalCredential",
           "name": "Unity Junior Programmer",
-          "recognizedBy": { "@type": "Organization", "name": "Unity Technologies" },
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Unity Technologies"
+          },
           "url": "https://www.credly.com/badges/48be8870-9d4e-439f-ab88-239d94d8c008/public_url",
           "dateCreated": "2025-09"
         },
         {
           "@type": "EducationalOccupationalCredential",
           "name": "Backend System Design",
-          "recognizedBy": { "@type": "Organization", "name": "Master.dev" },
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Master.dev"
+          },
           "dateCreated": "2026-10"
         },
         {
           "@type": "EducationalOccupationalCredential",
           "name": "JavaScript: The Hard Parts, v3",
-          "recognizedBy": { "@type": "Organization", "name": "Master.dev" },
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Master.dev"
+          },
           "dateCreated": "2026-10"
         }
       ],
@@ -210,6 +228,233 @@
         "Flutter & Dart",
         "Odoo & PrestaShop ERP",
         "Docker y Despliegue de Aplicaciones"
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://albertoortiz.is-a.dev/#profilepage"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "@id": "https://albertoortiz.is-a.dev/#profilepage",
+      "url": "https://albertoortiz.is-a.dev/",
+      "name": "Alberto Ortiz Sánchez | Desarrollador Full Stack en Granada",
+      "inLanguage": "es",
+      "dateModified": "2026-11-16",
+      "isPartOf": {
+        "@id": "https://albertoortiz.is-a.dev/#website"
+      },
+      "mainEntity": {
+        "@id": "https://albertoortiz.is-a.dev/#person"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://albertoortiz.is-a.dev/assets/img/og-image.png",
+        "width": 1200,
+        "height": 630
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": "https://albertoortiz.is-a.dev/#projects-list",
+      "name": "Proyectos de software de Alberto Ortiz Sánchez",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "auto-clipper-ai",
+            "codeRepository": "https://github.com/alberto2005-coder/auto-clipper-ai",
+            "programmingLanguage": [
+              "Python"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "aegis-osint-suite",
+            "codeRepository": "https://github.com/alberto2005-coder/aegis-osint-suite",
+            "programmingLanguage": [
+              "JavaScript",
+              "Docker"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "echo-protocol",
+            "codeRepository": "https://github.com/alberto2005-coder/echo-protocol",
+            "programmingLanguage": [
+              "TypeScript",
+              "React",
+              "Three.js",
+              "Tauri"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "NovaEscrow",
+            "codeRepository": "https://github.com/alberto2005-coder/NovaEscrow",
+            "programmingLanguage": [
+              "Python"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "eco-lang",
+            "codeRepository": "https://github.com/alberto2005-coder/eco-lang",
+            "programmingLanguage": [
+              "Python"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "AviTrack",
+            "codeRepository": "https://github.com/alberto2005-coder/AviTrack",
+            "programmingLanguage": [
+              "Dart",
+              "Flutter"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "Noticias_android",
+            "codeRepository": "https://github.com/alberto2005-coder/Noticias_android",
+            "programmingLanguage": [
+              "Kotlin",
+              "Jetpack Compose"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "aurascan-web-auditor",
+            "codeRepository": "https://github.com/alberto2005-coder/aurascan-web-auditor",
+            "programmingLanguage": [
+              "JavaScript"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "FFmpegSuit",
+            "codeRepository": "https://github.com/alberto2005-coder/ffmpeg",
+            "programmingLanguage": [
+              "Java",
+              "Swing"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "HermitVault",
+            "codeRepository": "https://github.com/alberto2005-coder/HermitVault",
+            "programmingLanguage": [
+              "Python"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "odoo-dynamic-pricing",
+            "codeRepository": "https://github.com/alberto2005-coder/odoo-dynamic-pricing",
+            "programmingLanguage": [
+              "Python",
+              "Odoo"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "MonitorPro",
+            "codeRepository": "https://github.com/alberto2005-coder/MonitorPro",
+            "programmingLanguage": [
+              "Swift",
+              "SwiftUI"
+            ],
+            "author": {
+              "@id": "https://albertoortiz.is-a.dev/#person"
+            }
+          }
+        }
       ]
     }
     </script>
@@ -2198,7 +2443,7 @@ footer .footer-links button:hover { color: #fff; }
     <!-- Barra de progreso de lectura -->
     <div id="read-progress"></div>
 
-    <a class="skip-link" href="#about" data-lang-es="Saltar al contenido" data-lang-en="Skip to content">Saltar al
+    <a class="skip-link" href="#main" data-lang-es="Saltar al contenido" data-lang-en="Skip to content">Saltar al
         contenido</a>
 
     <nav class="navbar">
@@ -2245,6 +2490,7 @@ footer .footer-links button:hover { color: #fff; }
         </div>
     </nav>
 
+    <main id="main">
     <section id="hero" class="hero-section">
         <canvas id="particles-canvas"></canvas>
         <div class="hero-content">
@@ -3347,7 +3593,7 @@ footer .footer-links button:hover { color: #fff; }
             </div>
         </div>
     </section>
-
+    </main>
 
     <footer>
         <div class="footer-inner">

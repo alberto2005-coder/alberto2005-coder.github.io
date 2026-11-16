@@ -15,6 +15,7 @@ Thumbs.db
 
 # Dependencias y artefactos de trabajo
 node_modules/
+.venv/
 __pycache__/
 *.pyc
 .vscode/

@@ -133,7 +133,7 @@ for loc in locs:
         err(f"sitemap: {loc} no es canonical de ninguna página")
 
 # 5) JSON-LD ------------------------------------------------------------------------------
-for rel in ("index.html", "en/index.html"):
+for rel in ("index.html", "en/index.html", "informacion-legal/index.html"):
     for i, t in enumerate(soup_of(rel).find_all("script", type="application/ld+json")):
         try:
             json.loads(t.string)

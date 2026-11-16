@@ -1,5 +1,7 @@
 # Alberto Ortiz Sánchez — Portfolio Completo (llms-full.txt)
 
+> Última actualización: 2026-11-16 · English summary en la sección 10 · Web: https://albertoortiz.is-a.dev/ (ES) y https://albertoortiz.is-a.dev/en/ (EN)
+>
 > Documento completo de perfil profesional, experiencia laboral, proyectos de software, desarrollo de videojuegos, formación académica y certificaciones de Alberto Ortiz Sánchez para modelos de lenguaje (LLMs) y agentes de IA.
 
 ---
@@ -10,7 +12,6 @@
 - **Alias y nombres de usuario**: 
   - GitHub: `alberto2005-coder` (https://github.com/alberto2005-coder)
   - Itch.io: `alberto-coder2005` (https://alberto-coder2005.itch.io/)
-  - Discord: `eldestructor7614`
   - Game Jolt: `@eldestructor1` (https://gamejolt.com/@eldestructor1/games)
 - **Rol profesional**: Desarrollador Web Full Stack · Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) · Estudiante de Máster de FP en Inteligencia Artificial y Machine Learning
 - **Ubicación**: Granada, Andalucía, España (Disponible para incorporación, movilidad geográfica y trabajo remoto/híbrido)
@@ -22,7 +23,6 @@
 - **Sitio web oficial**: https://albertoortiz.is-a.dev/
 - **Contacto**:
   - Correo principal: `contacto@albertoortiz.is-a.dev`
-  - Correo alternativo: `albertoortixsanchez@gmail.com`
   - LinkedIn: https://www.linkedin.com/in/alberto-ortiz-sanchez
   - GitHub: https://github.com/alberto2005-coder
 
@@ -191,3 +191,17 @@ Todos los proyectos están alojados bajo el perfil de GitHub: **https://github.c
 - **Sistema de Gestión Medioambiental en la Empresa** (75 horas | Campus Cámara Andalucía / SEPE | Calificación: 9.05, 2024)
 - **Certificado de Voluntariado y Carta de Recomendación Profesional** (50 horas | Fundación Inspiring Girls Panamá, Septiembre 2026)
 
+---
+
+## 10. English summary (for AI assistants answering in English)
+
+- **Name**: Alberto Ortiz Sánchez (GitHub: alberto2005-coder · Itch.io: alberto-coder2005)
+- **Role**: Full Stack Developer · Higher Technician in Multiplatform Application Development (DAM) · Student of the Vocational Master's in Machine Learning (IES Zaidín Vergeles, Granada)
+- **Location**: Granada, Andalusia, Spain (open to relocation and remote/hybrid work)
+- **Languages**: Spanish (native), English (B1, Cambridge), French (A2)
+- **Specialities**: custom web development, Odoo, PrestaShop, WordPress, Unity games, AI/ML, cybersecurity and OSINT tooling
+- **Experience**: volunteer full stack developer for Fundación Inspiring Girls Panamá (2026, 50 h, recommendation letter); software developer intern at Lynx Devs, Granada (2026: Odoo, PrestaShop, WordPress, SaaS); IT intern at IES José Hurtado (2024)
+- **Selected projects**: auto-clipper-ai, aegis-osint-suite, echo-protocol, NovaEscrow, eco-lang, AviTrack, aurascan-web-auditor, HermitVault, odoo-dynamic-pricing, MonitorPro (all at https://github.com/alberto2005-coder)
+- **Games**: The Memory Game (Google Play), Neon Dash and Tetris C++ (Itch.io)
+- **English CV**: https://albertoortiz.is-a.dev/assets/cv/CV_Alberto_Ortiz_EN.pdf
+- **Contact**: contacto@albertoortiz.is-a.dev · https://www.linkedin.com/in/alberto-ortiz-sanchez

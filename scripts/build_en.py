@@ -113,6 +113,7 @@ def main():
     set_meta(soup, "property", "og:image:alt", "Alberto Ortiz Sánchez | Full Stack Developer")
     set_meta(soup, "name", "twitter:title", TITLE_EN)
     set_meta(soup, "name", "twitter:description", DESC_EN)
+    set_meta(soup, "name", "twitter:image:alt", "Alberto Ortiz Sánchez | Full Stack Developer")
     canonical = soup.find("link", rel="canonical")
     canonical["href"] = f"{BASE}/en/"
 
@@ -163,6 +164,14 @@ def main():
                 a["description"] = ALUMNI_EN.get(a.get("description"), a.get("description"))
             for c in data.get("hasCredential", []):
                 c["name"] = CRED_EN.get(c.get("name"), c.get("name"))
+            data["mainEntityOfPage"] = {"@id": f"{BASE}/en/#profilepage"}
+        if data.get("@type") == "ProfilePage":
+            data["@id"] = f"{BASE}/en/#profilepage"
+            data["url"] = f"{BASE}/en/"
+            data["name"] = TITLE_EN
+            data["inLanguage"] = "en"
+        if data.get("@type") == "ItemList":
+            data["name"] = "Software projects by Alberto Ortiz Sánchez"
         tag.string = "\n" + json.dumps(data, ensure_ascii=False, indent=2) + "\n    "
 
     out = str(soup)

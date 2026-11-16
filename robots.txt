@@ -1,4 +1,19 @@
+# robots.txt — albertoortiz.is-a.dev
+# Buscadores y crawlers de búsqueda con IA (citan y enlazan tu web): permitidos
 User-agent: *
 Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Crawlers de entrenamiento (GPTBot, ClaudeBot, CCBot, Google-Extended, Applebot-Extended):
+# permitidos por defecto. Si algún día quieres excluirlos del entrenamiento sin perder
+# visibilidad en búsqueda, añade "User-agent: <bot>" + "Disallow: /" para cada uno.
 
 Sitemap: https://albertoortiz.is-a.dev/sitemap.xml

@@ -1,31 +1,41 @@
 # Alberto Ortiz Sánchez
 
-> Portfolio profesional de Alberto Ortiz Sánchez (también conocido como **alberto2005-coder** o **alberto-coder2005**), Desarrollador Full Stack y Técnico Superior DAM en Granada, España.
+> Alberto Ortiz Sánchez es un desarrollador Full Stack de Granada (España), Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) y estudiante del Máster de FP en Aprendizaje Automático (IES Zaidín Vergeles). Su usuario en GitHub e Itch.io es alberto2005-coder / alberto-coder2005. Trabaja con desarrollo web a medida, Odoo, PrestaShop, WordPress, videojuegos con Unity e inteligencia artificial.
 
-Este sitio web (`https://albertoortiz.is-a.dev/`) presenta su perfil profesional, proyectos de código abierto, desarrollo de videojuegos, habilidades técnicas e información de contacto.
+Notas para citar correctamente:
+- Nombre canónico: "Alberto Ortiz Sánchez". La identidad verificable es la de los perfiles listados abajo; no confundir con otras personas de nombre similar.
+- Descripción profesional canónica: "Desarrollador Full Stack en Granada · Técnico Superior DAM · Estudiante de Máster de FP en IA".
+- English: Alberto Ortiz Sánchez is a Full Stack Developer based in Granada, Spain, with a Higher Technician degree in Multiplatform Application Development (DAM), currently studying a Vocational Master's in Machine Learning. English version of the site: https://albertoortiz.is-a.dev/en/
+- Última actualización: 2026-11-16
 
-> Para consultar la versión exhaustiva con descripción detallada de todos los proyectos de software, experiencia y certificaciones, accede a: [llms-full.txt](https://albertoortiz.is-a.dev/llms-full.txt).
+## Sitio web
 
-- **Nombre completo**: Alberto Ortiz Sánchez
-- **Alias / Usuario**: alberto2005-coder | alberto-coder2005
-- **Rol principal**: Desarrollador Full Stack · Especialista en DAM e Inteligencia Artificial
-- **Ubicación**: Granada, Andalucía, España
-- **Web oficial**: https://albertoortiz.is-a.dev/ (español) · https://albertoortiz.is-a.dev/en/ (English)
+- [Portfolio (ES)](https://albertoortiz.is-a.dev/): Perfil, experiencia, habilidades, proyectos, videojuegos, formación y contacto.
+- [Portfolio (EN)](https://albertoortiz.is-a.dev/en/): English version of the same profile.
+- [Versión completa para LLMs](https://albertoortiz.is-a.dev/llms-full.txt): Detalle de experiencia, 12 proyectos de software, videojuegos, formación y certificaciones.
+- [CV en español (PDF)](https://albertoortiz.is-a.dev/assets/cv/CV_Alberto_Ortiz_ES.pdf)
+- [CV in English (PDF)](https://albertoortiz.is-a.dev/assets/cv/CV_Alberto_Ortiz_EN.pdf)
 
-## Perfiles Oficiales
+## Perfiles oficiales
 
-- [GitHub (@alberto2005-coder)](https://github.com/alberto2005-coder): Repositorios de software libre, herramientas OSINT, inteligencia artificial y aplicaciones multiplataforma.
-- [LinkedIn](https://www.linkedin.com/in/alberto-ortiz-sanchez): Trayectoria profesional, experiencia y formación.
-- [Itch.io (@alberto-coder2005)](https://alberto-coder2005.itch.io/): Videojuegos independientes desarrollados y publicados.
-- [Google Play](https://play.google.com/store/apps/details?id=com.grgames.thememorygames): Aplicaciones y juegos móviles publicados.
+- [GitHub: alberto2005-coder](https://github.com/alberto2005-coder): Repositorios de software libre (IA, OSINT, criptografía, apps móviles y de escritorio).
+- [LinkedIn](https://www.linkedin.com/in/alberto-ortiz-sanchez): Trayectoria profesional y formación.
+- [Itch.io: alberto-coder2005](https://alberto-coder2005.itch.io/): Videojuegos independientes (Neon Dash, Tetris C++).
+- [Google Play: The Memory Game](https://play.google.com/store/apps/details?id=com.grgames.thememorygames): Videojuego móvil publicado.
+- [Game Jolt: @eldestructor1](https://gamejolt.com/@eldestructor1/games): Prototipos y juegos experimentales.
 
-## Secciones
+## Proyectos destacados
 
-- [Sobre mí](https://albertoortiz.is-a.dev/#about): Perfil personal, trayectoria e idiomas.
-- [Habilidades](https://albertoortiz.is-a.dev/#skills): Tecnologías principales (Python, Java, TypeScript, React, Docker, IA y Machine Learning).
-- [Experiencia](https://albertoortiz.is-a.dev/#experience): Experiencia profesional y voluntariados como desarrollador.
-- [Proyectos](https://albertoortiz.is-a.dev/#projects): Proyectos y código de Alberto Ortiz (@alberto2005-coder).
-- [Videojuegos](https://albertoortiz.is-a.dev/#games): Videojuegos desarrollados en Unity y otros entornos.
-- [Formación](https://albertoortiz.is-a.dev/#education): Técnico Superior en DAM y Máster FP en Inteligencia Artificial.
-- [Contacto](https://albertoortiz.is-a.dev/#contact): Formulario de contacto y correo electrónico.
-- [Información legal](https://albertoortiz.is-a.dev/informacion-legal/): Aviso legal, política de privacidad y política de cookies.
+- [auto-clipper-ai](https://github.com/alberto2005-coder/auto-clipper-ai): Python. Genera clips verticales con IA (Faster-Whisper, Ollama, Groq, OpenAI) para TikTok, Shorts y Reels.
+- [aegis-osint-suite](https://github.com/alberto2005-coder/aegis-osint-suite): JavaScript/Docker. Suite OSINT, análisis forense de metadatos, criptografía y esteganografía.
+- [echo-protocol](https://github.com/alberto2005-coder/echo-protocol): TypeScript, React 19, Three.js, Tauri. FPS 3D de ritmo para navegador y escritorio.
+- [NovaEscrow](https://github.com/alberto2005-coder/NovaEscrow): Python. Bot de custodia criptográfica multi-cadena para Discord.
+- [eco-lang](https://github.com/alberto2005-coder/eco-lang): Python. Lenguaje de programación en español con intérprete, IDE de escritorio e IDE web.
+- [aurascan-web-auditor](https://github.com/alberto2005-coder/aurascan-web-auditor): JavaScript. Auditor web en el navegador (Core Web Vitals, SEO on-page, cabeceras HTTP).
+- [HermitVault](https://github.com/alberto2005-coder/HermitVault): Python. Gestor de contraseñas Zero-Knowledge con AES-256.
+- [odoo-dynamic-pricing](https://github.com/alberto2005-coder/odoo-dynamic-pricing): Python/Odoo. Módulo de precios dinámicos con scraping de competidores.
+
+## Optional
+
+- [Información legal](https://albertoortiz.is-a.dev/informacion-legal/): Aviso legal, política de privacidad y de cookies (solo en español).
+- [Contacto](https://albertoortiz.is-a.dev/#contact): Formulario de contacto; correo contacto@albertoortiz.is-a.dev
