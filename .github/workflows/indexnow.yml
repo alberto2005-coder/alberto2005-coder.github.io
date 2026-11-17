@@ -25,6 +25,7 @@ jobs:
             "urlList": [
               "https://albertoortiz.is-a.dev/",
               "https://albertoortiz.is-a.dev/en/",
-              "https://albertoortiz.is-a.dev/informacion-legal/"
+              "https://albertoortiz.is-a.dev/informacion-legal/",
+              "https://albertoortiz.is-a.dev/en/informacion-legal/"
             ]
           }'

@@ -27,7 +27,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://albertoortiz.is-a.dev"
-PAGES = ["index.html", "en/index.html", "informacion-legal/index.html", "404.html"]
+PAGES = ["index.html", "en/index.html", "informacion-legal/index.html", "en/informacion-legal/index.html", "404.html"]
 errors, warnings = [], []
 
 
@@ -51,16 +51,18 @@ def soup_of(rel):
 
 
 # 1) en/index.html al día ------------------------------------------------------------
-current = (ROOT / "en" / "index.html").read_text(encoding="utf-8")
+GENERATED = ["en/index.html", "en/informacion-legal/index.html"]
+current = {g: (ROOT / g).read_text(encoding="utf-8") for g in GENERATED if (ROOT / g).exists()}
 with tempfile.TemporaryDirectory() as tmp:
     # Se regenera en memoria ejecutando el script sobre una copia
     import shutil
     shutil.copytree(ROOT, Path(tmp) / "r", ignore=shutil.ignore_patterns(".git"))
     subprocess.run([sys.executable, str(Path(tmp) / "r" / "scripts" / "build_en.py")],
                    check=True, capture_output=True)
-    fresh = (Path(tmp) / "r" / "en" / "index.html").read_text(encoding="utf-8")
-if fresh != current:
-    err("en/index.html está desactualizado: ejecuta  python3 scripts/build_en.py")
+    for g in GENERATED:
+        fresh = (Path(tmp) / "r" / g).read_text(encoding="utf-8")
+        if current.get(g) != fresh:
+            err(f"{g} falta o está desactualizado: ejecuta  python3 scripts/build_en.py")
 
 # 2) enlaces y recursos internos -----------------------------------------------------
 for rel in PAGES:
@@ -104,16 +106,21 @@ for rel in PAGES:
     if og and og["content"] != c["href"]:
         err(f"{rel}: og:url ({og['content']}) distinto del canonical ({c['href']})")
 
-alts = {}
-for rel in ("index.html", "en/index.html"):
-    alts[rel] = {l["hreflang"]: l["href"] for l in soup_of(rel).find_all("link", rel="alternate") if l.get("hreflang")}
-if alts["index.html"] != alts["en/index.html"]:
-    err("hreflang distinto entre / y /en/ (deben ser idénticos y recíprocos)")
-for lang, href in alts["index.html"].items():
-    if not url_to_file(urlparse(href).path).exists():
-        err(f"hreflang {lang}: {href} no existe")
-if alts["index.html"].get("es") != canon.get("index.html") or alts["index.html"].get("en") != canon.get("en/index.html"):
-    err("hreflang no coincide con los canonical")
+# Pares de idiomas: (página ES, página EN)
+for es_rel, en_rel in (("index.html", "en/index.html"),
+                       ("informacion-legal/index.html", "en/informacion-legal/index.html")):
+    alts = {}
+    for rel in (es_rel, en_rel):
+        alts[rel] = {l["hreflang"]: l["href"] for l in soup_of(rel).find_all("link", rel="alternate") if l.get("hreflang")}
+    if alts[es_rel] != alts[en_rel]:
+        err(f"hreflang distinto entre {es_rel} y {en_rel} (deben ser idénticos y recíprocos)")
+    for lang, href in alts[es_rel].items():
+        if not url_to_file(urlparse(href).path).exists():
+            err(f"hreflang {lang}: {href} no existe")
+    if alts[es_rel].get("es") != canon.get(es_rel) or alts[es_rel].get("en") != canon.get(en_rel):
+        err(f"hreflang de {es_rel} no coincide con los canonical")
+    if alts[es_rel].get("x-default") != canon.get(es_rel):
+        err(f"x-default de {es_rel} debería apuntar a la versión en español")
 
 # 4) sitemap ----------------------------------------------------------------------------
 ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
@@ -133,7 +140,7 @@ for loc in locs:
         err(f"sitemap: {loc} no es canonical de ninguna página")
 
 # 5) JSON-LD ------------------------------------------------------------------------------
-for rel in ("index.html", "en/index.html", "informacion-legal/index.html"):
+for rel in ("index.html", "en/index.html", "informacion-legal/index.html", "en/informacion-legal/index.html"):
     for i, t in enumerate(soup_of(rel).find_all("script", type="application/ld+json")):
         try:
             json.loads(t.string)

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-Genera la versión en inglés (/en/index.html) a partir de index.html.
+Genera las versiones en inglés a partir de las páginas en español:
+  index.html -> en/index.html
+  informacion-legal/index.html -> en/informacion-legal/index.html
 
 La web mantiene una única fuente de verdad: index.html (español) con los textos
 en inglés en los atributos data-lang-en. Este script produce una página estática
@@ -22,6 +24,8 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "index.html"
 DST = ROOT / "en" / "index.html"
+LEGAL_SRC = ROOT / "informacion-legal" / "index.html"
+LEGAL_DST = ROOT / "en" / "informacion-legal" / "index.html"
 
 BASE = "https://albertoortiz.is-a.dev"
 
@@ -97,7 +101,7 @@ def set_meta(soup, attr, key, value):
     tag["content"] = value
 
 
-def main():
+def build_home():
     soup = BeautifulSoup(SRC.read_text(encoding="utf-8"), "html.parser")
 
     # --- Documento -----------------------------------------------------------
@@ -154,6 +158,10 @@ def main():
             if v and re.match(r"^assets/", v):
                 el[attr] = "/" + v
 
+    # --- Enlaces a la información legal: versión inglesa ---------------------
+    for a in soup.find_all("a", href=re.compile(r"^/informacion-legal/")):
+        a["href"] = "/en" + a["href"]
+
     # --- Datos estructurados ----------------------------------------------------
     for tag in soup.find_all("script", type="application/ld+json"):
         data = json.loads(tag.string)
@@ -185,6 +193,90 @@ def main():
     DST.parent.mkdir(parents=True, exist_ok=True)
     DST.write_text(out, encoding="utf-8")
     print(f"OK  {DST.relative_to(ROOT)}  ({len(out):,} bytes)")
+
+
+LEGAL_TITLE_EN = "Alberto Ortiz Sánchez | Legal information"
+LEGAL_DESC_EN = (
+    "Legal notice, privacy policy and cookie policy of the portfolio of "
+    "Alberto Ortiz Sánchez."
+)
+
+
+def build_legal():
+    soup = BeautifulSoup(LEGAL_SRC.read_text(encoding="utf-8"), "html.parser")
+    url_en = f"{BASE}/en/informacion-legal/"
+
+    soup.html["lang"] = "en"
+    soup.title.string = LEGAL_TITLE_EN
+    set_meta(soup, "name", "description", LEGAL_DESC_EN)
+    set_meta(soup, "property", "og:title", LEGAL_TITLE_EN)
+    set_meta(soup, "property", "og:description", LEGAL_DESC_EN)
+    set_meta(soup, "property", "og:url", url_en)
+    set_meta(soup, "property", "og:locale", "en_US")
+    set_meta(soup, "property", "og:locale:alternate", "es_ES")
+    set_meta(soup, "property", "og:image:alt", LEGAL_TITLE_EN)
+    set_meta(soup, "name", "twitter:title", LEGAL_TITLE_EN)
+    set_meta(soup, "name", "twitter:description", LEGAL_DESC_EN)
+    set_meta(soup, "name", "twitter:image:alt", LEGAL_TITLE_EN)
+    soup.find("link", rel="canonical")["href"] = url_en
+
+    for el in soup.select("[data-lang-en]"):
+        html_en = el["data-lang-en"]
+        el.clear()
+        el.append(BeautifulSoup(html_en, "html.parser"))
+    for el in soup.find_all(attrs={"aria-label": True}):
+        if el["aria-label"] in ARIA_EN:
+            el["aria-label"] = ARIA_EN[el["aria-label"]]
+    for el in soup.find_all("img", alt=True):
+        if el["alt"] in ALT_EN:
+            el["alt"] = ALT_EN[el["alt"]]
+        elif el["alt"]:
+            print(f"  aviso: alt sin traducir: {el['alt']!r}", file=sys.stderr)
+
+    soup.find(id="lang-label").string = "EN"
+    for link in soup.select("[data-cv-link]"):
+        link["href"] = link["data-cv-en"]
+        link["hreflang"] = "en"
+        link["aria-label"] = "Download CV as PDF"
+    # Enlaces a la propia legal (p. ej. banner de cookies): versión inglesa. El selector de idioma no se toca.
+    for a in soup.find_all("a", href=re.compile(r"^/informacion-legal/")):
+        if not a.get("data-lang"):
+            a["href"] = "/en" + a["href"]
+    # Enlaces a la portada: /en/ (el JS ya no los reescribe en páginas estáticas)
+    for a in soup.select("[data-home]"):
+        a["href"] = "/en/" + (a.get("data-home") or "")
+
+    # Datos estructurados
+    for tag in soup.find_all("script", type="application/ld+json"):
+        data = json.loads(tag.string)
+        if data.get("@type") == "WebPage":
+            data["@id"] = f"{url_en}#webpage"
+            data["url"] = url_en
+            data["name"] = "Legal information | Alberto Ortiz Sánchez"
+            data["description"] = LEGAL_DESC_EN
+            data["inLanguage"] = "en"
+            data["breadcrumb"] = {"@id": f"{url_en}#breadcrumb"}
+        if data.get("@type") == "BreadcrumbList":
+            data["@id"] = f"{url_en}#breadcrumb"
+            data["itemListElement"][0].update({"name": "Home", "item": f"{BASE}/en/"})
+            data["itemListElement"][1].update({"name": "Legal information", "item": url_en})
+        tag.string = "\n" + json.dumps(data, ensure_ascii=False, indent=2) + "\n    "
+
+    out = str(soup)
+    out = out.replace(
+        "<!DOCTYPE html>",
+        "<!DOCTYPE html>\n<!-- ARCHIVO GENERADO por scripts/build_en.py a partir de informacion-legal/index.html. "
+        "No lo edites a mano: modifica el original y vuelve a ejecutar el script. -->",
+        1,
+    )
+    LEGAL_DST.parent.mkdir(parents=True, exist_ok=True)
+    LEGAL_DST.write_text(out, encoding="utf-8")
+    print(f"OK  {LEGAL_DST.relative_to(ROOT)}  ({len(out):,} bytes)")
+
+
+def main():
+    build_home()
+    build_legal()
 
 
 if __name__ == "__main__":

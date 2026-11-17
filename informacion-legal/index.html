@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-static-lang>
 
 <head>
     <meta charset="UTF-8">
@@ -19,6 +19,9 @@
     <meta name="author" content="Alberto Ortiz Sánchez">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://albertoortiz.is-a.dev/informacion-legal/">
+    <link rel="alternate" hreflang="es" href="https://albertoortiz.is-a.dev/informacion-legal/">
+    <link rel="alternate" hreflang="en" href="https://albertoortiz.is-a.dev/en/informacion-legal/">
+    <link rel="alternate" hreflang="x-default" href="https://albertoortiz.is-a.dev/informacion-legal/">
 
     <!-- ===== DATOS ESTRUCTURADOS (Schema.org) ===== -->
     <script type="application/ld+json">
@@ -30,7 +33,7 @@
       "name": "Información legal | Alberto Ortiz Sánchez",
       "description": "Aviso legal, política de privacidad y política de cookies del portfolio de Alberto Ortiz Sánchez.",
       "inLanguage": "es",
-      "dateModified": "2026-11-04",
+      "dateModified": "2026-10-29",
       "isPartOf": {
         "@id": "https://albertoortiz.is-a.dev/#website"
       },
@@ -2116,8 +2119,8 @@ footer .footer-links button:hover { color: #fff; }
                     <span id="lang-label">ES</span> <i class="fas fa-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div id="lang-dropdown" class="lang-dropdown" role="menu">
-                    <a href="#" data-lang="es" role="menuitem" lang="es">Español (ES)</a>
-                    <a href="#" data-lang="en" role="menuitem" lang="en">English (EN)</a>
+                    <a href="/informacion-legal/" data-lang="es" role="menuitem" lang="es" hreflang="es">Español (ES)</a>
+                    <a href="/en/informacion-legal/" data-lang="en" role="menuitem" lang="en" hreflang="en">English (EN)</a>
                 </div>
             </div>
         </div>
@@ -2409,7 +2412,8 @@ footer .footer-links button:hover { color: #fff; }
             const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             let currentTheme = storedTheme || (systemDark ? 'dark' : 'light');
 
-            const langCode = () => (localStorage.getItem('language') || 'es');
+            // Una URL por idioma: el idioma activo lo fija el atributo lang del propio HTML.
+            const langCode = () => (document.documentElement.lang === 'en' ? 'en' : 'es');
 
             const applyTheme = (theme) => {
                 const en = langCode() === 'en';
@@ -2469,7 +2473,6 @@ footer .footer-links button:hover { color: #fff; }
             };
 
             const translatePage = (language) => {
-                localStorage.setItem('language', language);
 
                 document.querySelectorAll('[data-lang-es], [data-lang-en]').forEach(el => {
                     const text = el.getAttribute(`data-lang-${language}`);
@@ -2521,7 +2524,7 @@ footer .footer-links button:hover { color: #fff; }
                 document.dispatchEvent(new CustomEvent('langchange', { detail: { language } }));
             };
 
-            translatePage(localStorage.getItem('language') || 'es');
+            translatePage(langCode());
 
             langBtn.addEventListener('click', () => {
                 const isOpen = langDropdown.classList.toggle('show');
@@ -2530,8 +2533,14 @@ footer .footer-links button:hover { color: #fff; }
 
             langOptions.forEach(option => {
                 option.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    translatePage(e.currentTarget.getAttribute('data-lang'));
+                    const target = e.currentTarget.getAttribute('data-lang');
+                    if (target === langCode()) {
+                        e.preventDefault();
+                        langDropdown.classList.remove('show');
+                        langBtn.setAttribute('aria-expanded', 'false');
+                    } else {
+                        try { localStorage.setItem('language', target); } catch (err) { /* ignorar */ }
+                    }
                 });
             });
 

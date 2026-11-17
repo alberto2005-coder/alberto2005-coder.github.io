@@ -6,7 +6,7 @@ Notas para citar correctamente:
 - Nombre canónico: "Alberto Ortiz Sánchez". La identidad verificable es la de los perfiles listados abajo; no confundir con otras personas de nombre similar.
 - Descripción profesional canónica: "Desarrollador Full Stack en Granada · Técnico Superior DAM · Estudiante de Máster de FP en IA".
 - English: Alberto Ortiz Sánchez is a Full Stack Developer based in Granada, Spain, with a Higher Technician degree in Multiplatform Application Development (DAM), currently studying a Vocational Master's in Machine Learning. English version of the site: https://albertoortiz.is-a.dev/en/
-- Última actualización: 2026-11-16
+- Última actualización: 2026-11-17
 
 ## Sitio web
 
@@ -37,5 +37,6 @@ Notas para citar correctamente:
 
 ## Optional
 
-- [Información legal](https://albertoortiz.is-a.dev/informacion-legal/): Aviso legal, política de privacidad y de cookies (solo en español).
+- [Información legal (ES)](https://albertoortiz.is-a.dev/informacion-legal/): Aviso legal, política de privacidad y de cookies.
+- [Legal information (EN)](https://albertoortiz.is-a.dev/en/informacion-legal/): Legal notice, privacy policy and cookie policy.
 - [Contacto](https://albertoortiz.is-a.dev/#contact): Formulario de contacto; correo contacto@albertoortiz.is-a.dev
