@@ -237,7 +237,7 @@
   "url": "https://albertoortiz.is-a.dev/en/",
   "name": "Alberto Ortiz Sánchez | Full Stack Developer in Granada",
   "inLanguage": "en",
-  "dateModified": "2026-11-17",
+  "dateModified": "2026-11-17T22:40:00+01:00",
   "isPartOf": {
     "@id": "https://albertoortiz.is-a.dev/#website"
   },
@@ -1249,6 +1249,12 @@ body[data-theme="dark"] .hero-section {
 
 .education-item .date, .course-item .details {
     font-size: 0.9em;
+}
+
+/* Accesibilidad: los enlaces dentro de texto no deben distinguirse solo por el color */
+.course-item .details a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 .badge-new {

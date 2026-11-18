@@ -1,22 +1,29 @@
 #!/usr/bin/env python3
 """Pon la fecha de última modificación en un solo paso (ejecútalo antes de build_en.py).
 
-    python3 scripts/stamp_date.py            # usa la fecha de hoy
-    python3 scripts/stamp_date.py 2026-11-17 # o una fecha concreta
+    python3 scripts/stamp_date.py            # usa la fecha y hora actuales
+    python3 scripts/stamp_date.py 2026-11-17 # o una fecha concreta (hora 12:00)
 
-Actualiza: dateModified del ProfilePage en index.html, <lastmod> de / y /en/ en
+Actualiza: dateModified del ProfilePage en index.html (fecha + hora + zona horaria,
+que es lo que exige Google para ProfilePage), <lastmod> de / y /en/ en
 sitemap.xml y la línea "Última actualización" de llms.txt y llms-full.txt.
 (La página legal conserva su propia fecha: solo cámbiala cuando cambie su texto.)
 """
 import re
 import sys
-from datetime import date
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-d = sys.argv[1] if len(sys.argv) > 1 else date.today().isoformat()
-if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", d):
-    sys.exit("Formato de fecha: AAAA-MM-DD")
+now = datetime.now().astimezone().replace(microsecond=0)  # hora local con su zona (+01:00 / +02:00)
+if len(sys.argv) > 1:
+    d = sys.argv[1]
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", d):
+        sys.exit("Formato de fecha: AAAA-MM-DD")
+    dt = now.replace(**dict(zip(("year", "month", "day"), map(int, d.split("-")))), hour=12, minute=0, second=0).isoformat()
+else:
+    d = now.date().isoformat()
+    dt = now.isoformat()
 
 
 def sub(path, pattern, repl, flags=0):
@@ -30,7 +37,7 @@ def sub(path, pattern, repl, flags=0):
 
 
 # ProfilePage (solo ese bloque: el dateModified que sigue a "inLanguage" del perfil)
-sub("index.html", r'("@type": "ProfilePage".*?"dateModified": ")\d{4}-\d{2}-\d{2}', rf"\g<1>{d}", re.S)
+sub("index.html", r'("@type": "ProfilePage".*?"dateModified": ")[^"]+', rf"\g<1>{dt}", re.S)
 # sitemap: solo / y /en/ (no la página legal)
 sub("sitemap.xml",
     r'(<loc>https://albertoortiz\.is-a\.dev/(?:en/)?</loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}',

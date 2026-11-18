@@ -793,6 +793,12 @@ body[data-theme="dark"] .hero-section {
     font-size: 0.9em;
 }
 
+/* Accesibilidad: los enlaces dentro de texto no deben distinguirse solo por el color */
+.course-item .details a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 .badge-new {
     background: linear-gradient(135deg, #ff416c, #ff4b2b);
     color: white;
