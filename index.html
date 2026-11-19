@@ -243,7 +243,7 @@
       "url": "https://albertoortiz.is-a.dev/",
       "name": "Alberto Ortiz Sánchez | Desarrollador Full Stack en Granada",
       "inLanguage": "es",
-      "dateModified": "2026-11-17T22:40:00+01:00",
+      "dateModified": "2026-11-18T22:17:01+01:00",
       "isPartOf": {
         "@id": "https://albertoortiz.is-a.dev/#website"
       },
@@ -1622,6 +1622,20 @@ section[id] { scroll-margin-top: 90px; }
     margin-bottom: 14px;
 }
 
+/* SEO: el rol va dentro del H1 (nombre + "Desarrollador Full Stack en Granada"), con el mismo aspecto que antes */
+.hero-section h1 { margin-bottom: 14px; }
+.hero-section h1 .hero-name { display: block; }
+.hero-section h1 .hero-role {
+    display: block;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    text-shadow: none;
+    margin: 10px 0 0;
+}
+@media (max-width: 576px) {
+    .hero-section h1 .hero-role { font-size: 0.85rem; letter-spacing: 0.1em; }
+}
+
 .hero-contact {
     margin-top: 26px;
     font-size: 0.95em;
@@ -2505,10 +2519,12 @@ footer .footer-links button:hover { color: #fff; }
                 <span data-lang-es="Disponible para incorporación" data-lang-en="Available for hire">Disponible para
                     incorporación</span>
             </p>
-            <h1 data-lang-es="Alberto Ortiz Sánchez" data-lang-en="Alberto Ortiz Sánchez">Alberto Ortiz Sánchez</h1>
-            <h2 class="hero-role" data-lang-es="Desarrollador Full Stack en Granada · Estudiante de Máster FP en IA"
-                data-lang-en="Full Stack Developer in Granada · FP Master's Student in AI">Desarrollador Full Stack en
-                Granada · Estudiante de Máster FP en IA</h2>
+            <h1>
+                <span class="hero-name" data-lang-es="Alberto Ortiz Sánchez" data-lang-en="Alberto Ortiz Sánchez">Alberto Ortiz Sánchez</span>
+                <span class="hero-role" data-lang-es="Desarrollador Full Stack en Granada · Estudiante de Máster FP en IA"
+                    data-lang-en="Full Stack Developer in Granada · FP Master's Student in AI">Desarrollador Full Stack en
+                    Granada · Estudiante de Máster FP en IA</span>
+            </h1>
             <p class="tagline">
                 <span id="typing-text"></span><span class="typing-cursor" aria-hidden="true">|</span>
             </p>

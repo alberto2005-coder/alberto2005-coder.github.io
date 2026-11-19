@@ -1156,6 +1156,20 @@ section[id] { scroll-margin-top: 90px; }
     margin-bottom: 14px;
 }
 
+/* SEO: el rol va dentro del H1 (nombre + "Desarrollador Full Stack en Granada"), con el mismo aspecto que antes */
+.hero-section h1 { margin-bottom: 14px; }
+.hero-section h1 .hero-name { display: block; }
+.hero-section h1 .hero-role {
+    display: block;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    text-shadow: none;
+    margin: 10px 0 0;
+}
+@media (max-width: 576px) {
+    .hero-section h1 .hero-role { font-size: 0.85rem; letter-spacing: 0.1em; }
+}
+
 .hero-contact {
     margin-top: 26px;
     font-size: 0.95em;

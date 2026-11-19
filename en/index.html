@@ -40,7 +40,7 @@
 <meta content="https://albertoortiz.is-a.dev/en/" property="og:url"/>
 <meta content="Alberto Ortiz Sánchez | Full Stack Developer in Granada" property="og:title"/>
 <meta content="Full Stack Developer in Granada: custom websites, Odoo, PrestaShop, WordPress, Unity games and AI. Explore projects, experience and CV." property="og:description"/>
-<meta content="https://albertoortiz.is-a.dev/assets/img/og-image.png" property="og:image"/>
+<meta content="https://albertoortiz.is-a.dev/assets/img/og-image-en.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="Alberto Ortiz Sánchez | Full Stack Developer" property="og:image:alt"/>
@@ -51,7 +51,7 @@
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Alberto Ortiz Sánchez | Full Stack Developer in Granada" name="twitter:title"/>
 <meta content="Full Stack Developer in Granada: custom websites, Odoo, PrestaShop, WordPress, Unity games and AI. Explore projects, experience and CV." name="twitter:description"/>
-<meta content="https://albertoortiz.is-a.dev/assets/img/og-image.png" name="twitter:image"/>
+<meta content="https://albertoortiz.is-a.dev/assets/img/og-image-en.png" name="twitter:image"/>
 <meta content="Alberto Ortiz Sánchez | Full Stack Developer" name="twitter:image:alt"/>
 <!-- ===== DATOS ESTRUCTURADOS: NOMBRE DEL SITIO (Google Search) ===== -->
 <script type="application/ld+json">
@@ -237,7 +237,7 @@
   "url": "https://albertoortiz.is-a.dev/en/",
   "name": "Alberto Ortiz Sánchez | Full Stack Developer in Granada",
   "inLanguage": "en",
-  "dateModified": "2026-11-17T22:40:00+01:00",
+  "dateModified": "2026-11-18T22:17:01+01:00",
   "isPartOf": {
     "@id": "https://albertoortiz.is-a.dev/#website"
   },
@@ -246,7 +246,7 @@
   },
   "primaryImageOfPage": {
     "@type": "ImageObject",
-    "url": "https://albertoortiz.is-a.dev/assets/img/og-image.png",
+    "url": "https://albertoortiz.is-a.dev/assets/img/og-image-en.png",
     "width": 1200,
     "height": 630
   }
@@ -1614,6 +1614,20 @@ section[id] { scroll-margin-top: 90px; }
     margin-bottom: 14px;
 }
 
+/* SEO: el rol va dentro del H1 (nombre + "Desarrollador Full Stack en Granada"), con el mismo aspecto que antes */
+.hero-section h1 { margin-bottom: 14px; }
+.hero-section h1 .hero-name { display: block; }
+.hero-section h1 .hero-role {
+    display: block;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    text-shadow: none;
+    margin: 10px 0 0;
+}
+@media (max-width: 576px) {
+    .hero-section h1 .hero-role { font-size: 0.85rem; letter-spacing: 0.1em; }
+}
+
 .hero-contact {
     margin-top: 26px;
     font-size: 0.95em;
@@ -2470,8 +2484,10 @@ footer .footer-links button:hover { color: #fff; }
 <span aria-hidden="true" class="status-dot"></span>
 <span data-lang-en="Available for hire" data-lang-es="Disponible para incorporación">Available for hire</span>
 </p>
-<h1 data-lang-en="Alberto Ortiz Sánchez" data-lang-es="Alberto Ortiz Sánchez">Alberto Ortiz Sánchez</h1>
-<h2 class="hero-role" data-lang-en="Full Stack Developer in Granada · FP Master's Student in AI" data-lang-es="Desarrollador Full Stack en Granada · Estudiante de Máster FP en IA">Full Stack Developer in Granada · FP Master's Student in AI</h2>
+<h1>
+<span class="hero-name" data-lang-en="Alberto Ortiz Sánchez" data-lang-es="Alberto Ortiz Sánchez">Alberto Ortiz Sánchez</span>
+<span class="hero-role" data-lang-en="Full Stack Developer in Granada · FP Master's Student in AI" data-lang-es="Desarrollador Full Stack en Granada · Estudiante de Máster FP en IA">Full Stack Developer in Granada · FP Master's Student in AI</span>
+</h1>
 <p class="tagline">
 <span id="typing-text"></span><span aria-hidden="true" class="typing-cursor">|</span>
 </p>

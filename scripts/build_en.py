@@ -114,6 +114,8 @@ def build_home():
     set_meta(soup, "property", "og:url", f"{BASE}/en/")
     set_meta(soup, "property", "og:locale", "en_US")
     set_meta(soup, "property", "og:locale:alternate", "es_ES")
+    set_meta(soup, "property", "og:image", OG_IMAGE_EN)
+    set_meta(soup, "name", "twitter:image", OG_IMAGE_EN)
     set_meta(soup, "property", "og:image:alt", "Alberto Ortiz Sánchez | Full Stack Developer")
     set_meta(soup, "name", "twitter:title", TITLE_EN)
     set_meta(soup, "name", "twitter:description", DESC_EN)
@@ -174,6 +176,8 @@ def build_home():
                 c["name"] = CRED_EN.get(c.get("name"), c.get("name"))
             data["mainEntityOfPage"] = {"@id": f"{BASE}/en/#profilepage"}
         if data.get("@type") == "ProfilePage":
+            if isinstance(data.get("primaryImageOfPage"), dict):
+                data["primaryImageOfPage"]["url"] = OG_IMAGE_EN
             data["@id"] = f"{BASE}/en/#profilepage"
             data["url"] = f"{BASE}/en/"
             data["name"] = TITLE_EN
@@ -195,6 +199,7 @@ def build_home():
     print(f"OK  {DST.relative_to(ROOT)}  ({len(out):,} bytes)")
 
 
+OG_IMAGE_EN = f"{BASE}/assets/img/og-image-en.png"
 LEGAL_TITLE_EN = "Alberto Ortiz Sánchez | Legal information"
 LEGAL_DESC_EN = (
     "Legal notice, privacy policy and cookie policy of the portfolio of "
@@ -214,6 +219,8 @@ def build_legal():
     set_meta(soup, "property", "og:url", url_en)
     set_meta(soup, "property", "og:locale", "en_US")
     set_meta(soup, "property", "og:locale:alternate", "es_ES")
+    set_meta(soup, "property", "og:image", OG_IMAGE_EN)
+    set_meta(soup, "name", "twitter:image", OG_IMAGE_EN)
     set_meta(soup, "property", "og:image:alt", LEGAL_TITLE_EN)
     set_meta(soup, "name", "twitter:title", LEGAL_TITLE_EN)
     set_meta(soup, "name", "twitter:description", LEGAL_DESC_EN)
