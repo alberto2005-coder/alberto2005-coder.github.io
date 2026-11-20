@@ -595,3 +595,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// Imágenes de proyecto que no cargan (antes: onerror en línea, incompatible con la CSP sin 'unsafe-inline')
+(function () {
+    document.querySelectorAll('img.project-media-main').forEach(function (img) {
+        img.addEventListener('error', function () { img.classList.add('is-missing'); });
+    });
+})();

@@ -51,7 +51,7 @@ def soup_of(rel):
 
 
 # 1) en/index.html al día ------------------------------------------------------------
-GENERATED = ["en/index.html", "en/informacion-legal/index.html"]
+GENERATED = list(PAGES)  # build_en.py regenera EN y recalcula la CSP de todas
 current = {g: (ROOT / g).read_text(encoding="utf-8") for g in GENERATED if (ROOT / g).exists()}
 with tempfile.TemporaryDirectory() as tmp:
     # Se regenera en memoria ejecutando el script sobre una copia
@@ -62,7 +62,7 @@ with tempfile.TemporaryDirectory() as tmp:
     for g in GENERATED:
         fresh = (Path(tmp) / "r" / g).read_text(encoding="utf-8")
         if current.get(g) != fresh:
-            err(f"{g} falta o está desactualizado: ejecuta  python3 scripts/build_en.py")
+            err(f"{g} está desactualizado (versión EN o hashes de la CSP): ejecuta  build_en.py")
 
 # 2) enlaces y recursos internos -----------------------------------------------------
 for rel in PAGES:
@@ -154,6 +154,41 @@ inline = norm(" ".join(t.get_text() for t in soup_of("index.html").find_all("sty
 if css not in inline:
     warnings.append("El CSS incrustado de index.html no coincide con assets/css/style.css "
                     "(sincronízalos: el comentario de index.html dice que son copia exacta).")
+
+# 7) Seguridad: CSP sin 'unsafe-inline' en scripts, hashes al día, sin recursos de terceros no previstos ----------
+ALLOWED_SCRIPT_HOSTS = {"https://www.googletagmanager.com", "https://web3forms.com", "https://hcaptcha.com",
+                        "https://js.hcaptcha.com", "https://newassets.hcaptcha.com"}
+for rel in PAGES:
+    html = (ROOT / rel).read_text(encoding="utf-8")
+    m = re.search(r'http-equiv="Content-Security-Policy"\s+content="([^"]*)"', html)
+    if not m:
+        err(f"{rel}: falta la Content-Security-Policy"); continue
+    dirs = {d.split()[0]: d.split()[1:] for d in m.group(1).split(";") if d.strip()}
+    sc = dirs.get("script-src", [])
+    if "'unsafe-inline'" in sc or "'unsafe-eval'" in sc:
+        err(f"{rel}: script-src no debe llevar 'unsafe-inline' ni 'unsafe-eval'")
+    if "frame-ancestors" in dirs:
+        warnings.append(f"{rel}: frame-ancestors no funciona en <meta> (se ignora)")
+    for host in [s for s in sc if s.startswith("https://")]:
+        if host not in ALLOWED_SCRIPT_HOSTS:
+            err(f"{rel}: script-src permite un host no previsto: {host}")
+    for attrs, body in re.findall(r"<script\b([^>]*)>(.*?)</script>", html, re.S):
+        if re.search(r"\bsrc\s*=", attrs) or "ld+json" in attrs:
+            continue
+        import base64, hashlib
+        h = "'sha256-" + base64.b64encode(hashlib.sha256(body.replace("\r\n", "\n").encode("utf-8")).digest()).decode() + "'"
+        if h not in sc:
+            err(f"{rel}: un <script> en línea no está autorizado en la CSP (ejecuta build_en.py)")
+    if re.search(r"\s(on(click|load|error|mouseover|submit|change|focus|blur)|style)=\"", html) and rel != "404.html":
+        bad = re.findall(r"\s(on\w+)=\"", html)
+        if bad:
+            err(f"{rel}: atributos de evento en línea ({', '.join(sorted(set(bad)))}): no caben en una CSP estricta")
+    for el in soup_of(rel).find_all(["script", "link", "img", "iframe"]):
+        u = el.get("src") or el.get("href") or ""
+        if u.startswith("http") and not u.startswith(BASE) and el.name in ("script", "iframe") :
+            err(f"{rel}: <{el.name}> carga un recurso externo en HTML: {u}")
+        if any(x in u for x in ("fonts.googleapis.com", "fonts.gstatic.com", "cdnjs.cloudflare.com")):
+            err(f"{rel}: recurso de CDN de terceros que ya está autoalojado: {u}")
 
 # Resultado ---------------------------------------------------------------------------------
 for w in warnings:

@@ -6,7 +6,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- ===== SEGURIDAD BÁSICA ===== -->
-<meta content="default-src 'self'; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://newassets.hcaptcha.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://newassets.hcaptcha.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://web3forms.com https://hcaptcha.com https://js.hcaptcha.com https://newassets.hcaptcha.com; connect-src 'self' https://api.github.com https://api.web3forms.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.hcaptcha.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-src 'self' https://*.hcaptcha.com; upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
+<meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https://newassets.hcaptcha.com; font-src 'self' https://newassets.hcaptcha.com; script-src 'self' 'sha256-92wy4WYQWMu1yRSh2jnhgaF96m4x9dvrI1PWnoXbJP4=' 'sha256-doTfcGLIOQJkZaKNTT2pMSgAWpnX1RfeOQXaHJpNNbc=' 'sha256-iXdn0tJ01hMdjO4CZzY66KLJ5QhuhlmeYE7z2OAT9MY=' https://www.googletagmanager.com https://web3forms.com https://hcaptcha.com https://js.hcaptcha.com https://newassets.hcaptcha.com; connect-src 'self' https://api.github.com https://api.web3forms.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.hcaptcha.com; media-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-src 'self' https://*.hcaptcha.com; upgrade-insecure-requests">
 <meta content="strict-origin-when-cross-origin" name="referrer"/>
 <!-- Nota: X-Content-Type-Options, Permissions-Policy y frame-ancestors solo funcionan como cabecera HTTP
          (GitHub Pages no permite configurarlas), por eso no se declaran con <meta>. -->
@@ -92,6 +93,16 @@
 <!-- ===== ESTILOS Y FUENTES ===== -->
 <style>
         
+/* Fuentes autoalojadas (antes Google Fonts): sin peticiones a terceros ni transferencia de IP */
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300; font-display: swap; src: url('/assets/fonts/montserrat-latin-300-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/montserrat-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 700; font-display: swap; src: url('/assets/fonts/montserrat-latin-700-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 300; font-display: swap; src: url('/assets/fonts/poppins-latin-300-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/poppins-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url('/assets/fonts/poppins-latin-600-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+/* Anti-clickjacking: si la web se carga dentro de un iframe ajeno, no se muestra (GitHub Pages no permite X-Frame-Options) */
+html.is-framed body { display: none !important; }
+
 :root {
     --primary-color: #0b5ed7;
     --on-primary: #ffffff;
@@ -1925,16 +1936,13 @@ footer .footer-links button:hover { color: #fff; }
     section { break-inside: avoid; }
 }
     </style>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect"/>
-<link as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;family=Poppins:wght@300;400;600&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-latin-700-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/poppins-latin-300-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/poppins-latin-400-normal.woff2" rel="preload" type="font/woff2"/>
+<!-- ===== ICONOS (Font Awesome 6.4.2 autoalojado) ===== -->
+<link data-async-css="" href="/assets/vendor/fontawesome/css/all.min.css" media="print" rel="stylesheet"/>
 <noscript>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
-</noscript>
-<link as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
-<noscript>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+<link href="/assets/vendor/fontawesome/css/all.min.css" rel="stylesheet"/>
 </noscript>
 </head>
 <body>
@@ -1946,6 +1954,11 @@ footer .footer-links button:hover { color: #fff; }
                 if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                 if (t === 'dark') document.body.setAttribute('data-theme', 'dark');
             } catch (e) { }
+            // Hoja de iconos no crítica: se activa aquí (sin onload en línea, compatible con la CSP)
+            var l = document.querySelectorAll('link[data-async-css]');
+            for (var i = 0; i < l.length; i++) l[i].media = 'all';
+            // Anti-clickjacking: si la web está enmarcada por otro sitio, se oculta (ver .is-framed en el CSS)
+            if (window.top !== window.self) document.documentElement.classList.add('is-framed');
         })();
     </script>
 <!-- ===== BANNER DE COOKIES (mismo bloque que la página principal) ===== -->

@@ -1,6 +1,6 @@
 # Alberto Ortiz Sánchez — Portfolio Completo (llms-full.txt)
 
-> Última actualización: 2026-11-18 · English summary en la sección 10 · Web: https://albertoortiz.is-a.dev/ (ES) y https://albertoortiz.is-a.dev/en/ (EN)
+> Última actualización: 2026-11-20 · English summary en la sección 10 · Web: https://albertoortiz.is-a.dev/ (ES) y https://albertoortiz.is-a.dev/en/ (EN)
 >
 > Documento completo de perfil profesional, experiencia laboral, proyectos de software, desarrollo de videojuegos, formación académica y certificaciones de Alberto Ortiz Sánchez para modelos de lenguaje (LLMs) y agentes de IA.
 

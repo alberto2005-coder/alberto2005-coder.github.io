@@ -40,6 +40,10 @@ class Collector(HTMLParser):
         a = dict(attrs)
         if a.get("id"):
             self.ids.add(a["id"])
+        # preconnect / dns-prefetch apuntan a la raíz de un dominio (p. ej. fonts.googleapis.com),
+        # que responde 404 aunque esté bien: no son enlaces que visitar.
+        if tag == "link" and (a.get("rel") or "").lower() in ("preconnect", "dns-prefetch"):
+            return
         if tag in ("a", "link", "script", "img", "source", "iframe"):
             for k in ("href", "src"):
                 if a.get(k):

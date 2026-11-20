@@ -281,9 +281,64 @@ def build_legal():
     print(f"OK  {LEGAL_DST.relative_to(ROOT)}  ({len(out):,} bytes)")
 
 
+# --------------------------------------------------------------------------------------
+# Content-Security-Policy (meta). Una sola fuente de verdad para las 5 páginas.
+# Sin 'unsafe-inline' en script-src: cada <script> en línea se autoriza por su hash SHA-256,
+# que este script recalcula en cada ejecución. style-src conserva 'unsafe-inline' porque el
+# CSS principal va incrustado y el widget de hCaptcha lo necesita.
+# --------------------------------------------------------------------------------------
+CSP_PAGES = ["index.html", "informacion-legal/index.html", "404.html",
+             "en/index.html", "en/informacion-legal/index.html"]
+CSP_TEMPLATE = (
+    "default-src 'self'; "
+    "img-src 'self' data: https: blob:; "
+    "style-src 'self' 'unsafe-inline' https://newassets.hcaptcha.com; "
+    "font-src 'self' https://newassets.hcaptcha.com; "
+    "script-src 'self'{hashes} https://www.googletagmanager.com https://web3forms.com "
+    "https://hcaptcha.com https://js.hcaptcha.com https://newassets.hcaptcha.com; "
+    "connect-src 'self' https://api.github.com https://api.web3forms.com https://www.googletagmanager.com "
+    "https://*.google-analytics.com https://*.analytics.google.com https://*.hcaptcha.com; "
+    "media-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; "
+    "form-action 'self' https://api.web3forms.com; "
+    "frame-src 'self' https://*.hcaptcha.com; "
+    "upgrade-insecure-requests"
+)
+INLINE_SCRIPT_RE = re.compile(r"<script\b([^>]*)>(.*?)</script>", re.S)
+
+
+def inline_script_hashes(html):
+    import base64, hashlib
+    out = []
+    for attrs, body in INLINE_SCRIPT_RE.findall(html):
+        if re.search(r"\bsrc\s*=", attrs) or "ld+json" in attrs:
+            continue
+        digest = hashlib.sha256(body.replace("\r\n", "\n").encode("utf-8")).digest()
+        h = "'sha256-" + base64.b64encode(digest).decode() + "'"
+        if h not in out:
+            out.append(h)
+    return out
+
+
+def apply_csp(rel):
+    p = ROOT / rel
+    html = p.read_text(encoding="utf-8")
+    hashes = inline_script_hashes(html)
+    policy = CSP_TEMPLATE.format(hashes=(" " + " ".join(hashes)) if hashes else "")
+    tag = f'<meta http-equiv="Content-Security-Policy"\n        content="{policy}">'
+    new, n = re.subn(r'<meta\b[^>]*http-equiv="Content-Security-Policy"[^>]*>', lambda m: tag, html, count=1)
+    if n != 1:
+        print(f"  aviso: {rel} no tiene <meta> de CSP", file=sys.stderr)
+        return
+    if new != html:
+        p.write_text(new, encoding="utf-8")
+    print(f"CSP {rel}  ({len(hashes)} hash(es) de scripts en línea)")
+
+
 def main():
     build_home()
     build_legal()
+    for page in CSP_PAGES:
+        apply_csp(page)
 
 
 if __name__ == "__main__":
